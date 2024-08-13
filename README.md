@@ -21,14 +21,14 @@ This Streamlit application uses the Anthropic API to generate comprehensive scie
 1. Clone this repository:
 
 ```bash
-git clone https://github.com/yourusername/scientific-article-generator.git
-cd scientific-article-generator
+git clone https://github.com/shemtovsamuel/scientific-article-generator-AI.git
+cd scientific-article-generator-AI
 ```
 
 2. Create a virtual environment and activate it:
 
 ```bash
-python -m venv .venv
+python3 -m venv .venv
 source .venv/bin/activate  # On Windows, use .venv\Scripts\activate
 ```
 
