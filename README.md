@@ -54,7 +54,7 @@ PASSWORD = "your_chosen_password_here"
 1. Run the Streamlit app:
 
 ```bash
-streamlit run app.py
+streamlit run streamlit_app.py
 ```
 
 2. Open the provided URL in your web browser.
