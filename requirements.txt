@@ -1,0 +1,2 @@
+langchain-anthropic==0.1.22
+langchain-community==0.2.12

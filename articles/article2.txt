@@ -1,0 +1,688 @@
+Novel reflected light confocal profilometer
+Novel reﬂected light confocal proﬁlometer
+José-Angel Conchellof,
+Jason P. Heym*,
+Jesse L Wei*
+and
+José-Angel Conchello†,
+Jason P. Heym*,
+Jesse L Wei*
+and
+Jeff W. Lichtman*
+Jeff W. Lichtman*
+tInstitute for Biomedical Computing and
+*Department ofAnatomy and Neurobiology,
+Washington University
+St. Louis, MO 63110
+†Institute for Biomedical Computing and
+*Department of Anatomy and Neurobiology,
+Washington University
+St. Louis, MO 63110
+ABSTRACT
+ABSTRACT
+We present an instrument that uses a novel technique to render topographical maps ofmicroscopic reflecting surfaces
+We present an instrument that uses a novel technique to render topographical maps of microscopic reﬂecting surfaces
+in which depth resolution can be an order or magnitude or more better than the lateral resolution of the confocal microscope.
+In a confocal scanning reﬂected-light microscope, the illumination light coming out of the objective is a cone of light with its
+axis parallel to the optical axis and focused into a diffraction-limited spot. If the specimen is smooth within the size of the spot,
+then the laws of reﬂection apply. When the reﬂecting surface is perpendicular to the optical axis, the reﬂected light is a cone
+that coincides with the illumination light. If the reﬂecting surface is not perpendicular to the optical axis, the axis of the
+reﬂected cone of light is at an angle with respect to the optical axis equal to twice the tilt angle of the surface and oriented in
+the direction of the surface tilt. Because of this tilt, a portion of the back focal plane (BFP) of the objective does not receive
+any of the reﬂected light, while in the diametrically opposite side, the aperture stop blocks part of the reﬂected light. For a
+given illumination proﬁle, the distribution of light on the BFP is determined by the tilt and orientation angles of the reﬂecting
+surface and thus can be used to recover these angles for each pixel in the specimen. These angles are then used to render a
+topographical map of the reﬂecting surface.
+Keywords : proﬁlometry, confocal, reﬂected light, optical section
+1. INTRODUCTION
+Keywords: profilometry, confocal, reflected light, optical section
+1. INTRODUCTION
+There exist several instruments capable ofproducing topographical maps or surface profiles of specimens.
+There exist several instruments capable of producing topographical maps or surface proﬁles of specimens. These
+profilometers are based on different principles and have different capabilities and limitations. In particular the transmission
+electron microscope (TEM), and scanning electron microscope (SEM), scanning tunnelling microscope (STM) and near-field
+scanning optical microscope (NSOM) capable ofresolution in the sub-micrometer range. All four instruments, however, are
+limited to imaging the most superficial layer ofthe specimen. Any material above the structure ofinterest has to be removed or
+etched-out to allow observation. The STM and NSOM use probes that have to be almost in contact with the surface ofinterest.
+The size ofthis probe makes it impossible to image trough-shaped structures smaller than the probe. There are optical profilo-
+meters that scan the illumination spot. The reflected light differential phase contrast microscope? uses scanning illumination
+and detects the light with two detectors in the back focal plane (BFP) ofthe objective, each detector covers half ofthe BFP.
+The instrument is based in the fact that a cone of light that illuminates the specimen is reflected at an angle when the illumi-
+nated spot or file is not perpendicular to the optical axis. The tilt angle ofthe reflecting tile is then calculated from the differ-
+ence between the intensities collected by each detector and used to calculate the surface profile ofthe reflecting specimen. This
+instrument is limited to recording tilt angles in only one direction, and only angles within half the NA give rise to unambigu-
+ous signals. There are interference profilometers such as described in®!0,20.21 and??. These instruments are based on making
+two interferometric measurements, one is used as a reference while the other is probing. The resolution ofthese instruments is
+limited either by microphonics (modulation ofthe laser beams by acoustic noise) or by the size ofthe probing spot, which in
+SO: -.ases is as large as 3um. The interference profilometer described in 21,22 Works around the microphonics by making the
+trx.- .--'erferometers share a common optical path and thus any phase variations induced by microphonics are common to both
+beaus and they canan be canceled out. The laser feedback microscope (LFM)? isa confocal scanning interference profilometer
+proﬁlometers are based on different principles and have different capabilities and limitations. In particular the transmission
+electron microscope (TEM), and scanning electron microscope (SEM), scanning tunnelling microscope (STM) and near-ﬁeld
+scanning optical microscope (NSOM) capable of resolution in the sub-micrometer range. All four instruments, however, are
+limited to imaging the most superﬁcial layer of the specimen. Any material above the structure of interest has to be removed or
+etched-out to allow observation. The STM and NSOM use probes that have to be almost in contact with the surface of interest.
+The size of this probe makes it impossible to image trough-shaped structures smaller than the probe. There are optical proﬁlo-
+meters that scan the illumination spot. The reﬂected light differential phase contrast microscope 5 uses scanning illumination
+and detects the light with two detectors in the back focal plane (BFP) of the objective, each detector covers half of the BFP.
+The instrument is based in the fact that a cone of light that illuminates the specimen is reﬂected at an angle when the illumi-
+nated spot or tile is not perpendicular to the optical axis. The tilt angle of the reﬂecting tile is then calculated from the differ-
+ence between the intensities collected by each detector and used to calculate the surface proﬁle of the reﬂecting specimen. This
+instrument is limited to recording tilt angles in only one direction, and only angles within half the NA give rise to unambigu-
+ous signals. There are interference proﬁlometers such as described in 8,10,20,21 , and 22 . These instruments are based on making
+two interferometric measurements, one is used as a reference while the other is probing. The resolution of these instruments is
+limited either by microphonics (modulation of the laser beams by acoustic noise) or by the size of the probing spot, which in
+some cases is as large as 3 µ m. The interference proﬁlometer described in 21,22 works around the microphonics by making the
+two interferometers share a common optical path and thus any phase variations induced by microphonics are common to both
+beams and they can be canceled out. The laser feedback microscope (LFM) 23 is a confocal scanning interference proﬁlometer
+that uses the interference between a reference beam and a reﬂected beam to determine height within the depth of focus of the
+microscope and uses a confocal aperture to reject out of focus reﬂections. Wyco Corporation (Tucson, AZ) manufactures an
+interference proﬁlometer, the WYCO RST, that uses short-coherence-length white light and thus uses a tungsten lamp instead
+of a laser. This proﬁlometer is presumedly capable of optical axis resolution of 3nm over a range of up to 100 micrometers.
+The instrument, however, has an interferometer between the objective and the specimen and thus is limited to using long work-
+:xeS a confocal aperture to reject out offocus reflections. Wyco Corporation (Tucson, AZ) manufactures an
+iumeter, the WYCO RST, that uses short-coherence-length white light and thus uses a tungsten lamp instead
+a taser Thisis profilometer is presumedly capable of optical axis resolution of3nm over a range ofup to 100 micrometers.
+‘Die rusiiuicit. inn-wever, has aninterferometer between the objective and the specimen andthusis limited to using long work-
+Conchello, Heym, Wei, and Lichtman
+Diemeeihe ti ., Wei, and Lichtman
+11
+This document was created with FrameMaker 4.0.4
+Reflected light profilometer …
+SPIE Code No. 2984-14
+Reflected lightprofilometer ...
+SPIE Code No. 2984-14
+in which depth resolution can be an order or magnitude ormore better than the lateral resolution of the confocal microscope.
+In a confocal scanning reflected-light microscope, the illumination light coming out ofthe objective is a cone oflight with its
+axis parallel to the optical axis and focused intoa diffraction-limited spot. Ifthe specimen is smooth within the size ofthe spot,
+then the laws of reflection apply. When the reflecting surface is perpendicular to the optical axis, the reflected light is a cone
+that coincides with the illumination light. Ifthe reflecting surface is not perpendicular to the optical axis, the axis of the
+reflected cone oflight is at an angle with respect to the optical axis equal to twice the tilt angle of the surface and oriented in
+the direction ofthe surface tilt. Because ofthis tilt, a portion of the back focal plane (BFP) ofthe objective does not receive
+any ofthe reflected light, while in the diametrically opposite side, the aperture stop blocks part ofthe reflected light. Fora
+given illumination profile, the distribution oflight on the BFP is determined by the tilt and orientation angles ofthe reflecting
+surface and thus can be used to recover these angles for each pixel in the specimen. These angles are then used to render a
+topographical map ofthe reflecting surface.
+
+ing distance, low NA (NA < 0.5) dry objectives that severely limit its lateral resolution. The proﬁlometer is further limited to
+slope angles of less than 14 degrees (half the angle of the 0.5 NA dry objective).
+In addition, there are reﬂected-light scanning proﬁlometers that use two confocal apertures and two light detectors,
+one behind each pinhole aperture 6,10 . The confocal apertures are located near, but not exactly at, conjugate image planes. The
+apertures are slightly out of focus by the same distance but in opposite directions. If the reﬂecting tile in the specimen is in
+focus, the two detectors record the same light intensity. If the specimen is moved away from focus the intensity at one detector
+increases while the intensity at the other decreases. The difference between the signals from the two detectors is used in a
+feedback control loop that translates the stage until the reﬂecting tile is in focus. The confocal apertures may be either
+pinholes 6 or slits 10 . The reported axial resolution of these instruments is about 0.1 µ m with a 0.85 NA objective lens.
+There are proﬁlometers in which a regular grid is projected from an angle into the specimen. Because of the different
+heights of different tiles in the specimen, the reﬂected grid is deformed with respect to the projected grid. The amount and
+direction of grid deformation is used to obtain the height of each tile. These instruments have more application for macro-
+scopic than for microscopic proﬁlometry, ﬁrst, because two separate lenses are necessary, one to project the grid and one to
+record the reﬂected image, and second, because the resolution is limited by the size of the grid.
+In this article we present a new reﬂected light scanning confocal proﬁlometer that obtains the tilt and orientation
+angles of each reﬂecting tile in the specimen by recording information about the distribution of reﬂected light in the BFP of the
+objective lens. This angular information is then used to obtain topographical maps or surface proﬁles of the reﬂecting speci-
+men. The proﬁlometer presented here has several advantages over the instruments described above. First, it can record infor-
+mation not only about the most superﬁcial layer of the specimen, but also about layers within the specimen. Second, it neither
+relies on the coherence of light nor uses a reference beam and, thus, is immune to microphonics and thermal expansion. Third,
+it does not require a special objective and can be used with very high NA/high magniﬁcation objectives, thus has a better lat-
+eral resolution than many of the present optical proﬁlometers. Fourth, it can record tilt angles in any direction and up to the
+full NA angle of the objective, not only to half the NA angle. Fifth, the proﬁlometer records also the orientation angle thus
+allowing rendering a 2D map of pixel heights. The proﬁlometer presented here is capable of very high depth resolution, in the
+order of tenths of nm or less. The lateral resolution, however is still limited by diffraction. Most of the theory presented here
+is described in a U.S. patent 1 but is presented here for completeness.
+The article is organized as follows. Section 2 presents background material that lead to the development of the instru-
+ment. Section 3 describes the reﬂected light proﬁlometer, including the hardware and computational methods necessary to
+obtain topographical maps of reﬂecting surfaces. Sections 4 describes our data collection and handling procedure and presents
+topographical maps obtained from this instrument. Finally Section 5 summarizes our conclusions and presents some direc-
+tions for future research.
+2. BACKGROUND
+2.1 Specular reﬂection through a microscope.
+If a microscopical specimen displays a signiﬁcant change in refractive index over a depth that is less than about half
+the wavelength of light, and if the surface of the specimen is “smooth” i.e its slope does not change signiﬁcantly over a region
+comparable in size to the wavelength of light, then the laws of reﬂection hold exactly (i.e. the angle of reﬂection is equal to the
+angle of incidence, and the intensity of the reﬂection follows Fresnell’s equations). In this case the specimen produces a spec-
+ular reﬂection 2 . If a plane wave illuminates a reﬂecting surface whose area is larger than the Airy disk, then the reﬂected wave
+will have a preferred direction of propagation as predicted by the laws of reﬂection. Conversely, if the entire reﬂecting surface
+is smaller than the diffraction limited spot, then the reﬂected wave will be almost a spherical wave, i.e. its amplitude is the
+same in all directions and thus independent of the tilt angle of the reﬂecting surface.
+In a confocal scanning microscope that uses a single illuminating spot to scan the specimen the exit pupil (ExP) is
+ﬁlled by either a spherical or a plane wave that is focused by the objective into a diffraction limited spot in the specimen. If the
+specimen is a ﬂat surface (Figure 1, right) perpendicular to the optical axis it will reﬂect a pencil of rays that propagates to the
+objective and ﬁlls the ExP. On the image side of the objective the reﬂected light is focused into a point at the aerial image plane
+(where the confocal aperture is located). If the reﬂecting surface is at an angle (but in focus) (Figure 1, left) the reﬂected pencil
+will also be at an angle and will not ﬁll the ExP of the objective. In a paraxial approximation the portion of the ExP illuminated
+by the reﬂected light is the area common to two circles, the ExP and an eccentric image of the ExP. In general the reﬂected
+Conchello, Heym, Wei, and Lichtman
+2
+Reflected light profilometer …
+SPIE Code No. 2984-14
+
+light pencil is a cone with its axis at an angle equal to twice the tilt angle of the surface. The intersection of this cone with the
+BFP is a conic section. Light passes only through that portion of the ExP which intersects this conic section. The axis of sym-
+metry of this conic section is an indication of the orientation of the reﬂecting surface or tile. The degree of eccentricity of the
+conic section with respect to the ExP is a measure of the tilt angle of the tile, the larger the angle, the more eccentric the ExP
+image is. As long as the tile is tilted less than the NA angle, some of the reﬂected light passes through the ExP and propagates
+beyond the BFP converging to a point in the aerial image plane and then diverging again. At some distance behind the aerial
+image plane the structure of the ExP can be observed again (within an inversion and a possible change of size). This conjugate
+ExP (CExP) through the confocal aperture will thus contain information about the tilt angle and orientation of the reﬂecting
+surface.
+As it is known, the light reﬂecting from an out of focus surface perpendicular to the optical axis will be focused into a
+point in the optical axis either in front or behind the confocal aperture. In this case the ExP of the objective may or may not be
+ﬁlled depending on the location of the surface relative to the in-focus plane. If the out-of-focus surface is closer to the objec-
+tive than the in focus plane, the ExP is not fully illuminated. If the reﬂecting surface is farther away from the objective than
+the in-focus plane, the ExP is fully illuminated but the light intensity is somewhat reduced relative to the in-focus case because
+part of the reﬂected pencil of rays is blocked by the objective’s aperture stop. If the out-of-focus surface is not perpendicular
+to the optical axis the image of the scanning spot not only is at a plane other than the aerial image plane, but is also off axis
+(Figure 2.). Because the reﬂected pencil of rays does not converge to the confocal aperture two things happen. First the light
+intensity at any plane behind the aperture is reduced relative to the in focus case and second the structure of the ExP is not pre-
+served behind this aperture. Thus the light distribution in the ExP or CExP contains information about the tilt and orientation
+only for the part of the specimen that is in focus. By recording the structure of the light distribution the ExP or CExP for each
+pixel ( x , y ) the tilt ( γ ) and orientation ( φ ) angles of the reﬂecting tile can be obtained. Under the assumption that adjacent tiles
+in the image are connected, these angles can be used to render a topographical map of the reﬂecting surface. In Section 3.1 we
+describe possible methods to record information about the light distribution in the ExP or CExP sufﬁcient to uniquely deter-
+mine the tilt and orientation angles of the reﬂecting tile. Then, in Section 3.2 we describe how these angles can be obtained
+from the recorded information. In Section 3.4 we present a method to obtain a topographical map from these angles.
+3. DESCRIPTION OF THE PROFILOMETER
+3.1 Structure of the ExP
+The structure of the illuminated portion of ExP or CExP therefore is an indication of the tilt and orientation of the
+reﬂecting surface at the location of the scanning spot. The direction of the reﬂection can be deﬁned by the tilt and orientation
+CExP
+Filled by the
+reﬂected light
+CExP
+Partially ﬁlled
+by the reﬂected
+light
+ExP
+ExP
+Filled with
+illumination
+Filled by the
+reﬂected light
+ExP
+Filled with
+illumination
+ExP
+Partially ﬁlled
+by the
+reﬂected light
+Figure 1. Reﬂected ligth in a confocal microscope. On a scanning microscope the illumination is a cone of light. If the
+reﬂecting surface is perpendicular to the optical axis (left), the reﬂected cone of light ﬁlls the objective’s ExP, thus the
+CExP is also ﬁlled with the reﬂected light. When the reﬂecting surface is not perpendicular to the optical axis (right), the
+reﬂected cone of light does not ﬁll the ExP of the objective
+Conchello, Heym, Wei, and Lichtman
+3
+Reflected light profilometer …
+SPIE Code No. 2984-14
+
+angles. As mentioned above, the illuminated portion of the ExP is part of an eccentric conic section: the direction of the eccen-
+tricity is a direct read on the orientation of the reﬂected wave and the amount of eccentricity shows the tilt angle. Using
+reﬂected light image theory and the structure of the ExP or CExP we can obtain, for each object pixel, the tilt and orientation
+angles (or equivalently the slopes in two non-parallel directions). With this information and assuming that adjacent pixels are
+physically connected, we construct a topographical map of the reﬂecting surface. There are several ways to record information
+about the light distribution in the ExP or CExP. The most obvious way would be to place a spatially-resolved detector (e.g. a
+video camera or a CCD camera) in a plane conjugate to the BFP to collect an image of the reﬂected light distribution in this
+plane. This image would then be used to obtain the tilt and orientation angles of the corresponding pixel. This approach, how-
+ever, would require processing a very large amount of information because one image of the CBFP needs to be collected for
+every pixel in the specimen. Fortunately it is not necessary to record a full image of the BFP to obtain sufﬁcient information to
+obtain the tilt and orientation angles of the reﬂecting tile.
+The light coming through the pinhole aperture that reaches the PMT has within it the spatial information to create a
+topographic map of the optical section being imaged. The problem is that a single-PMT detector integrates all the incoming
+light. However, adding a mask in front of the detector that blocks all the light except for that reaching the detector from one
+direction (e.g. a pie-shaped wedge aperture) would allow the detector to sample only the light from one orientation. A number
+of orientations may be sampled for each pixel or tile in the specimen by rotating the detector mask and collecting a new image
+after each rotation. As the rotation takes place the light intensity for a given tile will vary in several ways. These proﬁles (a
+stream of intensities as the aperture rotates) can be easily used to assess the orientation of the tile being illuminated. Thus, a
+rapid rotation of a pie-shaped wedge will give a data stream that can be analyzed to determine orientation and tilt angle. Other
+rotating aperture geometries with subtle advantages and disadvantages are also possible (e.g. parallel slit, half circle).
+The mask may be placed in front of behind the confocal aperture, but because diffraction at the confocal pinhole
+could potentially degrade the structure of the ExP, there is an advantage in placing this mask in front of the confocal pinhole at
+a plane conjugate to the ExP. This mask must be only on the path of the return light as shown in Figure 3. As the aperture
+scans the ExP, information about tilt and orientation is recorded for each pixel. Out-of-focus pixels are ﬁltered out by the con-
+focal pinhole. Although the mask can have almost any shape, it is simpler to use a wedge shaped aperture. By rotating this
+aperture we collect information about the ExP that uniquely determines the tilt and orientation angles of the reﬂecting tile. In
+the tests we have done so far the wedge angle is either 60 o or 180 o and six images are collected with aperture rotations of 60 o
+although other wedge angles and/or overlapping rotations are also possible. By rotating the wedge aperture at a CBFP wa
+record, for each pixel (x, y ), a series of intensities { I j ( x s , y s ); j = 0, 1, …, N d - 1}, where N d is the number of rotations of the
+wedge aperture necessary to cover the ExP.
+Reﬂected
+light
+Confocal
+aperture
+ExP
+ExP
+Filled with
+illumination
+Partially ﬁlled
+by the
+reﬂected light
+Figure 2. Out of focus surface not perpendicular to the optical axis. When the reﬂecting surface is out of focus and not
+perpendicular to the optical axis, the reﬂected light comes to focus at an off-axis point at a plane different from the aerial
+image plane where the confocal aperture is.
+Conchello, Heym, Wei, and Lichtman
+4
+Reflected light profilometer …
+SPIE Code No. 2984-14
+
+3.2 Obtaining tilt and orientation from the recorded intensities
+Once a series of measurements { I j ( x s , y s ); j = 0, 1, …, N d - 1} has been collected it is necessary to obtain the tilt and
+orientation angles ( γ s , φ s ) (or slopes) for each pixel ( x s , y s ) in the specimen. This inverse problem may be addressed in any one
+of several possible ways. In principle, it is possible to ﬁnd two expressions or functions φ r = Φ ( I ) and γ r = Γ ( I ) for I = { I 0 , I 1 ,
+…,
+tions I j = I j ( γ s , φ s ); j = 0, 1, …, N d - 1, that relate the N d intensities to the recorded angles and solve them numerically for
+( γ s , φ s ). However, the derivation of either φ r = Φ ( I ) and γ r = Γ ( I ) or I j = I j ( γ s , φ s ), j = 0, 1, …, N d - 1, from optical principles
+has proven very difﬁcult. Furthermore, these approaches require knowing the microscope setup to a good degree of precision,
+including the spatially varying attenuation at the acousto optic light deﬂector in the Noran confocal we have used, the intensity
+proﬁle of the laser beam, any astigmatism in the optical layout, …. Another possibility is to ﬁnd a calibration curves or look
+up table (LUT), i.e., a table of the light intensity collected at each rotation of the wedge aperture for each combination of tilt
+and orientation angle of the reﬂecting tile, and then using this LUT to obtain the tilt and orientation angles (or slopes) of each
+pixel in the image. The LUT can be calculated from optical principles or experimentally determined. The theoretical calcula-
+tion,. however, has the drawback that it also requires accurate knowledge of the microscope setup. Below we describe how to
+obtain this LUT experimentally.
+INd – 1 } and simply substituting the recorded intensities. Another possibility is to ﬁnd N d analytic expressions or func-
+Experimental determination of the LUT
+The LUT may be experimentally determined by collecting the images of a calibrated target or of a specimen whose
+size and shape are well known. A possible calibrated target is a ﬂat surface that can be tilted and rotate. With this target, how-
+ever, the user must collect one image for each entry in the LUT, thus recording a LUT with ﬁne granularity would be tedious
+and time consuming. Furthermore, most high NA objectives have short working distances, typically less than one millimeter.
+If the target is larger that this working distance, it would be impossible to tilt it to the full range of angles accepted by the
+objective without the target hitting the objective.
+Light
+detector
+Confocal
+Pinhole
+aperture
+Lr
+Moving
+aperture
+CBFP
+Exit
+Pupil
+Collector
+BFP
+Reﬂecting
+tile
+Objective
+BFP
+Figure 3. Reﬂected light path with a mask at a CBFP in front of the confocal pinhole. Left: Optical components layout
+and ray path. Right: Structure of the dark and illuminated portions of the different apertures. The optical system has been
+unfolded for illustration purposes
+Conchello, Heym, Wei, and Lichtman
+5
+Reflected light profilometer …
+SPIE Code No. 2984-14
+Dark
+Portions
+Illuminated
+Portions
+Opaque
+portion
+Illuminated
+portion of ExP
+
+An alternative to using a calibrated target is to use an object whose size and shape are well known and that displays
+all the tilt and orientation angles within the range of the objective. One possibility is to use microspheres or beads, for exam-
+ple latex beads. The beads have a known shape (are spherical) and have areas at tilt an orientation angles over the whole set
+{( γ , φ ); 0 ≤ γ≤ π/2, 0 ≤ φ < 2π}, and thus cover a wider range of angles than any objective can collect. The size of the bead
+must satisfy two conﬂicting requirements. First, the bead must be small enough so that all the tilt angles collected by the
+objective are within a single optical section. This is, the spherical cap {0 ≤ γ≤ γΝΑ}, where γΝΑ is the acceptance angle of the
+objective, must be within a single optical section. Second, the bead must be large enough so that an area of size comparable to
+the diffraction limited spot can be considered planar.
+If the bead is too large, then several optical sections must be collected
+from the same bead and then merged into a single image. If the bead is too small, then second order effects become important,
+i.e. the curvature of the reﬂecting surface has a non-negligible effect on the reﬂected-light distribution.
+Latex beads may show small irregularities that would lead to an erroneous LUT. To work around this potential prob-
+lem, we average the images of several beads, say Nb. These images consist of the Nd positions of the wedge aperture, an image
+collected with the BFP mask removed from the return light path, and an image collected through the ﬂuorescent channel. The
+ﬂuorescent image should be focused in the equator of the beads to be able to determine the size and approximate center of each
+of the Nb beads from this image. The approximate center is necessary to be able to align the Nb images. For this alignment,
+we propose using the center of brightness of the bead deﬁned as
+xb = ----------------------------------------- , yb = -----------------------------------------
+∫xIop ( x y,) xd yd
+I
+∫Iop ( x y,) xd yd
+I
+∫yIop ( x y,) xd yd
+I
+∫Iop ( x y,) xd yd
+I
+(1)
+where Iop(x, y) is the either intensity of the reﬂected-light image collected with the BFP mask removed, of the intensity of the
+ﬂuorescent image. Next, the Nb images of the beads are aligned by shifting the center of brightness of each bead to the center
+of the image (xc, yc). Because the center of brightness deﬁned in Equation (1) is unlikely to have integer values, subpixel
+shifts are likely to be necessary. For this subpixel shifts we simply use a bilinear interpolation from the 4 surrounding pixels.
+Finally, the aligned images are averaged into a single image that is used to obtain the intensity vs. tilt and orientation angles
+table.
+The tilt and orientation angles of a pixel can be determined from the position of the pixel relative to the center of the
+averaged image from simple geometrical construction. The orientation φs of the normal to the bead’s surface is simply
+φs = arctan
+x xc
+( – )
+--------------------
+y yc
+( – )
+where (xc, yc) is the geometric center of the bead and the arctan function is a four-quadrant tan-1 function, i.e. the signs of
+numerator and denominator of its argument are considered separately. If
+r =
+x xc
+( – ) 2
+y yc
++ ( – ) 2
+(3)
+is the distance from the pixel to the center of the averaged image, the tilt angle γs of the normal to the bead at a point r pixels
+away from the center of the bead is
+γs = sin-1(r/R)
+(4)
+where R is the radius of the bead measured in pixels (it is therefore not necessary to know the actual bead radius or the pixel
+size).
+3.3 Obtaining tilt and orientation from the LUT
+Scanning the LUT
+The method that we are currently using to invert the LUT is, for every pixel in the image, to scan the entries in the
+table to ﬁnd the one that best matches the recorded intensities for that pixel. The best match is deﬁned by the entry of the LUT
+that is closest to recorded intensities where the distance is deﬁned from the difference between the recorded intensities and the
+intensities on the LUT using either the two-norm (or Euclidean norm)
+(2)
+Conchello, Heym, Wei, and Lichtman
+6
+Reflected light profilometer …
+SPIE Code No. 2984-14
+
+Nd – 1
+d2 = ∑
+i 0=
+or the one-norm
+Nd – 1
+d1 = ∑
+i 0=
+2
+Ii Ii
+–
+(6)
+of this difference. The former leads to a least squared-error criterion and the later leads to a least absolute-error criterion for
+the best match. The easiest, but slowest, way to scan the LUT for the best match is exhaustive scanning, i.e. to visit every
+entry of the LUT and compute the distance between the intensities in the LUT and the recorded intensities. Because the table
+must be scanned for every pixel in the image, this approach is rather impractical for routine use. To speed up the process, the
+LUT could be scanned in steps, increasing the resolution of the scan at each step. In this approach, the ﬁrst time the LUT is
+scanned, not every entry is visited, instead, every 2nd or every 4th value of tilt (and orientation) is visited. This coarser scan
+takes 1/4 or 1/16 of the time of a full scan. After ﬁnding the tilt and orientation that minimize the distance at this resolution,
+the entries of the LUT neighboring these tilt and orientation are scanned to reﬁne the resolution.
+Minimization based on the LUT
+Another possible way to invert the LUT is to make an educated guess for the tilt and orientation angles based on the
+Nd recorded intensities and to use a gradient descent method to search for the minimum of either d2 (Equation (5)) or d1 (Equa-
+tion (6)). The LUT is used to compute an approximation to the gradient using a ﬁnite difference approximation to the deriva-
+tives. When the initial guess is close to the correct value of tilt and orientation, this method quickly ﬁnds the tilt and
+orientation that minimize either d1 or d2. In this method, however, the initial guess plays a critical role. For most of the possi-
+ble combinations of recorded intensities {Ii; i = 0, 1, …, Nd-1}, Equations (5) and (6) have several local minima. Thus, if the
+initial guess for tilt and orientation is closer to a local minimum than to the global minimum, the minimization will be
+“trapped” in the nearest local minimum.
+For low NA objectives the largest intensity is recorded when the line that bisects the wedge aperture is aligned with
+the orientation angle of the reﬂecting tile. We take advantage of this fact to obtain the initial guess orientation angle φ, For
+each pixel in the image we calculate the discrete Fourier transform of the Nd recorded intensities and use the phase of the fun-
+damental frequency component as the initial guess. For large NA objectives, however, there is a range of tilt angles for which
+the largest intensity is recorded when the bisectrix of the wedge aperture is in the direction opposite to the orientation of the
+reﬂecting tile. In this case the initial guess for the orientation angle should be a 180o away from the phase of the fundamental
+frequency component. To avoid this ambiguity, in our current implementation we use both values as initial guesses and ﬁnd
+which one of the two leads to the smaller distance (Equation (5) or (6)).
+3.4 Proﬁle from tilt and orientation (or slopes).
+Once the tilt and orientation angles are known for every pixel in the image, it is possible to obtain the topographical
+map of the reﬂecting surface. Before computing the topographical map, the slopes in two orthogonal directions are calculated
+from the tilt and orientation as
+∂z
+∂x
+----- = –tanγ φcos
+and ----- = –tanγ φsin
+∂z
+∂y
+.
+(7)
+Notice the point γ = π/2 where tanγ diverges is not within the range of tilt angles collected by any objective and thus the slopes
+are always ﬁnite.
+The integrability problem.
+After the slopes in two orthogonal directions are calculated, the topographical map of the reﬂecting surface is easily
+calculated. Without loss of generality, we assume that the slopes are calculated along the horizontal and vertical directions (x
+and y axes). Then, if the slopes at column i, row j of the image are
+gi j,
+∂z
+∂x
+= -----
+( i j,)
+and hi j,
+∂z
+∂y
+= -----
+,
+( i j,)
+then, to a ﬁrst-order approximation, the height z at pixel (i, j) can be calculated either as
+Conchello, Heym, Wei, and Lichtman
+7
+Reflected light profilometer …
+SPIE Code No. 2984-14
+2
+Ii Ii
+( – )
+(5)
+
+zi j, ≅ zi 1– j, + ∆xgi 1– j,
+(8)
+or as
+zi j, ≅ zi j 1–,
++ ∆yhi j 1–,
+(9)
+where ∆x and ∆y are the pixel sizes in the horizontal and vertical directions. Unfortunately, Equations (8) and (9) will seldom
+give the same value for zi,j. This is a well known problem in shape-from-shading algorithms called the integrability problem.
+One cause of the integrability problem is that Equations (8) and (9) are ﬁrst order approximations that are exact only if the
+reﬂecting surface is a plane or if ∆x and ∆y approach zero. Another cause is that, even when Equations (8) and (9) are exact,
+there is measurement noise and thus the slopes gi,j and hi,j are never exact. Using only either Equation (8) or Equation (9), as is
+necessary in the single-direction proﬁlometer of Atkinson4,5, does not work around the integrability problem. For example,
+suppose that Equation (9) is used to calculate the surface height along two adjacent rows, j and j+1 each with Nx pixels. Each
+pixel height zi+1,j is calculated from its immediately preceding neighbor zi,j. If zi,j has some error, zi+1,j will have the cumula-
+tive effects of this error and any error resulting from Equation (9) (either from measurement error or from using a ﬁrst order
+approximation). Likewise zi+2,j will have the cumulative effects of errors in zi+1,j, zi,j, gi+1,j, and gi,j. This error accumulation
+propagates all across row j, and thus
+will have the accumulated error of all other pixels in row j+1. Because the errors at each row are likely to be different and
+because of to the cumulative effect of the errors, the ﬁnal pixel heights in rows j and j+1,
+zNx j,
+signiﬁcantly different.
+will have the accumulated error of all other pixels in the row. Similarly, zNx j 1+,
+zNx j,
+and zNx j 1+,
+, are likely to be
+Another drawback of line-by-line integration of the slopes is that in a typical image there are a large number of dark
+pixels. These pixels correspond to portions of the specimen that either are out of focus or have tilt angles larger than γNA. Out-
+of-focus pixels are dark because most of the light reﬂected off these pixels is rejected by the confocal aperture. Pixels with tilt
+angles larger than γNA reﬂect all the light at angles larger than γNA, and thus all the light reﬂected of these pixels misses the
+objective’s exit pupil. The out-of-focus pixels may not be a problem if enough optical slices are collected to include the whole
+depth of the specimen. Unfortunately, pixels with large tilt angles are out of the range of measurable slopes and they appear
+dark in all optical sections. At the dark pixels, the tilt and orientation information is missing and thus the assumption that each
+pixel is connected to its next neighbor is violated. Line-by-line integration can be applied only if the image region is simply-
+connected and convex (Figure 4), this is if the image region does not have holes or gulfs, and even in those cases, adjacent
+lines can have similar topography only if the region is a 2D interval, i.e. a rectangular region with its sides parallel to the x and
+y axes. For an arbitrary simply-connected convex region, however, the height along one line is very likely to be signiﬁcantly
+offset relative to the adjacent lines because they have different starting points.
+The least squares approach:
+To avoid the integrability problem and to be able to obtain topographical maps of non-convex regions, we calculate
+Dark pixels
+Image pixels
+(or islands)
+D1
+L1
+L2
+D2
+L3
+L4
+I2
+I3
+Figure 4. Dark pixels in a recorded image. Some of the pixels in a recorded image appear dark (like regions D1 and D2),
+either because they are out of focus or because they have tilt angles larger than γNA. Dark pixels make difﬁcult or impos-
+sible line-by-line integration of the slopes. Image region I1 is not convex and thus line-by-line integration of the slopes
+is not possible. Integration along lines L1 and L3 is possible, whoever, integration along line L2 is broken by the dark
+region D2 and integration along L4 is interrupted by the gulf-like portion of the dark region D1. Image regions I2 and I3
+are convex and thus line-by-line integration may be done. I3, however is not a 2D interval and thus topographical maps
+calculated with line-by-line integration along adjacent lines are likely to be signiﬁcantly offset from one another.
+Conchello, Heym, Wei, and Lichtman
+8
+Reflected light profilometer …
+SPIE Code No. 2984-14
+I1
+
+the surface proﬁle using a least squares approach. For multiply-connected regions we calculate the topographical map of each
+one of the simply-connected image regions or islands. That is, for each island In we deﬁne the sum of squared errors as
+2
+ε =
+∑
+( i j,) In
+∈
+and ﬁnd the set of surface heights {zi,j} that makes ε a minimum. To obtain this minimum we follow the standard procedure of
+setting
+∂ε
+∂zi j,
+---------- 0 i j,() In
+= ∀
+∈
+and solving for zi,j. Equation (11) leads to a linear system of equations of the form
+Az = h
+(11)
+(12)
+where A is an N×N matrix of constant coefﬁcients, z is a vector containing the N surface heights zi,j in lexicographical order-
+ing, h is a N-element vector whose elements depend on gi,j∆x and hi,j∆y, and N is the number of pixels in the image island.
+The slopes provide information about the height of a pixel relative to its neighbors, thus in Equation (12) there is one pixel
+height that can be arbitrarily chosen.
+Equation (11) can be solved using any one of a number of numerical methods. Matrix A has one row for each pixel in
+the image and thus has a very large order. Fortunately, each row has at most 5 non-zero entries. This is because in Equation
+(10) each pixel zi,j depends only on its immediate neighbors zi±1,j±1, and each pixel can have at most four immediate neighbors
+(boundary pixels have less than four neighbors). Thus, it is convenient to use iterative methods to solve Equation (11). In par-
+ticular, we use Gauss-Seidel iteration method24. The Gauss-Seidel method has a slow global convergence rate. To accelerate
+its convergence rate we use the standard method of successive over relaxation (SOR)25. The SOR method accelerates the glo-
+bal convergence by an order of magnitude, however, the local convergence rate varies greatly across the pixels in an island.
+Pixels that are close to the ﬁrst pixel reach their ﬁnal value much faster than pixels that are further from this ﬁrst pixel. To
+accelerate the local convergence rate we use another standard technique in which the direction of the raster scan is alternated
+between iterations, the so-called alternating-direction iterative (ADI) method26.
+4. EXPERIMENTAL METHODS AND RESULTS
+We tested the proﬁlometer with an object of known shape. We imaged a 1 mm diameter ball bearing using a 10×/0.25
+NA dry objective. With this low NA objective, only a shallow cap of the sphere (7µm deep) is within the range of tilt angles
+than can be recorded by our proﬁlometer. Figure 5 shows the collected images and a shadowcast rendering of the ball bearing.
+The six imges on the top frame were collected rotating a 60o pie shaped aperutre with 60o steps. The information collected
+was then used to extract the tilt and orientation angles for each pixel in the ball bearing. This anglular information was then
+used to render shadowcast images of the ballbearing. These images, shown in the bottom panel of Figure 5, were calculated by
+assigning to each pixel an intensity proportional to the cosine of the angle between the normal to the pixel and the line from the
+pixel to a simulated light source. The dark areas in the images are parts of the ball bearing whose tilt angle is larger than the
+NA-angle (14.5o) and thus non of the light reﬂected off these areas is collected by the objective. Although the spherical cap is
+shalower than the axial resolution of a 0.25 NA lens (which is about 32 times the wavelength), the proﬁlomter was able to
+resolve detail within the 7 µm depth of the cap.
+For test purposes siliceous diatoms have proven to be ideal subjects for reﬂected light proﬁlometry. Diatoms have
+skeletons whose refractive indexes differ enough from water to yield a strong reﬂective signal even when immersed. Because
+no special preparation is required to successfully image diatoms using reﬂected light, they are extremely convenient test
+objects. In addition Carolina Biological Supply Company offers exhibition slides containing over 50 species permitting easy
+access to many species in this topographically diverse family of micro-organisms. The three dimensional intricacy of diatoms
+is exceptional and thus they serve as excellent tests of the axial resolving power of the proﬁlometry technique. In addition
+many diatoms have been studied by SEM27. The SEM images provide a powerful check on the accuracy of the technique. We
+have also used less intrinsically reﬂective biological material. For example, we stained for reﬂected light the acetylcholine
+receptor laden postsynaptic membrane of muscle ﬁbers with the reaction product of horseradish peroxidase (HRP) using a
+standard avidin biotin approach.
+One diatom we have studied in detail is Auliscus sculptus found on Carolina Biological slide K3-B25N. We imaged
+the diatom using a 100 X 1.4 NA plan apo objective (Nikon) using a laser scanning confocal apparatus (Odyssey, Noran
+Instruments, Madison, WI) attached to an upright microscope (Optiphot-2, Nikon Instruments). This confocal instrument was
+Conchello, Heym, Wei, and Lichtman
+9
+Reflected light profilometer …
+SPIE Code No. 2984-14
+{ (zi 1– j, + ∆xgi 1– j,
+– zi j,
+)
++ (zi j 1–,
++ ∆yhi j 1–,
+2
+– zi j,
+) }
+(10)
+
+modiﬁed (with the help of Noran Instruments) so that the return light path was directed outside the enclosed instrument giving
+us access to a conjugate of the exit pupil. At this position we placed a rotating pie-shaped (60o) wedge aperture. Beyond this
+plane the light re-converged to an aerial image plane where a pinhole aperture was positioned. The photomultiplier was placed
+beyond the pinhole. Because the diatom's surface extended over a depth of greater than 5 µm we obtained a z-axis stack at six
+image depths (0.75 µm steps). At each depth we obtained six images of the diatom (one for each position of the wedge). Thus
+a total of 36 images were obtained (six images/plane × six planes). For each pixel, the plane yielding the brightest total
+reﬂected signal is selected to be in the composite image.
+Shown in Figure 6 is the reconstruction based on a theoretical LUT. This image is comparable to the SEM image
+obtained of a related species (Auliscus cylindricus 27). In order to view the surface features with high sensitivity we have in
+this case intentionally increased the magniﬁcation of the z axis in comparison to the xy planes.
+5. CONCLUSIONS AND DIRECTIONS OF FUTURE WORK
+We have developed an instrument for reﬂected light proﬁlometry that is capable of high axial resolution. The instru-
+ment overcomes the limitations existing proﬁlometers: First, it is not limited to imaging only the most superﬁcial layer of a
+specimen. Second, although it uses laser illumination, it does not rely on the coherence of the laser and thus is not limited by
+microphonics (modulation of the laser light by acoustic noise). Third, it can use very high NA objectives and thus has a very
+high lateral resolution. Fourth, it does not use a probe and thus can be used to image trough-like structures. The results pre-
+sented here are very encouraging, however, there is more research to be done. First, we do not know yet what the depth reso-
+lution limit is or what limits it. Second, we have used only two shapes for rotating aperture (180o and 60o) and only one
+rotational step (60o). We have not found a striking difference between the results obtained with one and the other. The optimal
+combination of aperture size and rotational step has yet to be determined.
+6. ACKNOWLEDGMENTS
+The research presented in this article was sponsored by Noran Instruments (Madison, WI).
+Collected images
+shadowcast rendering
+Figure 5. Image and rendering of a 1 mm diameter ballbearing. Top: Reﬂected images with the wedge aperture in each of
+the six positions. Bottom: Shadowcast rendering of the ballbearing for 4 different ligh-soure locations.
+Conchello, Heym, Wei, and Lichtman
+10
+Reflected light profilometer …
+SPIE Code No. 2984-14
+
+Figure 6. Surface proﬁle of a diatom Auliscus Sculpltus. The diatom is about 30 µm in diameter and about 12 µm deep.
+For the display, the depth of the diatom was scalled to enhance small detail.
+7. REFERENCES
+1
+J. W. Lichtman and J.-A. Conchello “Method and apparatus for generating a three-dimensional topographical image of a
+microscopic specimen” U. S. Patent 08/705,415. Patent pending. (Filed Aug/1996).
+2 E. Hecht, and A. Zajac Optics (Addison Wesley, Reading, MS 1974) p 354.
+3 T. Teramoto “Optical contour measuring apparatus” U.S. Patent 5,076,693 (Dec. 31, 1991).
+4 M. R. Atkinson, A. E. Dixon, “Single-pinhole confocal differential phase contrast microscopy” Appl. Opt. 33 641-653
+(1994).
+5 M. R. Atkinson, A. E. Dixon, and S. Damaskinos “Surface-proﬁle reconstruction using reﬂection differential phase con-
+trast microscopy” Appl. Opt. 31 6765-6771 (1992).
+6 Y. Fainman, E. Lenz, and J. Shamir “Optical Proﬁlometer, a new method for high sensitivity and wide dynamic range”
+Appl. Opt.21(17) pp3200-3208 (1982).
+7 M. Halioua, V. Srinvassan “Method and apparatus for surface proﬁlometry” U. S. Patent 4,641,972 (Feb,10,1987).
+8 R. L. Jungerman and G. S. Kino, “Optical scanning microscope” U.S. Patent 4,627,730 (Dec,9, 1986).
+9 D. H. Kittell, G. H. Hayes, and P. J. DeGroot “Compact laser probe for proﬁlometry” U.S. Patent 5,239,366.
+10 H. P. Kleinknecht “Optical proﬁlometer for steep surface contours with signiﬁcant surface tilt” U. S. Patent 4,597,454
+(Apr. 1. 1986).
+11 G. A. Maney, E. A. Downing, C. Fortunel, D. J. Chirstian, and M. H. Lill “Component surface distortion evaluation appa-
+ratus and method” U.S. Patent 5,243,665 (Sep, 7, 1993).
+12 M. Takeda and K. Mutoh “Fourier transform proﬁlometry for the automatic measurement of 3-D object shapes” Applied
+Optics 22(24), pp3977-3982 (1983).
+13 M. Takeda, H. Ina, and S. Kobayashi “Fourier-transform method of fringe-pattern analysis for computer-based topogra-
+phy and interferometry” J. Optical Society of America 72(1) pp156-160 (1982).
+14 R. T. Frankot and R. Chellappa “A method for enforcing integrability in shape from shading algorithms” IEEE Transac-
+Conchello, Heym, Wei, and Lichtman
+11
+Reflected light profilometer …
+SPIE Code No. 2984-14
+
+tions on pattern analysis and machine intelligence 4(10) pp439-451 (1988).
+15 M. J. Offside, M. G. Somekh, and C. W. See “Common path scanning heterodyne optical proﬁlometer for absolute phase
+measurement” Appl Phys. Lett 55 No 20, pp2051-2053, (1989).
+16 M. J. Offside and M. G. Somekh “Interferometric scanning optical microscope for surface characterization” Appl. Opt.
+31 No 31 pp6772-6782, (1992).
+17 J. W. Goodman Introduction to Fourier Optics McGraw-Hill, New York, NY, (1968).
+18 R. T. Frankot and R. Chellappa “A method for enforcing integrability in shape from shading algorithms” IEEE Transac-
+tions on pattern analysis and machine intelligence” 4(10) pp439-451 (1988).
+19 K. M. Lee and C.-C. J. Kuo, “Surface reconstruction from photometric stereo images” J. Opt. Soc. Am-A 10 855-868
+(1993).
+20 D. Pantzer, J. Politch, and L. Ek “Heterodyne proﬁling instrument for the angstrom region” Appl. Opt. 31 No 22 pp4168-
+4172 (1986).
+21 M. J. Offside, M. G. Somekh, and C. W. See “Common path scanning heterodyne optical proﬁlometer for absolute phase
+measurement” Appl. Phys. Lett. 55(20), pp2051-2053, (1989).
+22 M. J. Offside and M. G. Somekh “Interferometric scanning optical microscope for surface characterization” Appl. Opt.
+31(31) pp6772-6782, (1992).
+23 K. Fox, “Light microscopes get a sharper look” Science 261, p1275, (1993).
+24 G. D. Smith, Numerical solution of partial differential equations: Finite difference methods, 3e, Oxford University Press,
+New York (1992), pp 262-266.
+25 Pages 261-262 of Reference 24.
+26 G. Brickhoff, R. S. Varga, and D. Young “Alternating direction implicit methods” pp 189-273 in Advances in Computers
+Alt and Rubmoff, editors, Academic Press (1962).
+27 F.E. Round, R.M. Crawford, and D.G. Mann The Diatoms: Biology and Morphology of the Genera Cambridge U Press,
+Cambridge, (1990).
+Conchello, Heym, Wei, and Lichtman
+12
+Reflected light profilometer …
+SPIE Code No. 2984-14
