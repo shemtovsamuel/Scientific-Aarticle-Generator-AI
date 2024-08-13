@@ -1,0 +1,33 @@
+BALZER, Jonathan et WERLING, Stefan. Principles of shape from specular reflection. Measurement, 2010, vol. 43, no 10, p. 1305-1317.
+
+CATLING, Tom, BROOKS, David, et DOEL, Peter. Phase measuring deflectometry for thin actuated mirrors. In : Advances in Optical and Mechanical Technologies for Telescopes and Instrumentation. SPIE, 2014. p. 252-257.
+
+CONCHELLO, José-Angel, HEYM, Jason P., WEI, Jesse L., et al. Novel reflected light confocal profilometer. In : Three-Dimensional Microscopy: Image Acquisition and Processing IV. SPIE, 1997. p. 101-112.
+
+GAO, Feng, XU, Yongjia, et JIANG, Xiangqian. Near optical coaxial phase measuring deflectometry for measuring structured specular surfaces. Optics Express, 2022, vol. 30, no 10, p. 17554-17566.
+
+GRAVES, Logan R., QUACH, Henry, KOSHEL, R. John, et al. High contrast thermal deflectometry using long-wave infrared time modulated integrating cavity source. Optics Express, 2019, vol. 27, no 20, p. 28660-28678.
+
+HÖFER, Sebastian, BURKE, Jan, et HEIZMANN, Michael. Infrared deflectometry for the inspection of diffusely specular surfaces. Advanced Optical Technologies, 2016, vol. 5, no 5-6, p. 377-387.
+
+HORBACH, Jan W. et KAMMEL, Sören. Deflectometric inspection of diffuse surfaces in the far-infrared spectrum. In : Machine Vision Applications in Industrial Inspection XIII. SPIE, 2005. p. 108-117.
+
+HU, Yan, CHEN, Qian, ZHANG, Yuzhen, et al. Dynamic microscopic 3D shape measurement based on marker-embedded Fourier transform profilometry. Applied optics, 2018, vol. 57, no 4, p. 772-780.
+
+PEDREIRA, Pablo, NICOLAS, Josep, ŠICS, Igors, et al. Deflectometry encoding the measured angle in a time-dependent intensity signal. Review of Scientific Instruments, 2019, vol. 90, no 2
+
+PETZ, Marcus, FISCHER, Marc, et TUTSCH, Rainer. Three-dimensional shape measurement of aspheric refractive optics by pattern transmission photogrammetry. In : Three-Dimensional Imaging Metrology. SPIE, 2009. p. 42-49.
+
+PRADOS, Emmanuel et FAUGERAS, Olivier. Shape from shading. In : Handbook of mathematical models in computer vision. Boston, MA : Springer US, 2006. p. 375-388.
+
+ROSEBROCK, Dennis et WAHL, Friedrich M. Generic camera calibration and modeling using spline surfaces. In : 2012 IEEE Intelligent Vehicles Symposium. IEEE, 2012. p. 51-56.
+
+SÁROSI, Zoltán, KNAPP, Wolfgang, KUNZ, Andreas, et al. Detection of surface defects on sheet metal parts by using one-shot deflectometry in the infrared range. In : Infrared Camera Applications Conference 2010. ETH Zurich, IWF, 2010. p. 243-254.
+
+STEPHAN, Thomas, DÜRRWANG, Jürgen, BURKE, Jan, et al. Extended photometric stereo model. 2016.
+
+XIONG, Chuanguo, GAO, Yuhan, ZHU, Fulong, et al. Specular surface deformation measurement based on projected-speckle deflectometry with digital image correlation. Optics and Lasers in Engineering, 2023, vol. 170, p. 107776.
+
+XU, Xueyang, ZHANG, Xiangchao, NIU, Zhenqi, et al. Extra-detection-free monoscopic deflectometry for the in situ measurement of freeform specular surfaces. Optics Letters, 2019, vol. 44, no 17, p. 4271-4274.
+
+XU, Yongjia, WANG, Yuemin, GAO, Feng, et al. Segmentation phase measuring deflectometry for measuring structured specular surfaces. The International Journal of Advanced Manufacturing Technology, 2022, p. 1-13.

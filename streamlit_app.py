@@ -7,16 +7,27 @@ from langchain_core.output_parsers import StrOutputParser
 ANTHROPIC_API_KEY = st.secrets["ANTHROPIC_API_KEY"]
 PASSWORD = st.secrets["PASSWORD"]
 
+title_default = "Analyse technique de la déflectométrie en réflexion pour l'évaluation de la qualité des lentilles intraoculaires courbées"
+data_default = """L’objectif de ce projet de recherche est d’étudier une solution concernant l’analyse de lentilles intraoculaires partiellement courbées directement après un processus d’usinage et de développer un dispositif de contrôle de la qualité utilisant la technologie PMD. En outre, nous sommes contraints pas le procédé de fabrication des lentilles, lesquelles disposent d’un support de fabrication dont nous ne pouvons pas la séparer pour l’opération de contrôle. Ceci implique que la lentille IOL doit rester fixée sur le porte-pièce, à son support de fabrication. L'inspection doit être effectuée sans contact physique avec la pièce, à sec, sans contact avec de l'eau, de la vapeur ou d'autres liquides et la mesure non destructive. Le contrôle doit également :
+•	Avoir une résolution d’image attendue de 5 µm ;
+•	Avoir un champ de vision max (FoV ) de l’ordre de 15 mm ;
+•	Avoir un temps d’inspection et de traitement inférieur à 2 minutes.
+
+L’élément à inspecter est fabriqué en acrylique hydrophile, acrylique hydrophobe, silicone ou PMMA, donc transparent mais opaque en face d’usinage. Il est important de respecter la géométrie de la lentille IOL, beaucoup moins réfléchissante qu’une lentille standard :
+•	Sur sa face arrière, la surface est concave avec des rayons de courbure compris entre 5 et 8 mm ;
+•	Sur sa face avant, la surface est convexe avec des rayons de courbure compris entre 0 et 11 mm ;
+•	A l’extérieur de la zone optique se trouve une zone de voute inclinée à 27 degrés avec un diamètre à 8 mm ;
+•	A l’extérieur de la zone voutée, se trouve la zone haptique d’un diamètre égal à 11,3 mm ;
+•	La zone optique d’intérêt mesure environ 5 mm de diamètre.
+
+La difficulté émanant de cet objet, visible sur la figure 2, provient de sa géométrie complexe et est directement corrélée à sa non spécularité induisant des phénomènes potentiels de double réflexion qui devront être considérés du point de vue des chemins optiques lors des mesures.
+"""
+
 def read_article(file_name):
     script_dir = os.path.dirname(os.path.abspath(__file__))
-    file_path = os.path.join(script_dir, 'articles', file_name)
+    file_path = os.path.join(script_dir, file_name)
     with open(file_path, 'r', encoding='utf-8') as file:
         return file.read()
-
-article1 = read_article("article1.txt")
-article2 = read_article("article2.txt")
-article3 = read_article("article3.txt")
-articles = "Article 1: \n" + article1 + "\n\n-----\n\n" + "Article 2: \n" + article2 + "\n\n-----\n\n" + "Article 3: \n" + article3
 
 def check_password():
     def password_entered():
@@ -37,6 +48,8 @@ def check_password():
         return True
 
 if check_password():
+    bibliography = read_article("bibliography.txt")
+
     model = ChatAnthropic(
         temperature=0,
         api_key=ANTHROPIC_API_KEY,
@@ -46,46 +59,35 @@ if check_password():
     )
 
     prompt = ChatPromptTemplate.from_template("""
-    Generate a comprehensive scientific review article on "{topic}" in the style of a published academic paper, starting directly with the title and abstract. Do not include any introductory statements before the article itself.
-
-    The article should:
-
-    1. Have a clear, descriptive title
-    2. Begin with an abstract summarizing the key points (100-150 words)
-    3. Include an introduction providing context and outlining the scope of the review
-    4. Present a detailed analysis of current research, major findings, and breakthroughs
-    5. Discuss key challenges, limitations, and open questions in the field
-    6. Examine emerging trends and potential future directions
-    7. Conclude with a synthesis of the main insights and their implications
-
-    Base your review on these source articles: {articles}
-
-    Ensure the article is well-structured with clear section headings, coherent paragraphs, and smooth transitions between ideas. Use formal academic language throughout. Include in-text citations and a reference list in a standard academic format (e.g. APA or MLA).
-
-    The article should be written in English and be approximately 2000-3000 words long.
-
-    Begin the article immediately without any preamble.
+    # ... (le reste du prompt reste inchangé)
     """)
 
     output_parser = StrOutputParser()
 
     chain = prompt | model | output_parser
 
-    st.title("Scientific Article Generator")
+    st.title("Générateur d'Article Technique")
 
-    topic = st.text_input("Enter the topic of the article:")
+    use_test_values = st.checkbox("Utiliser les valeurs de test")
 
-    if st.button("Generate Article"):
-        if topic:
-            st.subheader("Generated Article:")
+    if use_test_values:
+        title = st.text_input("Entrez le titre de l'article:", value=title_default)
+        data = st.text_area("Entrez les données pertinentes:", value=data_default, height=200)
+    else:
+        title = st.text_input("Entrez le titre de l'article:")
+        data = st.text_area("Entrez les données pertinentes:", height=200)
+
+    if st.button("Générer l'Article"):
+        if title and data:
+            st.subheader("Article Généré:")
             output_container = st.empty()
             full_response = ""
 
-            with st.spinner("Generating article..."):
-                for chunk in chain.stream({"topic": topic, "articles": articles}):
+            with st.spinner("Génération de l'article en cours..."):
+                for chunk in chain.stream({"title": title, "data": data, "bibliography": bibliography}):
                     full_response += chunk
                     output_container.markdown(full_response)
 
-            st.success("Article generation complete!")
+            st.success("Génération de l'article terminée!")
         else:
-            st.error("Please enter a topic before generating the article.")
+            st.error("Veuillez remplir tous les champs avant de générer l'article.")

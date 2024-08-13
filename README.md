@@ -1,13 +1,14 @@
 # Scientific Article Generator
 
-This Streamlit application uses the Anthropic API to generate comprehensive scientific review articles based on user-provided topics and pre-loaded source articles.
+This Streamlit application uses the Anthropic API to generate comprehensive technical articles based on a title and data provided by the user, along with a pre-loaded bibliography.
 
 ## Features
 
 - Password-protected access
-- Topic-based scientific article generation
+- Technical article generation based on a title and input data
 - Real-time streaming of generated content
-- Based on pre-loaded source articles
+- Option to use predefined test values
+- Utilization of a pre-loaded bibliography
 
 ## Requirements
 
@@ -61,11 +62,16 @@ streamlit run streamlit_app.py
 
 3. Enter the password to access the application.
 
-4. Input your desired topic and click "Generate Article" to create a scientific review article.
+4. You can choose to use predefined test values by checking the corresponding box.
+
+5. Enter the article title and relevant data, or use the test values.
+
+6. Click on "Generate Article" to create a technical article.
 
 ## Customization
 
-- Modify the `prompt` template in `app.py` to adjust the article generation instructions.
-- Update the source articles in the `articles` directory to change the reference material for generation.
+- Modify the prompt template in `app.py` to adjust the article generation instructions.
+- Update the `bibliography.txt` file to change the bibliographic references used for generation.
+- Adjust the test values `title_defaultù and `data_default` according to your needs.
 
 By Samuel Shemtov
