@@ -59,8 +59,28 @@ if check_password():
     )
 
     prompt = ChatPromptTemplate.from_template("""
-    # ... (le reste du prompt reste inchangé)
-    """)
+Tu es un expert en rédaction d'articles techniques. Ta tâche est de générer un article scientifique sur le sujet donné, en utilisant les données fournies et en vous inspirant de la bibliographie fournie. Voici les directives à suivre :
+
+1. Titre de l'article : {title}
+
+2. Données pertinentes à utiliser :
+{data}
+
+3. Bibliographie pour référence :
+{bibliography}
+
+Instructions spécifiques :
+- Rédige un article scientifique, structuré sur le sujet donné.
+- Utilise les données fournies pour étayer ton argumentation et tes explications.
+- Inspire-toi des concepts et idées mentionnés dans la bibliographie, mais ne copie pas directement le contenu.
+- Cite les sources appropriées de la bibliographie lorsque tu fais référence à des idées spécifiques.
+- Assure-toi que l'article soit cohérent, bien organisé et adapté à un public technique.
+- Utilise un style d'écriture clair et professionnel.
+- L'article doit comporter une introduction, un développement avec plusieurs sous-parties, et une conclusion.
+- Longueur approximative : 800-1000 mots.
+
+Génère maintenant l'article en respectant ces directives, en commencant directemement par l'introduction.
+""")
 
     output_parser = StrOutputParser()
 
