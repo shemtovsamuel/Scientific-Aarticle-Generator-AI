@@ -1,0 +1,477 @@
+Deflectometry encoding the measured
+angle in a time-dependent intensity signal
+Cite as: Rev. Sci. Instrum. 90, 021707 (2019); https://doi.org/10.1063/1.5057768
+Submitted: 15 September 2018 . Accepted: 17 December 2018 . Published Online: 14 February 2019
+Pablo Pedreira
+Juan Campos
+
+, Josep Nicolas
+
+, Igors Šics, Dominique Heinis, Abel Fontserè, Alejandro Crisol, and
+
+ARTICLES YOU MAY BE INTERESTED IN
+Optimized alignment of X-ray mirrors with an automated speckle-based metrology tool
+Review of Scientific Instruments 90, 021706 (2019); https://doi.org/10.1063/1.5057712
+Surface shape determination with a stitching Michelson interferometer and accuracy
+evaluation
+Review of Scientific Instruments 90, 021708 (2019); https://doi.org/10.1063/1.5061930
+Environmental influences on autocollimator-based angle and form metrology
+Review of Scientific Instruments 90, 021705 (2019); https://doi.org/10.1063/1.5057402
+
+Rev. Sci. Instrum. 90, 021707 (2019); https://doi.org/10.1063/1.5057768
+© 2019 Author(s).
+
+90, 021707
+
+Review of
+Scientific Instruments
+
+ARTICLE
+
+scitation.org/journal/rsi
+
+Deflectometry encoding the measured angle
+in a time-dependent intensity signal
+Cite as: Rev. Sci. Instrum. 90, 021707 (2019); doi: 10.1063/1.5057768
+Submitted: 15 September 2018 • Accepted: 17 December 2018 •
+Published Online: 14 February 2019
+Pablo Pedreira,1
+Josep Nicolas,1
+2
+and Juan Campos
+
+Igors Šics,1 Dominique Heinis,1 Abel Fontserè,1 Alejandro Crisol,1
+
+AFFILIATIONS
+1
+
+ALBA Synchrotron Light Source, 08290 Cerdanyola del Vallès, Barcelona, Spain
+
+2
+
+Departament de Física, Universitat Autònoma de Barcelona, 08193 Bellaterra, Barcelona, Spain
+
+ABSTRACT
+We propose a new concept of a deflectometer, aimed to provide high accuracy measurements with high sampling rate and
+low noise, as required by state-of-the-art slope-measuring profilometers, like Long Trace Profilometers or Nanometer Optics
+Measuring instruments. For this purpose, we introduce certain modifications to the usual working principle of autocollimators
+so that the measured angle is not given by the displacement of the pattern captured by a CCD, but by the harmonic contents of
+the time-modulated intensity signal acquired by a photodiode. By doing this, the signal can be sampled not by just a few thousand
+pixels but by millions of samples/s.
+Published under license by AIP Publishing. https://doi.org/10.1063/1.5057768
+
+I. INTRODUCTION
+The availability of long, smooth, figured mirrors, with surface errors in the order of 1 nm and below, is essential for
+the efficient exploitation of modern x-ray sources, like free
+electron lasers, and low emittance storage rings.1–3 The development of deterministic polishing techniques4,5 and the latest
+advances in ultra-high accuracy metrology have pushed manufacturing of state-of-the-art mirrors to surface errors about
+a fraction of a nanometer in optical lengths up to 1 m, for a
+variety of mirror figures ranging from flat to curvatures as
+short as 10 m.
+Among the most accurate metrology systems capable of
+characterizing long optical x-ray mirrors, one finds the Long
+Trace Profilometer (LTP)6,7 the Nanometer Optics Measuring instrument (NOM),8 which has become popular across the
+different metrology laboratories of x-ray source facilities.9–12
+In a previous study,11 we determined that the optical sensor, an electronic autocollimator, was the largest source of
+random errors, with a noise in the order of 100 nrad rms
+at acquisition rates of 25 samples/s. Although these errors
+can be reduced by averaging, this implies increasing the measurement time, making the measurements more sensitive to
+
+Rev. Sci. Instrum. 90, 021707 (2019); doi: 10.1063/1.5057768
+Published under license by AIP Publishing
+
+slow drifts. Moreover, some operations like adaptive optics
+characterization13–16 or error removal techniques17–19 already
+require multiple scans per mirror, making it even more important to have low noise and fast acquisition rates.
+In this work, we propose a novel concept of the deflectometer, aiming to provide an alternative optical sensor to
+be used in scanning slope measuring instruments like the
+NOM. The goal of the proposed concept is to provide an
+angle measuring system, capable of working at variable working distance from the sample, with a small probe beam, as low
+noise as possible, and a fast acquisition time while preserving the simplicity of an optical autocollimator as well as its
+accuracy.
+The system we propose allows encoding the angle in a
+time-modulated periodic signal, in contrast to the usual autocollimators that encode the angle in a spatial distribution of
+intensity (an image of a reticle, with a few fringes) detected
+by a CCD. The advantages of the time-encoding that can be
+exploited are two. On the one side, the time signal can be sampled at a very high rate, several millions of samples/s, compared to the few thousand pixels of a CCD. On the other side,
+the signal consists of a periodic function that can have hundreds or thousands of periods per sampled dataset, instead
+
+90, 021707-1
+
+Review of
+Scientific Instruments
+
+ARTICLE
+
+scitation.org/journal/rsi
+
+FIG. 1. Scheme of the deflectometer setup.
+
+of just a few fringes as is the case of the reticle image at the
+detector plane of an autocollimator.
+
+II. MEASUREMENT PRINCIPLE
+The principle we propose in this work consists in replacing the 1D or 2D detector of the autocollimator by an area
+detector (a photodiode) and to introduce a periodic modulation of the probe beam in order to obtain a time-dependent
+variation of the intensity detected by the diode. Of course,
+the waveform of this intensity signal must depend on the
+angle to be measured. There is a variety of optical components that can be used to introduce the desired modulation,
+ranging from piezoelectric actuated mirrors, to electrooptic
+modulators. Depending on the component used, modulation
+frequencies in the range from a few hundred Hz to the many
+MHz can be reached. In general, higher modulation frequencies allow measuring angles with a lower noise level and a
+higher acquisition rate but require more complex detection
+and processing electronics.
+We demonstrate the proposed method using an optical
+setup in which the modulation is introduced by a piezoelectric actuated mirror, at a frequency of 312 Hz. For the piezoelectric actuator we use, this frequency provides a good balance between the diameter of the mirror we need to accept
+the beam, and the amplitude of oscillations it introduces. The
+scheme of the proposed setup is shown in Fig. 1. A fibercoupled laser is focused onto a 50 µm pinhole, which constitutes the source for the instrument. Downstream the pinhole,
+the beam crosses a polarizing beam splitter and is reflected
+back by a small flat mirror. The orientation of the mirror is
+controlled by a piezoelectric actuator that introduces an oscillation of the beam direction before it actually goes to the beam
+splitter and subsequently to a collimating lens with a focal
+length of 200 mm. The diameter of the collimated beam is
+2 mm. It is then reflected back by the target mirror, and the
+same lens focuses it onto a transmission grating. In order to
+optimize the intensity of light that is actually reaching the
+detector, we use some polarization controlling optics, like
+waveplates and polarizers. The grating is placed at the focal
+
+Rev. Sci. Instrum. 90, 021707 (2019); doi: 10.1063/1.5057768
+Published under license by AIP Publishing
+
+plane of the lens, so the position of the spot on the grating
+measures the angle of the incoming beam. The grating period
+is 100 µm, which is comparable to the spot size. Thus, when the
+spot oscillates, according to the modulation introduced by the
+piezo, it is more or less occluded by the grating. This results
+in a periodic variation of the intensity transmitted by the grating, which is measured by a photodiode behind the grating.
+The effect is illustrated in Fig. 2, which shows actual images
+of the focused spot as seen from behind the grating, and
+the corresponding value of intensity in the time-modulated
+signal.
+The fundamental frequency of the intensity oscillation
+is given by the oscillation frequency of the piezoelectric
+transducer. The form of the wave, however, depends on the
+
+FIG. 2. Images of the spot at the grating plane and intensity transmitted to the
+detector. The different positions (a)–(c) of the spot across the period of the grating,
+correspond to the different values of intensity along the period of the time signal
+[labeled (a)–(c)].
+
+90, 021707-2
+
+Review of
+Scientific Instruments
+
+deflection angle (α) introduced by the mirror under test. Since
+the intensity function is a periodic time-dependent function,
+with a limited number of significant harmonics, it can be fully
+characterized by the amplitude and phase of a few coefficients of its Fourier series. These coefficients can be efficiently
+determined, with very low noise and high accuracy, by means
+of synchronous detection. The number of harmonics present
+in the intensity signal depends on the amplitude of the piezoelectric oscillation. The wider these oscillations are, the more
+harmonics are present in the intensity signal. On the other
+hand, a very small oscillation would lead to a very weak modulation and to a noisier measurement. Similarly, a strong curvature of the surface under test would defocus the spot at the
+grating plane, which would equally reduce the contrast of the
+intensity modulation, too.
+In our setup, the piezoelectric transducer introduces a
+relatively low frequency modulation signal, with the fundamental frequency f 0 set to 312 Hz. In this regime, it is simple to digitize the intensity signal x(t, α) using an analog-todigital converter (ADC). This digital signal can be numerically
+treated to obtain the Fourier coefficients Xn (α) by computing
+the following integral:
+
+1 T
+Xn (α) =
+(1)
+x(t, α)exp(i2πnf0 t)dt.
+T 0
+
+ARTICLE
+
+scitation.org/journal/rsi
+
+Here, T is the integration period, and n indicates the harmonic
+number. Xn (α) is a complex valued function of the deflection
+angle introduced by the mirror under test. Alternatively, one
+can obtain the amplitude and phase of Xn (α) directly using a
+lock-in amplifier, which would allow treating signals up to the
+MHz modulation range.
+Figure 3 illustrates the dependence between the time
+signal and its harmonic composition for three different values of the angle under test. One can see that the waveform
+of the function depends on the angle and so does the harmonics (amplitude and phase) of the corresponding spectrum.
+This dependence repeats when the angle introduces a displacement of the spot equivalent to one period of the grating. Thus, the dependence is angle-periodic with a period α0
+given by the period (P) of the transmission grating and the
+focal distance (F) of the FT lens, according to the following
+formula:
+α0 =
+
+P
+.
+2F
+
+(2)
+
+Consequently, since Xn (α) are a set of angle-periodic
+functions, with period α0 , they can be written as a Fourier
+series. In other words, they can be expressed as a linear combination of sines and cosines of the deflection angle and its
+integer multiples. Using complex notation, this is written as
+
+FIG. 3. Intensity signal, as measured by
+the photodiode, and the corresponding
+frequency spectrum for three different
+angles of the mirror under test. One can
+see that the waveform changes, as well
+as the corresponding harmonic composition.
+
+Rev. Sci. Instrum. 90, 021707 (2019); doi: 10.1063/1.5057768
+Published under license by AIP Publishing
+
+90, 021707-3
+
+Review of
+Scientific Instruments
+
+follows:
+Xn (α) =
+
+∞
+X
+
+p=0
+
+Xnp exp i2πp
+
+ARTICLE
+
+!
+α
+.
+α0
+
+(3)
+
+Here Xnp represents the series of complex Fourier
+coefficients for the nth harmonic function Xn (α), p being the
+harmonic number of the series. In general, Eq. (3) can be truncated to a finite harmonic, so it becomes a regular algebraic
+equation.
+To determine the values of the coefficients Xnp , the
+instrument must be calibrated against an independent angle
+measuring device. To do this, one needs to measure simultaneously α and Xn (α) and use these values to solve Xnp by
+least square fitting. Once the coefficients Xnp are determined,
+the matrix can be inverted to express the deflection angle as a
+function of the measured values of Xn as follows:
+α=
+
+N 
+X
+
+α0
+arg*.
+X−1 Xn +/.
+pn
+2πp
+, n=1
+
+(4)
+
+III. EXPERIMENTAL
+
+scitation.org/journal/rsi
+
+square minimization. The estimated values of these coefficients, together with the actual value of α0 determine the
+calibration of the instrument. Once the coefficients Xnp are
+determined, one can use them to approximate the actual
+dependence of the measured values Xn on the deflection angle.
+This is shown in Fig. 5, where the plots represent the dependence of the real and imaginary parts of X1 and X2 on the
+measurement angle, in a range of 1 mrad. The dots correspond to measured values, while the solid lines correspond
+to the approximation given by the calibration parameters.
+As expected, the dependence function is periodic and has a
+period of 246.3 µrad. It corresponds to the period given by
+Eq. (2), for a 100 µm grating period and an effective focal length
+of 203 mm. This period depends only on the grating and the
+lens, so it is independent of the surface under test, the modulation frequency, or the modulation amplitude. This allows for
+a stable calibration of the instrument. One can also see that the
+measured values are well approximated by the fitting function,
+which indicates the accuracy of the calibration. There are,
+however, small differences caused by deviations from perfect
+periodicity of the grating transmission.
+
+The proposed method has been tested in the laboratory.
+A picture of the setup used for the experiment is shown in
+Fig. 4. One can observe three main components: the deflectometer being calibrated, an angle measuring interferometer
+(Renishaw ML10), and a rotary stage (Huber 410) that supports
+the target mirror and the interferometer retroreflectors. The
+deflectometer is built according to the layout shown in Fig. 1.
+It points to a flat mirror (target) installed on the platform
+of the rotary stage together with the retroreflectors of the
+interferometer. This allows the angle measuring interferometer checking the same angle variation as the deflectometer
+when the rotary stage is scanned.
+In order to perform the calibration, an angular range of
+the rotary stage is scanned. The angle measured by the interferometer and the values of the harmonics Xn are recorded at
+each position. Taking these values, one can use the expression in Eq. (3) to fit the coefficients Xnp , by simple linear least
+
+FIG. 4. Test setup. The deflectometer is calibrated against an angle measuring
+interferometer. Both instruments measure the angle generated by a rotary stage.
+
+Rev. Sci. Instrum. 90, 021707 (2019); doi: 10.1063/1.5057768
+Published under license by AIP Publishing
+
+FIG. 5. Values of the real and imaginary parts of the 1st and 2nd Fourier coefficients X n as a function of the deflection angle measured by the interferometer.
+
+90, 021707-4
+
+Review of
+Scientific Instruments
+
+Once the system is calibrated, one can use the expression
+in Eq. (4) to measure angles with the deflectometer. In order to
+check its performance, we have compared its measurements
+with those taken by the angle measuring interferometer.
+Figure 6 shows the differences between the measurements
+of the two instruments, measured in the calibration range
+(1 mrad). The amplitude of the error is of the order of 0.25 µrad
+rms and corresponds to an acquisition rate of 100 ms, using a
+modulation frequency of 312 Hz. The error is rather uniform,
+which indicates that the deflectometer is actually capable of
+measuring angles and that the above given expressions are
+capable of decoding the measured values Xn onto an actual
+measure of the deflection angle.
+The residual error is contributed by random errors,
+mostly electronic noise of the detector and air turbulences,
+as well as by systematic error. Nevertheless, systematic errors
+can be reduced by calibration, as long as they are repeatable.
+By doing this, the sensitivity of the instrument is essentially
+limited by random errors.
+Figure 7 represents the repeatability error of the deflectometer. The repeatability evaluation is performed by keeping
+the rotary stage at a fixed position, while the angle is continuously measured with both the deflectometer and interferometer. The whole setup is enclosed to reduce air turbulences.
+The difference between both measurements is registered at
+every point. One can see that the differences are in the order
+of 0.130 µrad rms. This value integrates both the measurement noise of the deflectometer, and that of the interferometer, as well as the fluctuations introduced by air turbulences
+along the optical path of the measurements. While the noise of
+the instrument is mostly white noise, with equal contribution
+of low and high frequencies, low frequencies are dominated
+by very low air turbulences within the setup enclosure. This
+result confirms the validity of the detection principle, keeping
+in mind that it corresponds to a very modest modulation frequency of the deflectometer, with only 31 periods integrated
+per measurement. As already stated in the introduction, the
+
+FIG. 6. Measurement error for the deflectometer in the range of calibration.
+
+Rev. Sci. Instrum. 90, 021707 (2019); doi: 10.1063/1.5057768
+Published under license by AIP Publishing
+
+ARTICLE
+
+scitation.org/journal/rsi
+
+FIG. 7. Repeatability of the measurements. The plot shows differences between
+the measurements of the deflectometer and of the interferometer at a fixed angle
+during 100 s.
+
+detection system can be implemented at much higher frequencies, which is expected to result in a much lower noise
+level.
+
+IV. CONCLUSION AND PERSPECTIVE
+In this work, we propose a novel detection system to
+measure deflection angles with very low noise at a fast acquisition rate. It consists in encoding the deflection angle in
+the harmonic structure of a periodic time-dependent signal.
+This allows for synchronous detection, taking advantage of the
+inherent noise robustness it provides.
+We propose an optical setup which operates under
+this principle. A method is described to calibrate and to
+extract the angle values, once the instrument has been calibrated. Laboratory measurements confirm the validity of
+the method and achieve repeatability error in the order of
+130 nrad.
+Variations of the optical setup are possible. In particular,
+one can reach higher angular resolution, at the expense of a
+wider probe beam. For instance, using a larger focal length
+FT lens would increase angular resolution proportionally to
+the increase in the diameter of the probe beam. A smaller
+source, more divergent, and a finer grating would also improve
+the angular resolution at the expense of the lateral resolution of the instrument. An optimization in terms of mechanical
+stability may also be required.
+The obtained result indicates that a much better performance can be obtained by increasing the frequency of the
+beam modulation. To do this, one can use photoelastic modulators, electrooptic modulators, or even a simple heterodyne
+laser. These optical components allow modulating the beam at
+the kHz or MHz range, providing a much higher noise reduction with even faster acquisition rates. Although in that case,
+the detection and data processing require more sophisticated
+electronics, a noise level in the order of few nrad will be
+achievable.
+
+90, 021707-5
+
+Review of
+Scientific Instruments
+
+ACKNOWLEDGMENTS
+This work was funded by the Spanish Ministry of Science
+and by ERDF funds under Contract Nos. FIS2015-66328-C3-1R and FIS2015-66328-C3-2-R.
+
+REFERENCES
+1
+
+T. Pardini, D. Cocco, and S. P. Hau-Riege, Opt. Express 23, 31889 (2015).
+D. Cocco, Photonics 2, 40 (2015).
+3
+V. V. Yashchuk, L. V. Samoylova, and I. V. Kozhevnikov, Opt. Eng. 54, 025108
+(2015).
+4
+K. Yamauchi, H. Mimura, K. Inagaki, and Y. Mori, Rev. Sci. Instrum. 73, 4028
+(2002).
+5
+M. Idir, L. Huang, N. Bouet, K. Kaznatcheev, M. Vescovi, K. Lauer, R. Conley,
+K. Rennie, J. Kahn, R. Nethery, and L. Zhou, Rev. Sci. Instrum. 86, 105120
+(2015).
+6
+P. Z. Takacs, E. L. Church, C. J. Bresloff, and L. Assoufid, Appl. Opt. 38, 5468
+(1999).
+7
+S. Qian, W. Jark, and P. Z. Takacs, Rev. Sci. Instrum. 66, 2562 (1995).
+8
+F. Siewert, T. Noll, T. Schlegel, T. Zeschke, and H. Lammert, AIP Conf. Proc.
+705, 847–850 (2004).
+2
+
+Rev. Sci. Instrum. 90, 021707 (2019); doi: 10.1063/1.5057768
+Published under license by AIP Publishing
+
+ARTICLE
+
+scitation.org/journal/rsi
+
+9
+
+S. G. Alcock, K. J. S. Sawhney, S. Scott, U. Pedersen, R. Walton, F. Siewert,
+T. Zeschke, F. Senf, T. Noll, and H. Lammert, Nucl. Instrum. Methods Phys.
+Res., Sect. A 616, 224 (2010).
+10
+V. V. Yashchuk, S. Barber, E. E. Domning, J. L. Kirschman, G. Y. Morrison,
+B. V. Smith, F. Siewert, T. Zeschke, R. Geckeler, and A. Just, Nucl. Instrum.
+Methods Phys. Res., Sect. A 616, 212 (2010).
+11
+J. Nicolas and J. C. Martínez, Nucl. Instrum. Methods Phys. Res., Sect. A
+710, 24 (2013).
+12
+M. Idir, K. Kaznatcheev, S. Qian, and R. Conley, Nucl. Instrum. Methods
+Phys. Res., Sect. A 710, 17 (2013).
+13
+S. G. Alcock, J. P. Sutter, K. J. S. Sawhney, D. R. Hall, K. McAuley, and
+T. Sorensen, Nucl. Instrum. Methods Phys. Res., Sect. A 710, 87 (2013).
+14
+L. A. Poyneer, T. McCarville, T. Pardini, D. Palmer, A. Brooks, M. J.
+Pivovaroff, and B. Macintosh, Appl. Opt. 53, 3404 (2014).
+15
+J. Nicolas, C. Colldelram, C. Ruget, L. Ribó, P. Pedreira, P. de la Rubia,
+C. Martín-Nuño, D. Úbeda, and A. Tomàs, Proc. SPIE 9965, 996503 (2016).
+16
+L. Huang, J. Xue, and M. Idir, J. Synchrotron Radiat. 23, 1348 (2016).
+17
+F. Polack, M. Thomasset, S. Brochet, and A. Rommeveaux, Nucl. Instrum.
+Methods Phys. Res., Sect. A 616, 207 (2010).
+18
+J. Nicolas and J. Campos, Proc. SPIE 8848, 88480K (2013).
+19
+J. Nicolas, P. Pedreira, I. Šics, C. Ramírez, and J. Campos, Proc. SPIE 9962,
+996203 (2016).
+
+90, 021707-6

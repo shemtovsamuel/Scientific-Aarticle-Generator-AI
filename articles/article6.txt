@@ -1,0 +1,1071 @@
+Research Article
+
+Vol. 27, No. 20 / 30 September 2019 / Optics Express 28660
+
+High contrast thermal deflectometry using
+long-wave infrared time modulated integrating
+cavity source
+L OGAN R. G RAVES , 1 H ENRY Q UACH , 1 R. J OHN K OSHEL , 1
+C HANG -J IN O H , 1 AND DAE W OOK K IM 1,2,*
+1 James C. Wyant College of Optical Sciences, University of Arizona, 1630 E. University Blvd., Tucson, AZ
+
+85721, USA
+2 Department of Astronomy and Steward Observatory, University of Arizona, 933 N. Cherry Ave., Tucson,
+
+AZ 85719, USA
+* letter2dwk@hotmail.com
+
+Abstract: We introduce a scalable temporally modulated long-wave infrared source design.
+The design makes use of an array of resistive blackbody heating elements which radiate into
+a custom aluminum integrating cavity. The output of the box is a rectangular slit, built to
+match the traditional tungsten ribbon profile for an infrared deflectometry source. Temporal
+modulation allows for signal isolation and improved resilience to background fluctuations in
+an infrared deflectometry source. Infrared deflectometry measurements using the new source
+design and a traditional tungsten ribbon, both with similar radiant flux, were compared for a
+ground glass surface, an aluminum blank, and an aluminum blank under thermal load (150 °C).
+Signal-to-noise ratio was ∼4 times higher for the new design and demonstrated improved source
+temporal stability and geometry. Further, the new design successfully measured the previously
+untestable hot aluminum flat. The new design improves infrared deflectometry and allows for
+high contrast thermal deflectometry measurements of optics under thermal load.
+© 2019 Optical Society of America under the terms of the OSA Open Access Publishing Agreement
+
+1.
+
+Introduction
+
+As manufacturing methods continue to improve, a wider range of materials are being shaped into
+custom freeform surfaces for new optical applications. These materials, which include metals,
+glass, ceramics, and plastics, are turned into high performance optics using grinding and polishing
+methods, computer numeric control (CNC) diamond turning, sub-aperture polishing methods, 3D
+printing, and more [1–5]. To assure proper fabrication, advanced metrology technologies must
+be used. This allows for monitoring and guiding of the fabrication process, and final verification
+of the optical surface shape.
+Typically, interferometry and deflectometry are used for high accuracy and precision metrology
+of freeform optics [4–7]. Interferometry is a null metrology method, which requires using
+a null optic as a reference measurement to the unit under test (UUT). For freeform optics in
+particular, computer generated holograms (CGH) have become highly attractive for use as a
+null optic as they can generate a freeform null and additionally can provide advanced alignment
+features [8]. Unfortunately, a CGH can only null a designed specific optical configuration,
+and they typically can be expensive to fabricate. Deflectometry is a non-null test method, in
+a which a source presents a known pattern which specularly reflects from the UUT and is
+recorded by a camera. By knowing the geometry of all components to high precision, the local
+slopes of the UUT can be determined and integrated to generate a reconstructed surface map.
+Particularly for extremely large optics, such as telescope optics, fabrication is typically achieved
+using grinding and polishing [5,9–11]. The grinding phase of generating optics offers a unique
+period during which rapid removal of material is performed, allowing for faster convergence to
+
+#369651
+Journal © 2019
+
+https://doi.org/10.1364/OE.27.028660
+Received 12 Jun 2019; revised 10 Sep 2019; accepted 11 Sep 2019; published 23 Sep 2019
+
+Research Article
+
+Vol. 27, No. 20 / 30 September 2019 / Optics Express 28661
+
+the final desired surface shape, with removal rates being up to thousands of times faster than
+during polishing. During this period, the optical root mean square (RMS) surface roughness
+can range from hundreds of microns down to 1 micrometer, and the surface shape can change
+significantly. The rough surface is not specularly reflective to visible wavelengths, making
+measurements challenging. Utilizing an infrared system is a desirable solution to grinding phase
+metrology as the rough surface will be specularly reflective at longer wavelengths. While infrared
+interferometers exist which could achieve this measurement [12], the rapidly changing surface
+shape during the grinding phase requires equally rapidly changing custom null optics. Instead,
+deflectometry has been used with an infrared source to measure such rough surfaces [7,13].
+A key challenge in designing infrared deflectometry systems is in the choice of a thermal
+source. Ideally, a deflectometry source will provide a high signal-to-noise ratio (SNR) for the
+system, while having high spatial modulation accuracy and capabilities and excellent stability.
+One possible source design is to apply current to a thin tungsten ribbon, which induces joule
+heating and creates a rectangular, pseudo-blackbody emitting source. By scanning the ribbon in
+orthogonal directions, a line scanning source is created. This ribbon design formed the basis for
+the scanning long-wave optical test system, SLOTS (Scanning Long-wave Optical Test System),
+which has been used extensively in infrared deflectometry, and the tungsten ribbon source, with
+minor variations, is still the traditional source used for infrared deflectometry [7,14]. However, a
+tungsten ribbon has some significant limitations when applied to deflectometry.
+In a deflectometry system, any uncertainty in the shape and position of all components directly
+reduces the accuracy in the final optical surface reconstruction. For a tungsten ribbon, low order
+bending modes frequently occur, particularly as the ribbon experiences thermal gradients and
+load. Thus, the idealized flat rectangular shape of the ribbon, used for data processing and surface
+reconstruction of deflectometry data measurements, may be incorrect and can lead to surface
+reconstruction errors. Further, the source output is assumed to be uniform across the ribbon,
+and stable over the testing period. However, cyclically heated tungsten evaporates and degrades
+with use over time, leading to a potentially non-uniform emission profile across the surface. This
+is coupled with the challenge that the ribbon’s power draw and emission may fluctuate with
+time. One final consideration is the limit to how much output power can be achieved with a
+ribbon source. Because the ribbon acts as a pseudo-blackbody source, increasing the available
+input power may raise the signal power, but will also shift the output spectrum towards shorter
+wavelengths, away from the desirable longer wavelength. Above a certain threshold, however,
+the load will be too great for the ribbon to handle, leading to a failure in the source. These
+comments are not meant to diminish the impact the tungsten ribbon design had on infrared
+deflectometry specifically, and metrology generally. Without the introduction of the tungsten
+ribbon source, high accuracy, rapid and efficient in-situ testing of diffuse optics was challenging,
+time consuming, and extremely expensive. Instead, these known limitations to the tungsten
+ribbon lay out a clear framework of considerations that must be addressed to produce an improved
+infrared deflectometry system at the source level.
+We have created a new source design which addresses these prior limitations and opens a new
+region of infrared deflectometry testing. The source is a Long-wave Infrared Time Modulated
+Integrating cavity Source (LITMIS), which uses modular high efficiency and high stability
+resistive membrane blackbody elements. Due to the modular design, the number of elements,
+referred to as ‘caps’, inputting radiation into the integrating cavity are readily scalable. The
+light is output via a machined slit (or any other desired light source pattern geometry), whose
+geometry is stable and known to high precision machining accuracy. Finally, a key feature of
+the LITMIS design is the ability to temporarily modulate the source at up to 1 Hz, providing
+a time-modulated signal, which allows for isolation of the signal from the background noise.
+The new source was modeled and optimized using illumination design software, and the final
+optimized design was built and used to measure a diffuse glass and an aluminum blank surface.
+
+Research Article
+
+Vol. 27, No. 20 / 30 September 2019 / Optics Express 28662
+
+A comparison was made using a traditional deflectometry tungsten ribbon source, whose shape
+was identical to the exit slit of the box, using the same setup and camera. This allowed for
+unbiased direct comparison of the two sources. Finally, an aluminum flat under high thermal
+load, which has historically been unmeasurable using a traditional source due to the low contrast
+signal for infrared deflectometry and fluctuating background noise, was successfully measured to
+demonstrate and confirm the high contrast thermal deflectometry performance when utilizing the
+LITMIS source.
+2.
+
+Background theory
+
+2.1.
+
+Deflectometry
+
+Deflectometry represents a non-null optical metrology method which can, using careful calibration,
+produce highly accurate surface reconstruction of optics. The metrology method measures
+the local slope distribution of a unit under test (UUT), and these local slopes are integrated
+in post-processing to reconstruct the surface map. With proper calibration, deflectometry can
+provide surface measurements with an accuracy comparable to interferometry [15].
+Due to the non-null nature of the test, deflectometry can measure a wide dynamic range of
+surface slopes. The key limiting factors in a deflectometry test for what is measurable are defined
+by the source size, the camera field of view (FOV), and whether the tested UUT surface can
+reflect the light emitted from the source. For an area on the UUT to be testable it must be in the
+FOV of the camera. Further, by tracing a ray from the camera to any point on the mirror, the
+ray, following the law of reflection, must then after deflection intercept some point on the source
+area. This assures that the extent of the source is great enough to fully measure the UUT surface,
+although techniques exist to assure this can be satisfied for most any surface [16]. Finally, the
+light emitted from the source must be specularly reflected from the surface of the UUT.
+In most deflectometry setups, a high-resolution camera with a well-defined entrance pupil
+location is used, with the camera entrance pupil location referred to as c(x,y,z). The camera
+is focused onto the UUT surface, such that the camera pixels are mapped to the UUT surface
+and represent discrete ‘mirror pixels’, referred to as u(x,y,z), over which the local slopes will be
+calculated. Ideally, the source for a deflectometry setup, referred to as s(x,y,z), has well defined
+spatial emittance, allowing for accurate knowledge of the geometry and has high repeatability
+and stability. Additionally, it is advantageous to have a source with high signal power, which
+provides the test system with a high signal-to-noise ratio (SNR). For every camera pixel, the
+precise location on the source that successfully illuminates the camera pixel is determined during
+the measurement. Using the ray start location at the source, the end location at the camera, and
+the intercept location at the mirror pixel, the local slope at the mirror pixel can be determined.
+This process is extended to all pixels to measure the local slopes at all mirror pixels on the UUT
+in orthogonal directions, referred to as SX (x,y,z) and SY (x,y,z), representing the x and y slopes
+respectively. These slope maps are integrated, typically done using a zonal integration method
+such as Southwell integration [17] or a modal integration such as using a gradient Chebyshev
+polynomial set [18], resulting in a reconstructed surface map. Figure 1 demonstrates a standard
+deflectometry setup and the model used for local slope calculation.
+Uncertainty in the location of any components in the system will reduce the accuracy of the
+local slope calculations, and thus the surface reconstruction. Therefore, it is critical to know the
+exact position and geometry of all components to a high degree of certainty. While this is readily
+accomplished for the camera, using calibration and measurement methods such as a coordinate
+measurement machine (CMM) or even a laser tracker, for the source it can be more challenging,
+as the source is significantly larger than the camera pupil and, in a scanning source design, will
+have additional mechanical uncertainties. Further, the source emission uniformity and stability
+are extremely important, as any uncertainty in the source behavior with degrade local slope
+calculations [14,19]. These issues are readily addressed in visible deflectometry systems, which
+
+Research Article
+
+Vol. 27, No. 20 / 30 September 2019 / Optics Express 28663
+
+Fig. 1. A traditional deflectometry system relies on a source, s(x,y,z), which emits light
+with a well-known spatial definition. Some of the light rays, defined as vectors ®v(x,y,z),
+successfully deflect from the UUT, u(x,y,z), and are captured by a camera, c(x,y,z), whose
+entrance pupil location, p(x,y,z), is well known. Typically, the source and camera are placed
+as near to the center of curvature (C.C.) as possible to approach a one-to-one imaging
+scenario, as shown in (a). By knowing the precise coordinates of the ray origin at the source,
+the ray intercept at the UUT, and the ray end at the camera, a local slope at the ray intercept
+can be determined in the x and y directions, referred to as Sx and SY respectively. The local
+surface normal vector n® with Sx is shown for the local x slope case (b).
+
+benefit from the use of high resolution, high performance digital displays. However, for infrared
+deflectometry, the problem becomes more challenging.
+2.2.
+
+Infrared deflectometry
+
+Infrared deflectometry extends deflectometry to measuring diffuse rough optics which are
+challenging to measure using traditional techniques. There exists a wide range of materials
+which do not specularly reflect visible light, thus, thermal infrared deflectometry is an important
+metrology tool. This is particularly true during the grinding phase of mirror fabrication, where a
+rough grit is used to rapidly grind the UUT down to the final desired surface shape. During this
+period the root-mean-square (RMS) surface roughness will typically drop from 1000 µm to 1 µm
+as smaller grit sizes are used. For such rough surfaces, visible light is scattered and thus visible
+spectrum metrology tools are inapplicable; however, infrared deflectometry has been applied
+during this phase successfully for several mirror fabrication projects, including the Daniel K.
+Inouye Solar Telescope (DKIST) primary mirror [7].
+The test setup used for most infrared deflectometry systems relies on a rectangular source
+which is scanned in the x and y orthogonal directions. The longer the emission wavelength of the
+source, the rougher the surface that can be tested, provided the source power is high enough and
+a suitable camera for the given wavelength range can be used. Traditionally, a heated tungsten
+ribbon acts as the source, serving as a pseudo-blackbody element. Coupled with a long-wave
+infrared (LWIR) camera, which is sensitive in the 7-14 µm range, this allows for testing 1 µm to ∼
+25 µm RMS rough surfaces. This test setup has been successfully deployed and used to measure
+a variety of rough, non-specularly reflecting surfaces and was able to achieve high accuracy
+surface reconstruction [4,7,14,20]. It should be noted that other dynamic heated screen patterns,
+including a scanning infrared laser and a resistor array, have successfully been used as sources
+for infrared systems; however, a heated scanning ribbon still serves as the most common source
+for testing large diffuse optics [21]. An example case showing the rough 4.2 m diameter off-axis
+parabola DKIST primary mirror surface during testing, as well as the reflected LWIR light from
+
+Research Article
+
+Vol. 27, No. 20 / 30 September 2019 / Optics Express 28664
+
+a scanning tungsten ribbon as captured by a LWIR camera for a deflectometry measurement of
+the UUT are shown below in Fig. 2.
+
+Fig. 2. After generating a mirror blank, the surface goes through a grinding process, which
+rapidly converges the UUT to the desired shape. For the DKIST primary, a 4.2 m Zerodur
+blank was ground from ∼100 µm down to 1 µm RMS surface roughness. During this
+process, the rough surface (left) was measured using infrared deflectometry. The infrared
+deflectometry system uses a scanning heated tungsten ribbon and captures reflected light in
+the 7-12 µm range during the vertical scan (right), which is specularly reflected by the rough
+surface. [4]
+
+Just as with visible deflectometry, the uncertainty in all components directly affects the
+accuracy of the surface reconstruction. In the LWIR region, camera choices are more limited
+than the visible, with a microbolometer arrays being a common option, which typically have
+large pixels than CCD or CMOS detectors. However, the diffraction limit in the LWIR region is
+also approximately an order of magnitude larger than the visible spectrum, thus, the pixel pitch
+is not a limiting factor. Additionally, accurate knowledge of the source shape and position can
+become highly challenging if not impossible to measure, as will be explored in the next section.
+Finally, the source signal as compared to the background, which broadly is captured by the
+SNR, is a key characteristic of the source. All objects radiate to some extent in the infrared
+region; thus, there is a large amount of background thermal radiation both in and out of scene
+that contributes significantly to the noise levels during an infrared deflectometry test. Further,
+the background radiation may change during the test. A simple and traditionally used pre-test
+background image (or average of background images), may not always be enough to remove the
+background noise during testing. This issue is especially clear when considering that the source
+itself is moving during the test and may leave a thermal ‘tail’ in the air, as well as introduce a
+shifting background emitter in the form of the housing hardware. The noise issue is compounded
+by the fact that, for a heated metal source, there is a physical limit to how much signal output power
+can be achieved before failure of the source. Lastly, the output power uniformity and stability are
+highly important, as any variation during testing will skew results and impart uncertainty into the
+final reconstructed surface.
+3.
+3.1.
+
+High contrast deflectometry using LITMIS
+Long-wave infrared time-modulated integrating cavity source
+
+To address the previously covered limitations of a tungsten ribbon source, and to allow for novel
+testing situation for infrared deflectometry, we have developed LITMIS. The source uses modular
+
+Research Article
+
+Vol. 27, No. 20 / 30 September 2019 / Optics Express 28665
+
+heating elements as input radiation and has a rectangular output slit where the light is emitted,
+mimicking the ribbon source dimensions for direct comparison. The cavity and emission area
+are selected for comparison to a tungsten ribbon source and can be changed and optimized to
+other geometries for different testing configurations. The design provides high signal output
+power and temporal stability with uniform emission. Because it is a machined output slit, the
+source geometry is known to a high machining precision (e.g., ∼25 µm) and remains stable over
+the lifetime of the source.
+LITMIS makes use of small resistive caps, which each contain an extremely thin resistive alloy
+membrane that exhibits high emissivity and can cool extremely quickly [22]. Thus, the source
+can be temporally modulated, achieving an 80% contrast ratio at 1 Hz. This allows for in-situ
+updated background noise images during testing, as the signal output can be modulated to capture
+‘background’ and ‘signal’ images during the scanning. Further, although not implemented in
+this setup, a detector which provides direct signal output, and does not integrate the signal, can
+be used to filter the signal in the Fourier domain to further isolate the signal from noise. This
+approach is not implemented herein due to the available camera in this study.
+The integrating cavity can be machined out of any material that maintains shape and diffusely
+reflects the LWIR being input into the cavity. Consideration of the inner cavity dimensions
+must be made to assure that the light is properly scattered by the interior surface reflections to
+achieve a uniform non-directional (i.e., Lambertian) emission from the exit slit. Furthermore,
+several changes to the LITMIS can be made in order to adjust desired operating performance
+characteristics:
+• Radiant flux: the interior of the cavity may be coated, depending on the cavity material, to
+adjust the radiant flux by minimizing reflection losses, and the number of input caps can
+be adjusted to scale radiant flux,
+• Output spectrum: the spectral reflectance of the cavity coating and the emission spectrum
+of the input caps are used to specify the output spectrum at the slit, and
+• Output geometry: the emission slit geometry can be altered, although again the interior
+cavity design must be properly configured to assure proper emission behavior.
+With considerations towards matching the geometrical and radiometric properties of a tungsten
+ribbon source, an integrating cavity source was designed and machined. The cavity is designed
+with 20 input ‘cap’ sources, operating at approximately 70% maximum power. The cavity itself
+is optimized to achieve both angular and spatial uniformity over a rectangular exit, while the
+interior of the cavity is a box shape made of bare aluminum with a surface roughness of 3.4 µm,
+measured using a Zygo NewView 8300 Interference Microscope. The design is modeled to match
+a traditional tungsten ribbon source which has been used in previous infrared deflectometry
+tests, [23], for comparison purposes. The matching of the slit and ribbon dimensions allows
+for direct comparison of the two sources. The system is modeled in Synopsys’ LightTools, a
+non-sequential ray tracing simulation software, and the location of the heating elements, as well
+as interior cavity dimensions and surface roughness, are optimized to achieve spatially uniform,
+Lambertian radiance over the extent of the exit slit. The output is simulated at the slit with this
+radiance profile as the goal. The near field irradiance pattern, as well as the final optimized box
+design, are shown below in Fig. 3.
+3.2.
+
+Comparative radiometric modeling
+
+For the purposes of a direct comparison, the source power of the integrating cavity design is
+matched to that of the tungsten ribbon. The tungsten ribbon behaves as a pseudo-blackbody
+emitting source, and the radiometric equations predicting the ribbon emission are well documented
+[19]. The LITMIS source can similarly be described as a pseudo-blackbody emitting source.
+
+Research Article
+
+Vol. 27, No. 20 / 30 September 2019 / Optics Express 28666
+
+Fig. 3. An aluminum integrating cavity was designed and optimized to make the infrared
+source, LITMIS. The cavity is designed to have 20 input source ports, where small, high
+emissivity, modular and time-modulating infrared cap sources are input in the final built
+box. An emission exit slit, where light exits the box, is designed to match the dimensions
+of a comparison tungsten ribbon infrared source (a). The optimized design is modeled in
+LightTools, where the irradiance at the surface of the box is simulated to assure high spatial
+uniformity across the exit slit (b). The emission intensity as a function of output angle is
+also analyzed, demonstrating high angular uniformity (c).
+
+Further, each source features the same emission area and are linearly scanned for testing. The raw
+data acquisition is from the pixel camera detector pixel response, where a centroiding process is
+used to extract the peak signal response for every camera pixel as a function of source location
+Thus, as all other components are identical in a system other than the sources, the goal is to
+match the source radiance.
+As has previously been describe [14,24,25], using the law of error propagation, when only noise
+is considered, the centroid uncertainty, σ, is determined from the recorded intensity response
+width, w, the number of samples taken, N, and the SNR:
+σ=√
+
+w
+N SNR
+
+=√
+
+w
+
+(1)
+
+N Psig /NEP
+
+Psig is the signal power and NEP is the noise equivalent power, which is typically the dominant
+factor in an infrared deflectometry test. The centroid uncertainty, ∆s, directly relates to the slope
+uncertainty as:
+σ
+∆s 
+(2)
+2Z
+where Z is the distance from the source to the UUT. The signal power is determined by considering
+the reflected radiance, Lref , which is scaled by the transmission of the optical components, given
+by τo , that falls on the detector, whose area given by Aim . The image area is related to the source
+
+Research Article
+
+Vol. 27, No. 20 / 30 September 2019 / Optics Express 28667
+
+width, wsc , and the diameter of the camera aperture, Dap . The solid angle for the pixel from the
+entrance pupil must also be considered, which is defined as Ωpix , and can be calculated from the
+area of a single pixel, given as Apix , and the focal length of the camera, given by f. The full signal
+power equation is given as:
+Psig = τo Lref Aim Ωpix = τo Lref (wsc Dap )
+
+Apix
+f2
+
+(3)
+
+The reflected radiance, Lref , is derived from the source radiance, Lsrc , and is scaled by the
+reflectivity of the UUT, rU , and the relative reflectance due to rough surface scattering, rs . The
+value is calculated according to:
+Lref = rU rs Lsrce
+(4)
+To this point, the tungsten ribbon and the integrating cavity design share the same radiometric
+considerations. The primary difference arises in the different source radiance, defined as
+Lsrc−ribbon and Lsrc−cavity for the ribbon and cavity respectively. The ribbon source radiance is
+given by
+ε α7−14 Pribbon
+(5)
+Lsrce_ribbon =
+πAsrce
+where the total power draw, given by Pribbon , is scaled by the emissivity of the source over the
+given radiation band, ε, which is 0.10 [19,26,27]. For the ribbon configuration used, the power
+draw was approximately 2.1 W (2.2 A, 0.95 V), with an operating temperature of roughly 440 °C.
+The portion of the total radiation in the 7-14 µm band, α7−14 , is calculated from Stefan-Boltzmann
+law. Finally, the solid angle is given by π = 3.14 rad, which is the solid angle when a differential
+plane source radiates towards a hemisphere and the surface area of the source, Asrc , is directly
+calculated from the source geometry. The source radiance for the cavity is similar to that of the
+ribbon with some minor differences. This is given by:
+Lsrce_cavity = rcb
+
+ε α7−14 N Pcap
+ε α7−14 Ptot
+= rcb
+Ωcavity Asrce
+Ωcavity Asrce
+
+(6)
+
+where the input power is given by the power per cap source, Pcap , which for the designed cavity
+was approximately 0.35 W (23.8 V, 14 mA), with a temperature of 450 °C, and is scaled by the
+total number of caps inputting energy into the cavity, N, which for the presented design was 20.
+The product of these two parameters gives the total input power, Ptot . The total output radiance
+from the cavity is scaled by the reflectivity of the cavity interior, rc , which for bare aluminum
+at the operating temperature is approximately 0.93 [28] to the power of the average number
+of bounces taken by a ray from a source cap to exiting the box, b, which for the given design
+was approximately 46, as calculated in the LightTools model. Finally, the emission solid angle,
+Ωcavity , is unique to the final cavity design. For the designed cavity for this manuscript, the solid
+angle is given by 2.43 steradians.
+It should be noted that while minor parameters differ between the source radiance definitions
+for both a heated metal-based source and the LITMIS source, the most fundamental difference is
+the power scalability of the LITMIS source. Blackbody sources will shift their emission spectrum
+to higher energy, lower wavelengths as the input power, and thus temperature, increases. This
+is non-ideal for a long-wave infrared source. Further, there is an input power threshold for all
+materials, above which the material will fail. As seen in Eq. 6, the same long-wave infrared
+spectrum can be maintained while adding power to the source by scaling the number of individual
+emitters, which is a unique feature for the LITMIS source.
+The parameter values for the as designed and manufactured LITMIS source, as well the tested
+tungsten ribbon, are provided in Table 1. The specific details of the source’s implementations are
+provided in later sections.
+
+Research Article
+
+Vol. 27, No. 20 / 30 September 2019 / Optics Express 28668
+
+Table 1. Source Parameter Comparison between Tungsten Ribbon and LITMIS Sources
+Parameter
+
+Notation
+
+Tungsten Ribbon
+
+Total power consumed
+
+Ptot
+
+2.10
+
+7
+
+W
+
+Radiation in 7-14 um band
+
+α7−14
+
+0.28
+
+0.28
+
+N/A
+
+Source Emissivity
+
+ε
+
+0.10
+
+0.90
+
+N/A
+
+Cavity Reflectivity
+
+rc
+
+N/A
+
+0.93
+
+N/A
+
+Internal Ray Bounces
+
+b
+
+N/A
+
+46
+
+N/A
+
+Source Surface Area
+
+Asrc
+
+1440
+
+1440
+
+mm2
+
+Lsrce
+
+1.36 × 10−5
+
+1.78 × 10−5
+
+W/mm2 /sr
+
+Source Radiance
+
+LITMIS Source
+
+Unit
+
+It must be noted that in the final test, the input power to the cavity and the ribbon were altered
+slightly to achieve an average identical power signal on a camera pixel from both sources. This is
+due to the goal of having an unbiased comparison between the two sources; the goal was not to
+compare the power output from the sources, which can be significantly adjusted via engineering
+choices.
+4.
+
+Experimental configuration and measurement setup
+
+An infrared deflectometry system was assembled on an optical table. The camera featured a
+∼1–2 m variable focal length germanium lens, and the detector was a microbolometer array
+with 320×240 pixels (7–14 µm response, Thermal-Eye 3500AS). The exposure, gain, and level
+settings were adjusted prior to testing such that the output was never saturated, and the settings
+were held constant between all tests. An optical mount was situated approximately one meter
+from the camera and was fixed in place and allowed for repeatable placed of the UUT. The camera
+was focused on the UUT surface for deflectometry measurements and was focused on the sources
+for measurements of the source properties.
+For an unbiased performance comparison, the source was the only component in the system
+which changed during the experimental measurements. To compare properties between source
+modalities, a scanning platform was utilized with a mounting interface to interchange LWIR
+sources. A motorized lead screw stage (Velmex BiSlide, Model #MN10-0350-M02-31) moved
+source assemblies in the vertical direction with an absolute positional accuracy of ± 0.005 mm.
+For ease of comparison, sources shared identical slit dimensions (75 × 2.5 mm) and radiant
+exitance planes. Figure 4 demonstrates the camera and source setup for the test system.
+
+Fig. 4. The infrared testing system used for all tests in this manuscript was composed of a
+linear scanning source and a long-wave infrared (LWIR) Thermal-Eye 3500AS camera. The
+source was mounted in a kinematic mount, allowing for repeatable interchange between a
+tungsten ribbon source, as seen above, and the LITMIS source.
+
+Research Article
+
+4.1.
+
+Vol. 27, No. 20 / 30 September 2019 / Optics Express 28669
+
+Thermal infrared source structure and setup
+
+A LWIR thermal line source was implemented by running direct current (2.2 A, 2.1 W) across
+a thin tungsten ribbon. Transient thermal noise from the wire, such as the local heating of air,
+was reduced by taking measurements after the ribbon reached an equilibrium state (∼5 minutes),
+closer to the environmental thermal steady-state condition.
+The LITMIS source was implemented by applying a (0.29 A, 7W) load to a circuit consisting
+of 20 emitters (Axetris Model: EMIRS200 T039 w/ Cap; 2 to 14 µm spectrum, ∼ 2π steradian
+emission). Pointed into the enclosure, the rectangular emitter array was operated by binary
+power cycling with a digitally controlled relay (Numato 1 Channel USB-Powered Relay Module).
+Enclosure walls were machined from bare Al 6061-T6 and characterized to 3.4 µm RMS (Root
+Mean Square) by a Zygo NewView 8300 Interference Microscope. To block excess thermal noise
+from the slit source aluminum-covered “gull-wing” shields were added. Lastly, to minimize
+latent thermal radiation from the cavity interior, the LITMIS source was cooled to 0° C prior to
+each test by placing the source into a cooling chamber for 1 hour prior to testing. Upon removal
+from the chamber the interior cavity temperature was measured to verify it had reached 0° C, and
+an image verification was performed to verify that the interior cavity signal counts remained at
+or below the noise levels of the camera for the duration of each test. Figure 5 demonstrates the
+integrating cavity after assembly.
+
+Fig. 5. The assembled LITMIS source was constructed from an aluminum cavity and
+utilized 20 ‘cap’ input sources (a). Aluminum gull fins were added to the top of the box
+during testing to shield the back end of the caps and to assure no excess emission or reflected
+LWIR came from the LITMIS source (b). A direct view of the source, as captured by a LWIR
+camera, shows high spatial uniformity of the signal and an ideal rectangular emission shape
+(c), and when the LITMIS source is rotated about the emission slit, the same uniformity and
+power output is observed (d) indicating non-directional uniform angular emission from the
+exit slit.
+
+4.2.
+
+Unit under test for infrared deflectometry metrology
+
+Two diffuse optics were measured with both the tungsten ribbon and the LITMIS sources. The
+first optic was a 1500 grit ground glass (BK7) diffusing flat, measuring 2 inches in diameter,
+referred to as Glass1500 . Second, a bare aluminum blank, measuring 3 inches in diameter was
+tested in two separate configurations. The Al flat was tested at room temperature, referred to
+as AlRoom , and additionally, the optic was tested under thermal load, after being heated to a
+temperature of 150 °C, referred to as Al150, to simulate/model metrology of an object operating
+in a high temperature environment such as an aluminum panel slumping process for a Terahertz
+telescope. The heating was accomplished by placing the aluminum blank on a hot plate operating
+
+Research Article
+
+Vol. 27, No. 20 / 30 September 2019 / Optics Express 28670
+
+at 150 °C for 30 minutes, at which point the surface temperature was verified as being 150 °C.
+After which, it was removed from the hot plate and mounted for testing. Surface roughness of
+the two optics were verified with a Zygo NewView 8300 Interference Microscope. The surface
+roughness of the Glass1500 was measured as 127.89 nm RMS while the AlRoom was measured as
+102.53 nm RMS. UUTs were positioned 1.35 m from the source plane. Figure 6 demonstrates the
+UUTs and the surface roughness maps as measured using the white light interferometer.
+
+Fig. 6. A 2-inch diameter rough ground glass flat referred to as Glass1500 (top left) and a
+bare aluminum flat referred to as AlRoom (top right) were selected for measurement due to
+their diffuse nature, making thermal infrared deflectometry an ideal metrology method. The
+surface roughness of both optics was measured using a Zygo NewView 8300 Interference
+Microscope. The ground glass surface featured a surface roughness of 127.89 nm RMS
+while the bare aluminum surface roughness was 102.53 nm RMS over a small 834×834 µm
+square area over each optic (bottom).
+
+4.3.
+
+Source geometry and temporal stability measurements
+
+To measure the source emission geometry, tests were performed by recording a focused image of
+each source using the LWIR camera previously described. A profile across the middle of each
+source was recorded to determine how similar each true source profile was, as compared to the
+assumed ideal flat top rectangular emission profile. Consequently, this allowed for verification
+that the recorded signal power on the camera pixels was similar between the two sources, and
+that the source area was similar on the detector for both sources.
+To observe the temporal stability, a measurement was performed by focusing the camera on
+each source, which was turned on and recorded for 30 minutes, separately. An image was recorded
+every 10 seconds. For the test of both the tungsten ribbon source as well as the LITMIS source,
+signal data was calculated over a series of pixels (50 pixels) that were imaging the source, and the
+noise statistics were calculated over several random pixels (50 pixels) imaging the background
+scene. Over every signal pixel the average recorded signal count, the standard deviation of the
+
+Research Article
+
+Vol. 27, No. 20 / 30 September 2019 / Optics Express 28671
+
+signal, and the peak-to-valley (PV) variation of the signal count, as reported by the output from
+the detector, was calculated. The mean value for the signal power, referred to as signaltime−mean ,
+the mean standard deviation, referred to as signaltime−std , and the mean PV variation, referred
+to as signaltime−PV , were calculated. Similarly, the average noise recorded signal over every
+noise pixel, as well as the standard deviation for every noise pixel was determined. The mean
+noise signal, referred to as noisetime−mean , as well as the noise standard deviation, referred to as
+noisetime−td , was also calculated, and is presented in Section 5.1.
+4.4.
+
+Infrared deflectometry reconstruction and repeatability
+
+To determine the comparative surface reconstruction repeatability, multiple optics were measured
+using both tungsten ribbon and LITMIS sources. The Glass1500 and AlRoom and Al150 optics
+were measured using the previously described deflectometry system and the surfaces were
+reconstructed. For both setups, the source was scanned 150 mm, using 30 interval steps, in a
+step and stare method. The step-and-stare method was applied, where the source is ‘stepped’
+to the next scan position. Once it has reached the new position and motion is stopped, an
+image capture is performed, referred to as the ‘stare’ process. UUT re-mounting and alignment
+error was avoided by testing surfaces with one source first and then the other, keeping all other
+system parameters identical between the comparative tests. For all surfaces, 5 measurements
+were performed in succession at each step and the behavior of several locations across the UUT
+were analyzed for each source. The centroids were calculated for each source configuration.
+For the ribbon source, an average of 5 background images were recorded and subtracted from
+all measurement images. For the LITMIS slit source, an ‘on’ (cavity emitting light) and ‘off’
+(cavity not emitting light) signal was recorded at every step position, and the ‘off’ signal at each
+position was subtracted from the ‘on’ measurement. After this, a standard centroiding process
+was used for both source measurements. The total acquisition time for the full 5 successive
+measurements of each optic was approximately 18 minutes using the tungsten ribbon source and
+was approximately 20 minutes using the LITMIS slit source.
+The repeatability of the source reconstruction was determined by calculating the statistics
+across the repeated measurements. Across five repeat measurements the recorded peak signal
+response as well as the standard deviation between measurements of the peak signal response,
+referred to as signalmean and signalstd respectively, were determined for the camera pixels imaging
+the UUT. Additionally, the mean peak signal response and standard deviation across the repeat
+measurements, referred to as noisemean and noisestd respectively, were determined for the camera
+pixels imaging the background, which represents the noise statistics. The mean signal-to-noise
+ratio was then determined. Finally, the data for every measurement set was processed and the
+source coordinate that illuminated every camera pixel imaging the UUT was determined via
+a standard centroiding process. The mean centroiding uncertainty of the source across the 5
+repeated measurements, referred to as δmean in Table 3.
+Taking the processed data, the surface of each optic was reconstructed for every measurement
+for both sources. Standard Zernike terms were fit to the reconstructed maps, and, after removing
+terms 1 to 37, the maps were compared. The reconstruction repeatability was analyzed. The
+results of all tests are detailed in Section 5.2.
+5.
+5.1.
+
+Experimental data analysis and result
+Source geometry and temporal stability measurements results
+
+The recorded source images the tungsten ribbon and LITMIS sources, captured with the test
+system LWIR focused through a flat precision mirror onto the source planes, as well as the signal
+profile across the midline, are shown in Fig. 7.
+
+Research Article
+
+Vol. 27, No. 20 / 30 September 2019 / Optics Express 28672
+
+Fig. 7. The source geometry and uniformity are a critical performance defining parameter in
+a deflectometry system. For the designed infrared deflectometry test system, and image of the
+tungsten ribbon (a) as well as the LITMIS slit (b) sources was captured using Thermal-Eye
+3500AS camera through focused onto the source through a flat mirror. Observing a profile
+of the source for the tungsten ribbon (c) and the LITMIS slit (d) sources, it is seen that the
+average signal power is similar, but the source profile geometries are quite different, where
+both should ideally form a flat top rectangular shape with roll-on and roll-off at the edges
+due to the convolution of the rectangular source with the circular camera pupil.
+
+The average source signal for both the LITMIS and tungsten ribbon sources, calculated over
+50 pixels imaging the source, over a 30-minute period with an image capture every 10 seconds is
+plotted in Fig. 8.
+The results of the source temporal stability measurements are reported and summarized in
+Table 2. The time averaged camera signal of both sources, referred to as signaltime−mean , was
+calculated to verify the signal power, as recorded by the camera, was similar for both sources.
+Further, the standard deviation of the source signal over time, referred to as signaltime−std , is also
+reported, as is the peak-to-valley signal variation over the 30-minute measurement period, referred
+to as signaltime−PV . The time averaged background noise signal and the standard deviation of the
+noise signal over the 30-minute measurement period is reported for both sources, referred to as
+noisetime−mean and noisetime−std respectively.
+Table 2. Temporal Stability Comparison between Tungsten Ribbon and LITMIS Slit Sources
+Source
+
+signaltime−mean
+(A.U.)
+
+signaltime−std
+(A.U.)
+
+signaltime−PV
+(A.U.)
+
+noisetime−mean
+(A.U.)
+
+noisetime−std
+(A.U.)
+
+Tungsten Ribbon
+
+95.72
+
+1.97
+
+11.10
+
+72.39
+
+0.45
+
+LITMIS Slit
+
+93.21
+
+0.53
+
+1.82
+
+73.32
+
+0.43
+
+The source image showed similar camera signal readout for both sources, which implies the
+source radiance for both the LITMIS and tungsten ribbon sources was similar, as designed.
+However, observing the profile of the sources, the tungsten ribbon source has a peak signal in
+
+Research Article
+
+Vol. 27, No. 20 / 30 September 2019 / Optics Express 28673
+
+Fig. 8. High temporal stability is essential for a deflectometry source, as any fluctuations
+in the radiant flux directly impacts the recorded power by the camera pixels, which leads
+to reconstruction error. Over a 30-minute period, with samples taken every 10 seconds,
+the camera detector pixel signal of the tungsten ribbon source (dashed black line) and the
+LITMIS slit (solid blue line) were recorded, to determine temporal stability of both sources.
+
+the middle of the ribbon, which decays towards the edges, while the LITMIS source has a more
+rectangular emission pattern. The tungsten ribbon deviation from the ideal rectangular pattern is
+expected as the boundary conditions and material wear will cause the emission pattern to change
+from ideal. It must be noted that some of the shape deviation from an ideal rectangular shape is
+due to the limited camera resolution in the test setup, however.
+The temporal stability results suggest again that while the average peak signals from both
+sources are similar, the temporal stability over time is highly different. At a peak mean power
+of ∼95 signal counts on the camera, the tungsten ribbon fluctuated rapidly and randomly ∼ 2
+camera signal counts, or 2% of the signal power. Further, the peak-to-valley fluctuation at times
+reached 11 signal counts. The LITMIS slit source had a mean peak power of ∼93 signal counts,
+fluctuating with a standard deviation of ∼0.50 signal counts, or 0.5% of the signal power. The
+peak-to-valley fluctuation was 1.82 counts. In both test cases, the background noise, which is a
+combination of background radiation and camera noise, fluctuated with a standard deviation of
+∼0.4 signal counts on the camera. This confirms the superb stability and uniform slit emission
+geometry of the LITMIS-based solution.
+5.2.
+
+UUT reconstruction and deflectometry signal repeatability results
+
+The reconstructed surface topology maps of the 2-inch diameter 1500 grit ground glass surface,
+referred to as Glass1500 , as well as the 3-inch diameter aluminum blank tested at room temperature
+and under a thermal load after being raised to a temperature of 150 °C, referred to as AlRoom and
+Al150 respectively are shown in Fig. 9. All surfaces were measured using the same deflectometry
+system with both the traditional tungsten ribbon source and the LITMIS slit source. The surface
+roughness was determined by removing Standard Zernike terms 1 to 37 from all surface maps to
+observe the mid-to-high spatial frequency surface shape terms.
+The surface shape error of the Glass1500 reconstructed surface was 156.63 nm RMS when tested
+with the LITMIS source and was 132.33 nm RMS when using the traditional tungsten ribbon
+source. The surface roughness of the AlRoom reconstructed surface was 93.78 nm RMS when
+measured using the LITMIS source and was 95.63 nm RMS when measured using the tungsten
+ribbon. The Al150 surface was not measurable when using the tungsten ribbon due to the high
+
+Research Article
+
+Vol. 27, No. 20 / 30 September 2019 / Optics Express 28674
+
+Fig. 9. Using both a traditional tungsten ribbon source (top row) and the LITMIS source
+(bottom row), infrared deflectometry measurements were taken and the surface reconstructed
+for the Glass1500 optic (left column), the AlRoom optic (middle column), and the Al150 optic
+(right column). For all maps, Standard Zernike terms 1:37 were removed to observe the
+surface mid-to-high spatial frequency topology.
+
+thermal background noise from the heated UUT itself. However, due to the high contrasts signal
+via the time modulations of LITMIS slit source, the surface shape was successfully measured
+with the LITMIS source with a value of 106.65 nm RMS.
+The signal from one pixel measuring the AlRoom surface during the five repeat measurements
+using the LITMIS source, as well as the average signal response is shown in Fig. 10. The mean
+peak signal response and the standard deviation of the peak signal response, as well as the mean
+peak background noise and standard deviation of the noise across the five measurements is also
+shown.
+A frame of the raw signal recorded by the camera during the testing of the AlRoom optic, as
+captured when using both the LITMIS and tungsten ribbon sources, as well as the background
+subtracted processed data, is shown in Fig. 11. A full video of the entire vertical scan of the
+optic, for both sources, is provided in Visualization 1.
+The signal, noise, and centroiding repeatability results across the five repeat deflectometry
+measurements of all optics, using both the LITMIS slit and tungsten ribbon sources, are
+summarized in Table 3. Please note that due to the lack of signal and the large noise in the
+measurement of the Al150 surface with a tungsten ribbon, it was impossible to record a consistent
+signal over anything more than a small portion of the UUT surface. Thus, these results were
+omitted as the signal, noise, SNR, and centroiding error could not be calculated.
+Both the LITMIS slit source and tungsten ribbon source were successfully used to test the
+Glass1500 and AlRoom optics. In both test cases, the mean signal power recorded after reflection
+from the optic was similar. The standard deviation across the five repeat measurements performed
+for every optic using each source however was slightly larger for the tungsten ribbon as compared
+to the LITMIS source. The LITMIS slit source was better able to reduce noise, with an average
+background noise of 0.70 camera signal counts in the glass test case, as compared to 1.28
+counts for the tungsten ribbon, and approximately 0.85 counts for the tests of the aluminum
+blank, as compared to 4.74 counts for the tungsten ribbon. This directly impacts the SNR
+of both test methods, with the LITMIS slit source achieving a 2 - 5 times larger SNR. The
+centroiding repeatability over the five tests, determined by calculating the standard deviation of
+
+Research Article
+
+Vol. 27, No. 20 / 30 September 2019 / Optics Express 28675
+
+Fig. 10. Five repeat measurements were obtained for every source configuration testing
+every optic. The five repeat camera signals for one pixel imaging the aluminum blank at
+room temperature during testing using the LITMIS source were plotted, along with the
+average signal across the five measurements. For this test the mean peak signal recorded
+was 21.84, with a standard deviation of 0.92, while the mean peak background noise signal
+was 0.83, with a standard deviation of 0.30.
+
+Fig. 11. The deflectometry measurement of the Aluminum blank had the Thermal-Eye
+3500AS camera focused onto the UUT surface. The camera recorded an image of the UUT
+every at every source stage scanning position. This process was done with both the LITMIS
+slit source (left column) and tungsten ribbon source (right column), which resulted in a raw
+data signal (top row). The background signal was then removed from the data, using signal
+isolation for the LITMIS slit source and simple background subtraction for the tungsten
+ribbon, resulting in a background removed processed signal (bottom row). For the full video
+of the vertical scan, see Video 1.
+
+Research Article
+
+Vol. 27, No. 20 / 30 September 2019 / Optics Express 28676
+
+Table 3. Deflectometry Signal and Reconstruction Statistics
+
+Source
+
+Optic
+
+signalmean ± signalstd
+(A.U.)
+
+noisemean ± noisestd
+(A.U.)
+
+SNR
+
+Centroiding
+Error, δ mean
+(scan step)
+
+Tungsten Ribbon
+
+Glass1500
+
+4.68 ± 1.92
+
+1.28 ± 0.44
+
+3.66
+
+1.26
+
+LITMIS Slit
+
+Glass1500
+
+5.32 ± 0.94
+
+0.70 ± 0.26
+
+7.60
+
+0.30
+
+Tungsten Ribbon
+
+AlRoom
+
+22.68 ± 1.17
+
+4.74 ± 0.27
+
+4.78
+
+1.00
+
+LITMIS Slit
+
+AlRoom
+
+21.84 ± 0.92
+
+0.85 ± 0.30
+
+25.69
+
+0.26
+
+Tungsten Ribbon
+
+Al150
+
+Not Measurable
+
+LITMIS Slit
+
+Al150
+
+18.44 ± 0.81
+
+0.89 ± 0.27
+
+20.71
+
+0.27
+
+the centroids, was consistently approximately a third of a scan step for the LITMIS source and
+was approximately a full scan step for the tungsten ribbon source.
+We acknowledge that the surface reconstruction results are in no way meant to reflect the
+reconstruction accuracy of either source, as the reconstruction accuracy is related to several
+system level effects and not the scope of the presented work. The performance and accuracy
+of an infrared deflectometry system using a tungsten ribbon has been already confirmed and
+published [14,19]. The significance of the LITMIS solution is demonstrated by observing and
+comparing the repeatability and noise statistics of the traditional tungsten ribbon source and the
+LITMIS source.
+6.
+
+Conclusion
+
+While infrared deflectometry has been used to provide metrology of rough surfaces, there are
+clear limitations in surface testing and reconstruction capabilities due to inherent characteristics
+of a tungsten ribbon source. For precision fabrication and metrology, any uncertainty in the
+spatial and temporal behavior of a source directly negatively impacts the reconstruction accuracy
+and uncertainty. Additionally, due to testing being performed in the infrared region, there are
+almost always significant background thermal radiation contributions, which may fluctuate over
+time and further degrade results. We have instead created an integrating cavity source, which
+emits long-wave infrared light uniformly from a precision machined exit slit, which we call
+LITMIS. The temporal and spatial emission behavior is excellent for the source. Further, the
+source is temporally modulated at up to 1 Hz, which allows not only for better signal isolation
+from the background noise but can accommodate testing in an environment where background
+thermal fluctuations are occurring.
+A demonstration infrared deflectometry system using the new LITMIS slit source successfully
+tested a diffuse ground glass optic as well as an aluminum blank. The source exhibited excellent
+repeatability and significantly improved the SNR of the test, as compared to testing using a
+traditional tungsten ribbon. Further, the LITMIS slit source allowed for testing a previously
+unmeasurable aluminum blank while under thermal load, with the blank having been heated to
+approximately 150 °C. This could enable in-situ testing of optics placed under thermal load to
+observe surface behavior in extreme environment situations. We do not claim using the LITMIS
+method is a superior test method to other metrology solutions. Instead, our goal is to expand the
+library of usable infrared sources for deflectometry, thereby further expanding the metrology
+options.
+Acknowledgment
+This research was made possible in part by the II-VI Foundation Block-Gift Program, the
+Technology Research Initiative Fund Optics/Imaging Program, and the Friends of Tucson Optics
+
+Research Article
+
+Vol. 27, No. 20 / 30 September 2019 / Optics Express 28677
+
+Endowed Scholarships in Optical Sciences. Additionally, the non-sequential light modeling and
+analysis was made possible by the educational license for LightTools provided by Synopsys.
+References
+1. D. W. Kim, H. M. Martin, and J. H. Burge, “Calibration and optimization of computer-controlled optical surfacing
+for large optics,” in Optical Manufacturing and Testing IX (International Society for Optics and Photonics, 2011),
+8126, p. 812615.
+2. M. Beier, S. Scheiding, A. Gebhardt, R. Loose, S. Risse, R. Eberhardt, and A. Tünnermann, “Fabrication of high
+precision metallic freeform mirrors with magnetorheological finishing (MRF),” in Optifab 2013 (International Society
+for Optics and Photonics, 2013), 8884, p. 88840S.
+3. T. Blalock, K. Medicus, and J. D. Nelson, “Fabrication of freeform optics,” in Optical Manufacturing and Testing XI
+(International Society for Optics and Photonics, 2015), 9575, p. 95750H.
+4. D. W. Kim, C. Oh, A. Lowman, G. A. Smith, M. Aftab, and J. H. Burge, Proc. SPIE 9912, Advances in Optical and
+Mechanical Technologies for Telescopes and Instrumentation II, 99120F (22 July 2016);
+5. D. W. Kim, J. H. Burge, J. M. Davis, H. M. Martin, M. T. Tuell, L. R. Graves, and S. C. West, “New and improved
+technology for manufacture of GMT primary mirror segments,” in Advances in Optical and Mechanical Technologies
+for Telescopes and Instrumentation II (International Society for Optics and Photonics, 2016), 9912, p. 99120P.
+6. P. Zhou, H. Martin, C. Zhao, and J. H. Burge, “Mapping distortion correction for GMT interferometric test,”
+in Imaging and Applied Optics Technical Papers (2012), Paper OW3D.2 (Optical Society of America, 2012), p.
+OW3D.2.
+7. C. J. Oh, A. E. Lowman, G. A. Smith, P. Su, R. Huang, T. Su, D. Kim, C. Zhao, P. Zhou, and J. H. Burge, “Fabrication
+and testing of 4.2 m off-axis aspheric primary mirror of Daniel K. Inouye Solar Telescope,” in Advances in Optical
+and Mechanical Technologies for Telescopes and Instrumentation II (International Society for Optics and Photonics,
+2016), 9912, p. 99120O.
+8. M. B. Dubin, P. Su, and J. H. Burge, “Fizeau interferometer with spherical reference and CGH correction for
+measuring large convex aspheres,” Proc. SPIE 7426, 74260S (2009).
+9. R. Geyl, D. Bardon, R. Bourgois, N. Ferachoglou, E. Harel, and C. Couteret, “First steps in ELT optics polishing,” in
+Fifth European Seminar on Precision Optics Manufacturing (International Society for Optics and Photonics, 2018),
+10829, p. 1082904.
+10. M. Dimmler, P. Barriga, M. Cayrel, F. Derie, A. Foerster, F. Gonte, J. C. Gonzalez, L. Jochum, N. Kornweibel, S.
+Leveque, C. Lucuix, and L. Pettazzi, “Getting ready for serial production of the segmented 39-meter ELT primary:
+status, challenges and strategies,” in Ground-Based and Airborne Telescopes VII (International Society for Optics
+and Photonics, 2018), 10700, p. 1070043.
+11. U. Mueller, “Production metrology design and calibration for TMT primary mirror fabrication used at multiple
+manufacturing sites,” in Ground-Based and Airborne Telescopes VI (International Society for Optics and Photonics,
+2016), 9906, p. 99060Z.
+12. M. Sieger, F. Balluff, X. Wang, S.-S. Kim, L. Leidner, G. Gauglitz, and B. Mizaikoff, “On-chip integrated mid-infrared
+GaAs/AlGaAs mach–zehnder interferometer,” Anal. Chem. 85(6), 3050–3052 (2013).
+13. H. Yoo, G. A. Smith, C. J. Oh, A. E. Lowman, and M. Dubin, “Improvements in the scanning long-wave optical test
+system,” in Optical Manufacturing and Testing XII (International Society for Optics and Photonics, 2018), 10742, p.
+1074216.
+14. T. Su, S. Wang, R. E. Parks, P. Su, and J. H. Burge, “Measuring rough optical surfaces using scanning long-wave
+optical test system. 1. Principle and implementation,” Appl. Opt. 52(29), 7117–7126 (2013).
+15. H. M. Martin, R. G. Allen, J. H. Burge, J. M. Davis, W. B. Davison, M. Johns, D. W. Kim, J. S. Kingsley, K. Law, R.
+D. Lutz, P. A. Strittmatter, P. Su, M. T. Tuell, S. C. West, and P. Zhou, “Production of primary mirror segments for the
+Giant Magellan Telescope,” in Advances in Optical and Mechanical Technologies for Telescopes and Instrumentation
+(International Society for Optics and Photonics, 2014), 9151, p. 91510J.
+16. L. R. Graves, H. Quach, H. Choi, and D. W. Kim, “Infinite deflectometry enabling 2pi-steradian measurement range,”
+Opt. Express 27(5), 7602–7615 (2019).
+17. W. H. Southwell, “Wave-front estimation from wave-front slope measurements,” J. Opt. Soc. Am. 70(8), 998–1006
+(1980).
+18. M. Aftab, J. H. Burge, G. A. Smith, L. Graves, C. Oh, and D. W. Kim, “Chebyshev gradient polynomials for high
+resolution surface and wavefront reconstruction,” in Optical Manufacturing and Testing XII (International Society for
+Optics and Photonics, 2018), 10742, p. 1074211.
+19. T. Su, Asphercial metrology for non-specular surfaces with the Scanning Long-wave Optical Test System (2014).
+20. D. W. Kim, T. Su, P. Su, C. Oh, L. Graves, and J. Burge, “Accurate and rapid IR metrology for the manufacture
+of freeform optics” http://www.spie.org/newsroom/6015-accurate-and-rapid-ir-metrology-for-the-manufacture-offreeform-optics?SSO=1.
+21. S. Höfer, J. Burke, and M. Heizmann, “Infrared deflectometry for the inspection of diffusely specular surfaces,” Adv.
+Opt. Techn. 5(6), 377–387 (2016).
+
+Research Article
+
+Vol. 27, No. 20 / 30 September 2019 / Optics Express 28678
+
+22. T. Hessler, O. Dubochet, M. Forster, M. Merschdorf, and P. Surbled, “Micro-machined, electrically modulated
+thermal infrared source with black body characteristic,” in 8th International Conference and Exhibition on Infrared
+Sensors & Systems (2004), 1.
+23. T. Su, W. H. Park, R. E. Parks, P. Su, and J. H. Burge, “Scanning Long-wave Optical Test System: a new ground
+optical surface slope test system,” in Optical Manufacturing and Testing IX (International Society for Optics and
+Photonics, 2011), 8126, p. 81260E.
+24. P. R. Bevington and D. K. Robinson, Data Reduction and Error Analysis for the Physical Sciences (McGraw-Hill,
+2003).
+25. J. S. Morgan, D. C. Slater, J. G. Timothy, and E. B. Jenkins, “Centroid position measurements and subpixel sensitivity
+variations with the MAMA detector,” Appl. Opt. 28(6), 1178–1192 (1989).
+26. J. C. De Vos, “A new determination of the emissivity of tungsten ribbon,” Physica 20(7-12), 690–714 (1954).
+27. V. D. Dmitriev and G. K. Kholopov, “Radiant emissivity of tungsten in the infrared region of the spectrum,” J. Appl.
+Spectrosc. 2(6), 315–320 (1965).
+28. K. Ujihara, “Reflectivity of metals at high temperatures,” J. Appl. Phys. 43(5), 2376–2383 (1972).
+
+

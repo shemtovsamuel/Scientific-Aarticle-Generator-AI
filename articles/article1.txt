@@ -1,0 +1,722 @@
+Adv. Opt. Techn. 2016; 5(5-6): 377–387
+
+Review Article
+
+Open Access
+
+Sebastian Höfer, Jan Burke* and Michael Heizmann
+
+Infrared deflectometry for the inspection of
+diffusely specular surfaces
+DOI 10.1515/aot-2016-0051
+Received September 12, 2016; accepted November 5, 2016; p
+­ reviously
+published online December 8, 2016
+
+principles of thermal deflectometry, its special challenges,
+and illustrates its use with examples from the inspection
+of industrially produced surfaces.
+
+Abstract: Deflectometry is a full-field gradient technique
+that lends itself very well to testing specular surfaces. It
+uses the geometry of specular reflection to determine the
+gradient of the surface under inspection. In consequence,
+a necessary precondition to apply deflectometry is the
+presence of at least partially specular reflection. Surfaces
+with larger roughness have increasingly diffuse reflection
+characteristics, making them inaccessible to usual deflectometry. However, many industrially relevant surfaces
+exist that change their reflection characteristic during
+production and processing. An example is metal sheets
+that are used as car body parts. Whereas the molded but
+otherwise raw metal sheets show a mostly diffuse reflection without sufficient specular reflection, the final car
+body panels have a high specular reflectance due to the
+lacquering. In consequence, it would be advantageous
+to apply the same inspection approach both for the raw
+material and for the final product. To solve this challenge,
+specular reflection from rough surfaces can be achieved
+using light with a larger wavelength, as the specular
+reflectivity of a surface depends on the ratio of the surface roughness and the wavelength of the light applied.
+Wavelengths in the thermal infrared range create enough
+specular reflection to apply deflectometry on many visually rough metal surfaces. This contribution presents the
+
+Keywords: deflectometry; infrared displays; metrological
+instrumentation.
+
+*Corresponding author: Jan Burke, Fraunhofer Institute of
+Optronics, System Technologies and Image Exploitation – Systems
+for Measurement, Control and Diagnosis (MRD), Karlsruhe,
+DE 76131, Fraunhoferstraße 1, Germany,
+e-mail: Jan.Burke@IOSB.Fraunhofer.de
+Sebastian Höfer: Fraunhofer Institute of Optronics, System
+Technologies and Image Exploitation – Systems for
+Measurement, Control and Diagnosis (MRD), Karlsruhe, DE 76131,
+Fraunhoferstraße 1, Germany
+Michael Heizmann: Karlsruher Institut für Technologie (KIT) –
+Institute of Industrial Information Technology, Hertzstraße 16,
+Geb. 06.35, Karlsruhe 76187, Germany
+
+www.degruyter.com/aot
+
+1 Introduction
+This section presents the basic ingredients needed for
+understanding the technique of deflectometry and appreciating the rationale for extending the wavelength range
+into the infrared.
+
+1.1 D
+ eflectometry
+When testing and/or measuring reflective objects, the
+well-established technique of fringe projection [1] is not
+available because there is not enough scattered light available to carry out measurements of the object geometry
+by capturing the diffuse reflection of the object surface.
+Ideal mirrors (which are very rare in practice) generate
+no scattered light at all. This means that the surface of
+a mirror cannot be measured directly by fringe projection. Still, the geometry of such surfaces is accessible to
+indirect measurements: a known reference pattern and a
+camera are placed in such a geometrical relationship with
+the object to be tested that the camera can observe the
+mirror image of the reference pattern ‘on’ the test object
+[2–8]. Any slopes or slope changes of the object surface
+will then reveal/encode themselves in displacements and
+distortions of the recorded reference pattern, which can
+readily be understood to represent the first derivatives of
+the test surface. This means also that both partial derivatives are needed to reconstruct the actual surface shape
+by integration if required [9–13]. As deflectometry has no
+intrinsic sensitivity to the object distance and the integration problem is therefore underdetermined, additional
+knowledge such as an additional point measurement or
+data from an additional deflectometric measurement
+must be used [4, 5, 10]. Another possibility to use the
+
+© 2016 THOSS Media and De Gruyter
+©2016, Jan Burke et al., published by De Gruyter.
+This work is licensed under the Creative Commons Attribution-NonCommercial-NoDerivatives 3.0 License.
+
+378
+
+S. Höfer et al.: Infrared deflectometry for diffusely specular surfaces
+
+deflectometric measurement is to just evaluate the deviation of the observed reflection from the reflection that an
+error-free surface would show. In many cases, e.g. when
+only the presence of geometrical surface deviations is of
+interest rather than their actual geometry, a mathematical surface reconstruction and the associated calibration
+effort can thus be avoided.
+Whether or not a 3-D surface is to be reconstructed,
+geometry information is required about the directions of
+the rays that form the image of the reference pattern; in
+other words, the unique relationship between coordinates
+on the reference screen and camera pixels must be found
+for each camera pixel. For objects that are specularly
+reflective in the visible wavelength range, this process is
+usually done by coding the screen pixels using a series of
+fringe patterns, e.g. Gray codes and/or phase shifting [14]
+combined with unwrapping techniques [15, 16]. To that
+end, a series of images, which depicts all reference patterns of the code, is recorded with the same placement of
+the surface, the screen, and the camera. Provided that the
+measurement noise of the brightness in the recorded series
+is low, a position uncertainty on the screen is obtained
+that is at least good enough to discern single pixels and
+far in the sub-pixel regime if phase-shifting techniques
+are used. The principle is sketched in Figure 1.
+A major advantage of deflectometry is its very high
+measurement sensitivity to changes in the slope and the
+shape of the surface. It can be shown that using standard
+components from machine vision, it is possible to obtain
+a slope resolution of tens of μrad or better and, in consequence, a height resolution of tens of nanometers or better
+[7, 8]. This sensitivity is made possible by phase shifting
+and can be enhanced further by increasing the distance
+between reference pattern and object [2]. Such performance in the range of the wavelength of visible light is
+especially remarkable, as deflectometry uses only principles from geometrical optics and does not consider any
+effect of wave optics.
+Nowadays, deflectometry is used as an industrial
+inspection technology for a variety of objects, e.g. for
+painted surfaces and cast parts in the automobile industry as well as for optical components, such as eyeglass
+lenses or mirrors in astronomy. However, the applicability
+of deflectometry is limited to surfaces with a sufficiently
+high specular reflectivity. This restricts the scope of use, as
+many industrially produced objects have a diffuse surface
+during the initial production stages and become specular only later in the process. As the quality of a specular
+product is assessed by deflectometry on the final product,
+it would be adequate to use the same technique on the raw
+object or with an intermediate processing status.
+
+Figure 1: Measurement principle of phase-measuring deflectometry.
+A series of fringe patterns is displayed as a reference on a screen
+(e.g. a monitor), and the camera observes the specular reflection
+of the fringe patterns by the surface under inspection. The shape
+of the surface directly determines the recorded image. In consequence, distortions of the surface can be detected, and quantitative
+reconstruction of the surface is feasible.
+
+1.2 Surface roughness and reflectivity
+The general applicability of deflectometry requires the
+presence of at least a partially specular reflection at the
+surface. In addition to the bulk properties of the material, the surface reflectivity is primarily influenced by the
+roughness of the surface. The roughness is a parameter
+of the microstructure, which can be a result of a machining process or just the raw state of the material’s surface.
+Such microstructures are usually not resolved by a deflectometry setup, but the roughness, nonetheless, becomes
+visible by the scattering of light, i.e. a significant proportion of diffuse reflection. This effect can be perceived as a
+blurring of reflected structures (see Figure 2).
+For the application of deflectometry, we want to minimize this undesirable effect (leading to partial or total loss
+of the reflected-fringe contrast) and maximize the specular part of the reflection. Infrared deflectometry exploits
+
+Figure 2: Comparison of wavelength-dependent scattering by
+calibrated surface-roughness standards in the visible (wavelength
+0.4–0.7 μm) and long-wave infrared (wavelength 8–14 μm) ranges.
+The samples’ RMS surface roughness Rq is indicated for each area.
+
+S. Höfer et al.: Infrared deflectometry for diffusely specular surfaces
+
+the fact that one of the quantities governing the scattering
+properties is the wavelength of the reflected light.
+A general model for the scattering of electromagnetic
+waves on rough surfaces was described by Bennett and
+Porteus in Ref. [17]. We can use a simplified version of this
+model to quantify the influence factors of this effect. For
+this, we assume that the incidence of the IR radiation is
+in surface normal direction, the acceptance angle of the
+sensor is very small and the height profile of the microstructure has a Gaussian distribution. With these assumptions, the model describes the ratio between the specular
+reflectivity of the rough surface r and the reflectivity r0
+of a perfectly smooth surface of the same material. The
+simplified model depends only on the wavelength λ of the
+reflected light and on the surface roughness, which is typically quantified by its root-mean-square roughness Rq:
+ρ
+− (4 πRq )2 / λ2
+=e
+ρ0
+
+
+
+379
+
+Figure 3: Proportion of specular reflection as a function of Rq with
+wavelengths as parameters, plotted with Eq. (1). The denoted wavelengths give the upper and lower boundaries for the reflectance in
+the respective wavelength range, the visible range is drawn in light
+blue, the IR range in light red.
+
+(1)
+
+For the applications considered here, the RMS roughness
+Rq is in the range from tenths of micrometers up to a few
+micrometers. In this range, the reflectivity for visible light
+drops significantly. Figure 3 presents a quantitative plot
+of reflectance vs. Rq from 0 up to 1 μm for different wavelength ranges. Using light of a longer wavelength in the
+thermal infrared spectrum, we obtain specular reflection
+on surfaces, which exhibit a diffuse optical appearance in
+the visible light spectrum. A thorough study of IR reflectivities was presented in Ref. [18].
+The mode of observation is not to be confused with
+thermography, although similar cameras are used: thermography applications observe the radiation emitted from
+the surface under inspection, whereas in IR deflectometry,
+the surface is inspected indirectly using the IR radiation
+(light) from a dedicated pattern that is reflected at that
+surface. As such, we do not observe the temperature of the
+object itself, but we use it as a mirror in which we observe
+the temperature of the reference screen.
+
+1.3 T
+ hermal cameras
+For practical applications, the wavelength that can be
+used is limited by the available technology. The key component here is the camera for the deflectometric sensor.
+The increase in specularity with wavelength can be demonstrated even for a wavelength increase in the visible
+spectrum; however, the maximum effect with available
+technology can be attained in the long wavelength infrared spectrum (LWIR). This part of the spectrum is covered
+
+by thermal imaging cameras with either cooled photonic
+sensors or uncooled microbolometer sensors. While photonic sensors offer higher frame rates and better sensitivity and are available for a larger choice of spectral ranges,
+microbolometer sensors are commonly used because they
+are more affordable and offer a slightly wider spectral sensitivity range in the LWIR spectrum (8–14 μm).
+A future advantage of microbolometer technology is
+its increased use in applications, like sensors for the automotive sector, which provides for a broader availability of
+this technology and the prospect of decreasing costs in the
+future.
+A drawback of the thermal infrared spectrum comes
+with the diffraction limit imposed by the longer wavelength, which limits the maximal achievable resolution
+of the deflectometry system. The point image is, hence,
+larger by about an order of magnitude; on the other hand,
+the pixels of microbolometer cameras are also larger than
+the pixels for VIS cameras by the same ratio, so that the
+distinctly lower sensor resolutions (e.g. 640 × 480 pixels)
+are physically well founded and adequate.
+Constant improvements in thermal imaging technology in the last years have gradually enabled practical
+applications for infrared deflectometry. In terms of image
+resolution and frame rates, the performance of thermal
+infrared cameras is now almost comparable with conventional cameras [19].
+Especially the inspection of raw metal (as flat sheets
+or molded parts) is an interesting application for IR
+deflectometry. The roughness of such materials is usually
+beyond the specular range for the visible spectrum, but
+well within it for the LWIR spectrum. An additional benefit
+
+380
+
+S. Höfer et al.: Infrared deflectometry for diffusely specular surfaces
+
+apart from the robustness against surface roughness is
+that all metals exhibit an increased reflectivity at longer
+wavelength. Also, IR deflectometry has found applications
+in optics fabrication, especially aspherics. Large time and
+cost savings are possible when mirrors can be inspected
+as mirrors even during the grinding stage [20]. The better
+the pre-figuring, the less time will be spent polishing with
+very low material removal rates. Glass can easily be tested
+with IR deflectometry because the often disturbing rearside reflection [21] is absent: glass becomes opaque in the
+infrared. This is particularly important as the option of
+grinding the rear surface for removing the extra reflection
+would, of course, no longer work.
+
+2 T
+ hermal patterns
+While the camera technology for a deflectometry sensor is
+commercially available in the form of thermal IR cameras,
+there is effectively no suitable technology for generating
+dynamic thermal patterns in the way a monitor or projector serves the purpose of pattern generation for the visible
+light spectrum. Recent development in the field of IR
+deflectometry is, therefore, focused on devising dedicated
+methods for position encoding with thermal patterns and
+the evaluation of the acquired heat images.
+Formerly, the development of thermal pattern generators was restricted to specialized and very expensive equipment for military applications. The need for hardware test
+equipment for heat seeking missiles or thermal imagers
+led to a variety of approaches to simulate dynamic infrared scenes by means of emissive, transmissive, or reflective methods, or with laser scanners. Williams gives an
+extensive overview of the technologies that emerged from
+this research in Ref. [22]. Today, the prevailing technology
+in this field is based on microresistor arrays that create
+thermal patterns pixel-wise by heating resistors electrically on a chip-scale display.
+Unfortunately, apart from being virtually unavailable for civil purposes, these infrared scene simulators
+are unsuitable for usage in a deflectometry setup. The
+test equipment usually features only a chip-sized display
+or a low-power projector directly coupled to the sensor
+under test. Deflectometry, however, requires a large,
+ideally planar pattern display. Therefore, in this section,
+we discuss different pattern-generation methods that are
+suitable for IR deflectometry.
+The challenge in IR deflectometry is to create a spatial
+and temporal modulation of the thermal pattern with the
+highest possible contrast. It is fairly easy to create a light
+
+source for the LWIR spectrum by means of a heat source,
+and as the sensitivity of typical IR cameras peaks around
+room temperature, it can be done safely without high-temperature sources. But heat transfer by conduction, convection, or radiation makes it challenging to maintain cooler
+areas right next to a heat source to achieve high-contrast
+patterns. As typical techniques for position coding require
+a series of different patterns, the necessary temporal modulation of the pattern can complicate things further.
+
+2.1 S
+ tatic patterns
+A proven method for the generation of thermal patterns
+is static patterns. Instead of using regions of different
+temperature, most methods modulate the emitted infrared radiation by using regions of different emissivity,
+reflectance, or transmittance. The fact that static patterns
+cannot be temporally modulated/modified is no exclusion criterion for their use in IR deflectometry. Almost all
+coding methods for deflectometry use some kind of stripe
+pattern that is shifted linearly or rotated. The possibility
+to implement this method with a physically stationary
+monitor in the visible is simply an addition of convenience
+in this context, not a necessity.
+2.1.1 Moving emissivity-coded screens
+Figure 4 shows an example for a high-contrast static
+pattern with differing surface emissivity. While the copper
+plate is evenly heated to the same temperature, regions
+with the exposed metal appear cool to the thermal infrared camera due to the near-zero emissivity of the metal.
+However, the imprinted pattern with significantly higher
+emissivity shows the actual temperature of the surface.
+Of course, temporally varying patterns can also be
+created and recorded by mechanically moving a static
+pattern. This method was first used by Kammel and
+Horbach in Ref. [23] to implement position encoding with a
+single phase-shifted binary pattern, which demonstrated
+for the first time the applicability of IR deflectometry on
+unpainted car body parts. Surface defects were detected
+with a simple evaluation based on the contrast and modulation information of the phase-shifted pattern. Figure 5
+shows an embodiment of the technique.
+In a similar experiment in Ref. [24], a full phase-shift
+code sequence was obtained by shifting and rotating
+multiple static sine patterns. In this case, the application
+was the surface inspection of transparent materials that
+become opaque in the far infrared spectrum, so that artifacts from multiple reflections can be avoided.
+
+S. Höfer et al.: Infrared deflectometry for diffusely specular surfaces
+
+381
+
+Figure 4: Example for a high-contrast static pattern with differing surface emissivity. The object (dimensions 120 mm × 80 mm) is a blank for
+printed circuit board production, the surface is brushed copper, and the patterns consist of transferred laser-printer toner. (A) Appearance in
+visible light, (B) false-color image of plate (heated to 80 K over room temperature) in thermal IR; blue means low radiation, red means high
+radiation.
+
+Figure 5: Laboratory setup for testing a car body part with fixed
+pattern that is translated in steps of a quarter of its period to implement a simple phase-shifting method. The low-emissivity carrier
+metal is aluminum in this case.
+
+A disadvantage of this approach is that care has to be
+taken where the reflection of the object is directed. If the
+measurement setup is not designed carefully, heat sources
+in the surroundings, such as the camera itself, end up as
+ghost images superimposing the images taken by the IR
+camera.
+
+2.1.2 Radiating hot wire
+Another successful approach with static patterns was
+demonstrated in the inspection of unpolished astronomical telescope mirrors during the grinding stage [20], where
+a scanning hot wire is used as an IR line light source. To
+implement the position encoding, the wire is moved with
+a motorized stage horizontally and vertically. The wire as
+IR light source has the advantage that it can be suspended
+in free air and heated to high temperatures in order to
+create a high-contrast pattern in the IR spectrum. At the
+
+same time, a single-line pattern entails the disadvantage
+that many frames have to be acquired to sample the whole
+surface, so that the frame rate of the camera sets a lower
+boundary for the total measurement time.
+To obtain position coding with this approach, the
+scanned line pattern has to be located accurately in the
+camera images. A robust method is to calculate the centroid of the intensity for each pixel over a sequence of
+images [25]. If the movement of the line pattern is slow
+enough, each camera pixel takes multiple intensity measurements of the passing line profile from which the position of its center can be obtained. This gives an instant of
+maximum intensity for each pixel and, given the corresponding position of the line pattern, a position encoding
+between camera and pattern.
+The heated-wire concept was later adapted for the
+inspection of arbitrary surfaces in a scanning sensor
+setup [26]. Here, the movement is restricted to only one
+direction, and only partial position coding is obtained,
+but at the same time, the scanning approach enables the
+inspection of large-scale surfaces or inline inspection of
+linearly moving objects. It was also shown that for fastmoving line patterns, e.g. at a setup for inline inspection, or on surfaces that distort the reflected pattern
+significantly, an actual line detection (as opposed to
+centroiding) can obtain better results. A new tensorbased method was introduced in Ref. [26] that performs
+a subpixel-accurate line detection for each image and
+interpolates the movement of the pattern between
+single frames.
+This method was used with the setups shown in
+Figure 6, also in connection with a heated wire as pattern
+source. Figure 6A shows the concept as a robot-mounted
+version of the sensor, which provides a flexible way to
+inspect large-scale surfaces of arbitrary geometry by scanning them in a continuous path. The reverse concept is
+
+382
+
+S. Höfer et al.: Infrared deflectometry for diffusely specular surfaces
+
+Figure 6: Two setups that use a single heated wire as pattern source to linearly scan the surface under inspection. (A) Robot-mounted
+sensor that can be moved in arbitrary paths over the surface and enables the inspection of large-scale surfaces; (B) setup for inline inspection where the object is moving and the sensor is mounted in a fixed configuration over the transport mechanism.
+
+shown in Figure 6B where the object to be inspected is
+moving, e.g. on a conveyor belt, and is inspected while
+passing under the fixed mounted sensor.
+
+2.2 D
+ ynamic patterns
+Another approach for realizing position encoding is to
+create planar thermal patterns dynamically, as a display
+screen for the thermal infrared spectrum, so to speak. As
+previously mentioned, the difficulty lies in creating and
+maintaining a high temperature difference in a small
+space, which is necessary for a high-contrast pattern.
+Unfortunately, the existing approaches to generate static patterns in IR deflectometry, e.g. modulating
+emissive, reflective, or transmissive material properties,
+cannot be applied to generate dynamic patterns. Common
+methods for dynamic patterns from the visible spectrum,
+like LED, LCD, or CRT technologies, are also not viable for
+the thermal IR spectrum [27] or, in case of digital micromirror devices, would need extensive redesign to be applicable [22].
+For a display based on regions with a different temperature, heat diffusion leads to fading of the pattern and
+cross-talk between neighboring regions. Moreover, the
+energy required to change the displayed pattern increases
+significantly with the size of the display area as it has to be
+heated up or cooled down. Therefore, such displays need
+careful design.
+For IR deflectometry, two new methods for creating
+dynamic patterns have been tested by the authors: pattern
+generation with large-scale resistor arrays (as opposed to
+specialized arrays with pixel pitches of several tens of μm
+
+[28] and luminosities insufficient for deflectometry) and
+surface heating with laser radiation.
+
+2.2.1 Resistor arrays
+Displays based on resistor arrays use the heat dissipation
+in resistors as IR source. By arranging the resistors in a
+grid pattern and controlling the electrical current for each
+resistor individually, a display for the IR spectrum can be
+realized that allows the display of arbitrary pixel images.
+This method was already proposed in Ref. [27] and implemented on a small scale in Ref. [24].
+Figure 7 shows a resistor array setup and the resulting image in the LWIR spectrum. Tiling such arrays makes
+displays of arbitrary size possible. The challenges of this
+design lie in the practical implementation. Problems like
+the heat transfer through the base material, and cooling
+of the display when pixels are switched off, have to be
+solved, and a glance at the aforementioned microresistor arrays shows that this requires extensive engineering efforts even at small scales. While resistor arrays are
+definitely a viable technology for application in IR deflectometry, their design and operation becomes complex for
+higher frame rates and pixel densities.
+
+2.2.2 Laser-heated screens
+Another approach is to use laser heating for creating
+thermal IR displays, which has been demonstrated in
+Ref. [29]. By using a powerful laser with a mirror scanner,
+regions on a projection surface can be heated locally with
+
+S. Höfer et al.: Infrared deflectometry for diffusely specular surfaces
+
+383
+
+Figure 7: Resistor array for thermal pattern generation. (A) Prototype circuit board with a 16 × 16 array of SMD resistors. (B) By controlling
+the current flowing through each resistor individually, arbitrary pixel images can be displayed.
+
+the aim that the resulting heat signature represents the
+desired pattern. This way, off-the-shelf laser hardware can
+be used to create large-scale thermal patterns. Unlike conventional projections, the laser light is mostly absorbed
+and heats the surface instead of being scattered. Still,
+there must be no direct reflections of the laser beam into
+the IR camera, as the intensity is high enough to destroy
+the camera sensor.
+The drawback of this method is that the pattern
+buildup is not instantaneous. Already written parts of the
+pattern slowly diffuse and cool down while the laser is
+still working.
+Figure 8A shows a laboratory setup with a conventional laser system as used for laser processing, where the
+laser beam is steered by a mirror scanner. The projection
+screen takes the role of the pattern display, and the setup
+with the camera observing the reflection of the pattern in
+the surface under test represents a deflectometry setup.
+Figure 8B shows several snapshots of the resulting pattern
+on the screen, where the current position of the laser spot
+is clearly visible. To achieve position coding with such
+a fading pattern, the camera records a video sequence
+during the writing process. From the current position of
+the laser spot in each frame of the sequence and the corresponding known position of the laser on the projection
+screen, a rough position encoding can be obtained. This
+can be extended with a model of the projection surface’s
+thermodynamic behavior to interpolate the laser position even between single frames and get a more precise
+position decoding. Following the time arrow in Figure 8B
+allows building accurate cooling curves. Eventually, a
+complete pattern can be built up from all recorded frames
+as in Figure 8C.
+
+The advantage of this method is that it can easily be
+scaled up to large projection surfaces, but at the cost of
+longer build up times for the pattern. This could be compensated by increasing the laser’s power output to maintain the pattern contrast at higher write speeds.
+
+3 A
+ pplications
+3.1 Sensitive defect detection on visually
+diffuse objects
+The target application for most developments in IR deflectometry is the inspection of objects with raw metal surfaces
+in the steel or automotive industry. While there are many
+options to perform IR deflectometry with the previously
+shown methods, a lightweight and mobile setup is preferable, which is why the scanning setup from Figure 6A has
+proven to be the most versatile one for this application.
+Figure 9 shows the result from scanning a car body sheet
+as a fused image from multiple scan lines (line pitch in
+scan direction: 2 mm) and the derived local gradients of
+the surface. The surface has been scanned vertically and
+horizontally to obtain both gradients, but only one fringe
+image is shown here.
+The defects in Figure 9A are usually only visible by
+manual inspection after honing the surface with a dressing stone. Not so in deflectometry: defects appear as
+minima and maxima in the gradient image and can easily
+be detected. The actual depth of the defects ranges from
+50 μm to 400 μm, as determined both by the integration
+
+384
+
+S. Höfer et al.: Infrared deflectometry for diffusely specular surfaces
+
+Figure 8: Thermal pattern generation with a laser. An off-the-shelf laser processing system is used to inscribe heat patterns onto a
+projection surface (A). (B) Decay of thermal pattern as the laser beam is moved across the screen. In this example, the laser’s scan speed
+was 40 mm per frame. The numbers in the individual frames give the frame count; note the quick cooling at a given location (indicated by
+dashed line). (C) Complete thermal pattern, synthesized from all recorded frames. With 100-W output power, it takes about 8 s to write
+the pattern shown with a temperature contrast of 12 K. For comparison, the temperature equivalent noise of the camera sensor is about
+50 mK RMS.
+
+A
+
+B
+
+Figure 9: Results from a car body sheet measured with a scanning sensor. The images show a 300-mm × 250 mm section of the surface. (A)
+Vertical-scan lines merged into a single image, defects are readily visible as distortions; (B) computed local gradients, where defects are
+clearly visible as minima or maxima in the gradient map.
+
+S. Höfer et al.: Infrared deflectometry for diffusely specular surfaces
+
+385
+
+Figure 10: Gradient map of a car body part resulting from measurement during linear movement of the part. The part was moving from left
+to right under the sensor, which was fixed over the transport mechanism.
+
+of the deflectometric gradient maps and cross-checks with
+a focusing microscope.
+Another possible setup for a scanning IR deflectometry sensor is to use it for inline inspection where the objects
+to be inspected are already moving, e.g. on a conveyor belt
+during manufacturing. The objects are inspected while
+passing the sensor, provided the surface geometry is
+accessible from a static position of the camera. A result
+that was acquired with the scanning setup from Figure 6B
+on a predominantly flat car body part with a raw metal
+surface is shown in Figure 10. The image shows the local
+change in the measured gradients where surface defects,
+such as dents in the material, and edges in the geometry
+stand out as sudden changes.
+When custom building the pattern generators cannot
+be avoided, one weakness of IR deflectometry (not having
+programmable off-the-shelf display screens available)
+turns into a strength: the pattern generators can be made
+to the specifications of the task, including for dedicated
+surface shapes and/or large object sizes.
+
+3.2 Optics figure measurements in
+­preliminary processing stages
+Besides the benefit of IR deflectometry to enable measurements of visually rough surfaces, an additional advantage materializes in the surface inspection of transparent
+parts. Materials like glass and many transparent plastics
+are nearly completely transmissive in the visible light
+spectrum, but become opaque in the LWIR spectrum
+
+(which is why IR imaging optics use Germanium lenses,
+being opaque in the visible but transparent in the IR). As
+referenced above in Refs. [20, 25], it is, therefore, possible
+to measure glass optics that is ground on both sides but
+still reflective in the IR. Whether the tested surfaces are
+ground or polished, the parasitic rear-side reflection does
+not occur. One example of this is shown in Figure 11.
+In Figure 11A, front and rear side reflection patterns
+are visible, and scratched/scuffed areas in the center
+stand out clearly. In Figure 11B, only the front-side reflection appears; the scuffed areas are still visible, which
+means that their depth is a significant proportion of the
+IR wavelength. Also, the IR image is less sharp because of
+the reduced resolution due to both wavelength and pixel
+resolution of IR cameras, which was discussed above.
+
+4 Summary
+Current developments in IR deflectometry show that it has
+grown from first proofs of concept to a viable method for
+surface inspection. Especially its applicability on surfaces
+that are difficult to inspect, such as diffusely specular surfaces or materials that are transparent in the visible spectrum, makes it stand out among other optical inspection
+methods. The highest demand for IR deflectometry is currently for the inspection of raw metal surfaces primarily
+in the car industry. However, other applications already
+realized, like the inspection of telescope mirrors in early
+production stages, show that there are many fields where
+
+386
+
+S. Höfer et al.: Infrared deflectometry for diffusely specular surfaces
+
+Figure 11: Fringe reflections from the same plastic lens in the visible (A) and IR (B).
+
+the particular advantages of IR deflectometry make it
+uniquely suitable for the task.
+IR deflectometry enables the application of established methods and algorithms from conventional (visible
+spectrum) deflectometry to broaden the range of surfaces
+and materials that can be tested. Even though the generation of thermal patterns currently enforces significantly
+different setup concepts for thermal-infrared deflectometric sensors, the developments have led to new ways of
+doing deflectometry, like the scanning of surfaces, which
+enables new and relevant applications.
+
+References
+[1] S. Zhang, in ‘High-Speed 3D Imaging with Digital Fringe Projection Techniques’ (CRC Press, London, 2016).
+[2] J. Beyerer and D. Pérard, Tech. Mess. 64, 394–400 (1997).
+[3] R. Höfling, P. Aswendt and R. Neugebauer, Opt. Eng. 39, 175–182
+(2000).
+[4] M. Petz, Tech. Mess. 71, 389–397 (2004).
+[5] J. Kaminski, S. Lowitzsch, M. C. Knauer and G. Häusler, in
+‘Fringe 2005’, Ed. by W. Osten (Springer, Heidelberg, 2005)
+pp. ­372–379.
+[6] M. C. Knauer, Absolute Phasenmessende Deflektometrie,
+Dissertation, Institute of Optics, Information and Photonics,
+Max Planck Research Group, Friedrich-Alexander-Universität
+Erlangen-Nürnberg (2006).
+[7] P. Su, R. E. Parks, L. Wang, R. P. Angel and J. H. Burge, Appl. Opt.
+49, 4404–4412 (2010).
+[8] S. B. Werling, Deflektometrie zur automatischen Sichtprüfung
+und Rekonstruktion spiegelnder Oberflächen, Dissertation,
+Lehrstuhl für Interaktive Echtzeitsysteme am KIT, Fraunhofer
+IOSB (KIT Scientific Publishing, Karlsruhe, 2011).
+[9] W. Li, T. Bothe, C. von Kopylow and W. Jüptner, in ‘Optical
+Metrology in Production Engineering’, Ed. by W. Osten and
+M. Takeda, Proc. SPIE 5457 (SPIE, Bellingham, 2004) pp.
+300–311.
+
+[10] J. Balzer and S. B. Werling, Tech. Mess. 74, 545–552
+(2007).
+[11] S. Ettl, J. Kaminski, M. Knauer and G. Häusler, Appl. Opt. 47,
+2091–2097 (2008).
+[12] V. M. Patel and R. Chellappa, in ‘Excursions in Harmonic Analysis Volume 1’ (Birkhäuser, Boston, 2013) pp. 377–398.
+[13] L. Huang, M. Idir, C. Zuo, K. Kaznatcheev, L. Zhou, et al., Opt.
+Laser Eng. 64, 1–11 (2015).
+[14] J. Burke, in ‘Optical Methods for Solid Mechanics’ (Wiley-VCH,
+Weinheim, 2012) pp. 83–139.
+[15] W. Nadeborn, W. Osten and P. Andrä, Opt. Laser Eng. 24,
+245–260 (1996).
+[16] K. Falaggis, D. P. Towers and C. E. Towers, in ‘22nd Congress of
+the International Commission for Optics: Light for the Development of the World’, Ed. by R. Rodríguez-Vera and R. Díaz-Uribe,
+Proc. SPIE 8011 (SPIE, Bellingham, 2011), paper 80117H.
+[17] H. E. Bennett and J. O. Porteus, J. Opt. Soc. Am. 51, 123–129
+(1961).
+[18] Z. Sárosi, W. Knapp, A. Kunz and K. Wegener, in ‘InfraMation
+2010 Proceedings’, Infrared Training Center (2010).
+[19] H. Budzier and G. Gerlach, Thermische Infrarotsensoren,
+Grundlagen für Anwender (Wiley-VCH, Weinheim, 2010).
+[20] T. Su, S. Wang, R. E. Parks, P. Su and J. H. Burge, Appl. Opt. 52,
+7117–7126 (2013).
+[21] C. Faber, M. C. Knauer and G. Häusler, in ‘Proceedings of the
+110th Annual DGaO Conference’, A10 (2009).
+[22] O. M. Williams, Infrared Phys. Technol. 39, 473–486 (1998).
+[23] J. W. Horbach and S. Kammel, in ‘Machine Vision Applications in
+Industrial Inspection XIII’, Ed. by J. R. Price and F. Meriaudeau,
+Proc. SPIE 5679 (SPIE, Bellingham, 2005) pp. 108–117.
+[24] S. Höfer, M. Roschani, S. B. Werling and J. Beyerer, in ‘Tagungsband des XXV. Messtechnischen Symposiums des AHMT’,
+Ed. by F. Puente León and J. Beyerer (Shaker, Aachen, 2011)
+pp. 127–138.
+[25] T. Su, W. H. Park, R. E. Parks, P. Su and J. H. Burge, in
+‘Optical Manufacturing and Testing IX’, Ed. by J. H. Burge, O. W.
+Fähnle and R. Williamson, Proc. SPIE 8126 (SPIE, Bellingham,
+2011), paper 81260E.
+[26] S. Höfer and J. Beyerer, Tech. Mess. 83, 374–385 (2016).
+[27] Z. Sárosi, W. Knapp, A. Kunz and K. Wegener, in ‘InfraMation 2010 Proceedings’, Infrared Training Center, http://
+
+S. Höfer et al.: Infrared deflectometry for diffusely specular surfaces
+www.inspire.ethz.ch/ConfiguratorJM/publications/Detection__128316497984543/One_shot_deflectometry_in_IR_
+v4.pdf (2010).
+[28] O. M. Williams, G. C. Goldsmith II and R. G. Stockbridge, in
+‘Technologies for Synthetic Environments: Hardware-in-theLoop Testing X’, Ed. by R. L. Murrer Jr., Proc. SPIE 5785 (2005)
+pp. 208–224.
+[29] S. Höfer, S. B. Werling and J. Beyerer, in ‘Proceedings SENSOR
+2013’ (2013) pp. 785–790.
+
+Sebastian Höfer
+Fraunhofer Institute of Optronics, System
+Technologies and Image Exploitation –
+Systems for Measurement, Control and
+Diagnosis (MRD), Karlsruhe, DE 76131
+Fraunhoferstraße 1, Germany
+
+Sebastian Höfer worked as a PhD student in Computer Science
+at the Karlsruhe Institute of Technology on deflectometry in the
+thermal infrared spectrum and finished his thesis and exam in 2016.
+Since 2015, he has also been a scientific consultant at the Fraunhofer IOSB in Karlsruhe. His fields of research include (infrared)
+deflectometry, thermography, and computer vision systems.
+
+387
+
+Jan Burke
+Fraunhofer Institute of Optronics, System
+Technologies and Image Exploitation –
+Systems for Measurement, Control and
+Diagnosis (MRD), Karlsruhe, DE 76131
+Fraunhoferstraße 1, Germany
+Jan.Burke@IOSB.Fraunhofer.de
+
+Jan Burke holds a PhD in Physics from the University of Oldenburg,
+Germany, and has since worked on a wide variety of topics in optical
+metrology in California, Australia, and most recently, Bremen, where
+he made the transition from interferometry to deflectometry, in
+search for better and cheaper asphere and free-form measurement
+technologies. Since 2016, he has been with the Fraunhofer IOSB as
+a research group leader. His main research interests are in fringe
+processing and low-uncertainty optical measurements.
+Michael Heizmann
+Karlsruher Institut für Technologie
+(KIT) – Institute of Industrial Information
+Technology, Hertzstraße 16, Geb. 06.35
+Karlsruhe 76187, Germany
+
+Michael Heizmann is Professor and Director of Institute at the
+Institute of Industrial Information Technology (IIIT) at the Karlsruhe
+Institute of Technology (KIT) and Scientific Advisor at the Fraunhofer
+Institute of Optronics, System Technologies and Image Exploitation
+IOSB in Karlsruhe, Germany. His research areas include machine
+vision and image processing, image and information fusion, metrology, automation, and their applications in industry.

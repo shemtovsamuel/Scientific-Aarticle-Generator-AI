@@ -1,6 +1,6 @@
 # Scientific Article Generator
 
-This Streamlit application uses the Anthropic API to generate comprehensive technical articles based on a title and data provided by the user, along with a pre-loaded bibliography.
+This Streamlit application uses the Anthropic API to generate comprehensive technical articles based on a title and data provided by the user, along with a pre-loaded articles.
 
 ## Features
 
@@ -8,7 +8,7 @@ This Streamlit application uses the Anthropic API to generate comprehensive tech
 - Technical article generation based on a title and input data
 - Real-time streaming of generated content
 - Option to use predefined test values
-- Utilization of a pre-loaded bibliography
+- Utilization of a pre-loaded articles
 
 ## Requirements
 
@@ -71,7 +71,7 @@ streamlit run streamlit_app.py
 ## Customization
 
 - Modify the prompt template in `app.py` to adjust the article generation instructions.
-- Update the `bibliography.txt` file to change the bibliographic references used for generation.
+- Update the `articles.txt` file to change the bibliographic references used for generation.
 - Adjust the test values `title_defaultù and `data_default` according to your needs.
 
 By Samuel Shemtov

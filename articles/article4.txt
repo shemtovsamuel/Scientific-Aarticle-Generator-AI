@@ -1,0 +1,532 @@
+ETH Library
+
+Detection of surface defects on
+sheet metal parts by using oneshot deflectometry in the infrared
+range
+Conference Paper
+Author(s):
+Sárosi, Zoltán; Knapp, Wolfgang; Kunz, Andreas
+
+; Wegener, Konrad
+
+Publication date:
+2010
+Permanent link:
+https://doi.org/10.3929/ethz-a-006206898
+Rights / license:
+In Copyright - Non-Commercial Use Permitted
+
+This page was generated automatically upon download from the ETH Zurich Research Collection.
+For more information, please consult the Terms of use.
+
+Detection of surface defects on sheet metal parts by
+using one-shot deflectometry in the infrared range
+Zoltán Sárosi, Wolfgang Knapp, Andreas Kunz, Konrad Wegener
+IWF, ETH Zurich, Switzerland
+
+ABSTRACT
+The early detection of surface defects on raw sheet metal parts is a critical problem in the automotive
+industry. Typical defects like dents, bumps and waviness are invisible at the early production stages because
+of the parts’ rough surfaces. The defects become visible and disturbing only after the later production steps, in
+which the parts get painted and varnished, meaning that they become specular reflecting. The later the defect
+gets detected, the more the correction will cost. Currently, the raw sheet metal parts are only randomly tested
+by special, trained experts, which means subjective and qualitative results. To overcome this problem, we
+propose a method that can be used on-line on each part directly at the production line. The system employs a
+one-shot deflectometry method in the infrared range. At sufficiently long wavelengths, the sheet metal’s
+surface becomes specular reflecting, thus enabling the use of the deflectometry method. For this method, a
+device capable of displaying a reference pattern at the infrared wavelengths was developed. This single
+infrared reference pattern is reflected from the surface of the raw sheet metal object and the reflected image
+is captured by a thermo-camera. The distortion of the reflected pattern due to the surface’s geometry and
+defects is analyzed by the Fourier-transform method. Due to the single exposure method, vibrations during
+the measurement are not disturbing and the alignment problem, that is characteristic for multi-exposure
+methods, is nonexistent in this case.
+INTRODUCTION
+Quality control of car-body parts in the automotive industry is of critical importance, since the competition
+between the manufacturers is always getting sharper. The first impression from a car is made by the
+observation of the exterior appearance. A flawless exterior with smooth surfaces and edges suggest technical
+superiority. Customers intentionally look for objects in the environment with a linear texture e.g. fluorescence
+light tubes, and observe the course of reflection lines on the surface of the body. Studies [1] showed that
+dents and bumps with already ten micrometers depth and several millimeters lateral dimension can be
+visually perceived on a varnished car-body. In the early production stages, these small defects are hidden
+from the human observer, because of the rough, dull surface quality of the raw parts. They become visible
+and disturbing only after the later production steps, in which the parts get painted and varnished, meaning
+that they become specular reflecting. With each production step, the price of the part increases, due to the
+additionally invested work, time and material. The later the defect gets detected, the more the correction will
+cost.
+Currently, the raw sheet metal parts are only randomly tested using conventional measurement methods e.g.
+form gauge, haptic test by special experts, abrasive stripping of the parts and observation of the scratch
+marks, or highlighting the surface with special oil that allows observing the reflection lines due to oil film's
+specularity. All these methods are time consuming and based on human observations, entailing subjectivity,
+lack of repeatability and quantitativity. Coordinate measurement machines (CMM) can, though, produce
+accurate, quantitative results, but due to the mechanical contact with the flexible part, the results are biased
+and the measurement process can take several ten minutes in case of many points, not to mention the need
+for special environmental conditions. Laser-triangulation techniques have an advantage in measurement
+speed over CMMs, though measurement of a surface still needs several scanning steps. Fringe projection
+method can simultaneously capture millions of surface points of light colored, homogeneous, texture-less,
+diffuse reflecting objects, but glossy, metallic surfaces need to be treated by a special chalk-spray prior the
+measurement to reduce gloss, otherwise it generates noisy or no measurement data at all (see Table 1).
+Deflectometry is a white light, whole field method, which is appropriate for the form measurement of specular,
+highly reflecting objects e.g. mirrors, lenses, or varnished car-body parts, but raw, dull surfaces have to be
+treated with oil in order to generate shininess (see Table 1).
+
+InfraMation 2010 Proceedings
+
+210-160-Sarosi
+
+The need for surface treatment like highlighting oil or chalk spray hinders the application of these methods in
+the mass production, as the parts have to be cleaned, homogeneously treated by the substance, which again
+has to be removed after the measurement. Due to the need for excessive use of such substances, these
+methods are neither economical nor ecological.
+A new, whole-field measurement method is needed, which can measure a high number of points
+simultaneously of an untreated, raw, metal sheet, and can detect and numerically evaluate small deviations of
+the surface.
+
+Table 1: Surface treatments for fringe-projection and deflectometry method
+
+DEFLECTOMETRY METHOD
+Deflectometry method is actually an advanced, computer aided version of the human observation process of
+specular objects which we described previously. The method was first proposed by Ritter and Hahn [2] as an
+advanced version of the reflection moiré method. A reference pattern, usually consisting of several parallel
+stripes, is captured by a camera as being reflected from the test surface. Often, instead of the stripe pattern a
+cosine intensity patter is used, in order to increase the resolution. The pattern in the camera images is
+distorted due to the 3D geometry of the test object (see Figure 1a). Irregularities in the specimen’s geometry
+deflect the reflected light beams by a twofold angle difference (see Figure 1b), which makes this method very
+sensible to local slope changes of the surface. Since most surface defects like dents, bumps and waviness
+have small height difference, which is distributed in a relatively large area, thus they are rather slope
+irregularities in the first place, the deflectometry method is ideal for their detection.
+
+a
+
+b
+
+Figure 1. Deflectometry method: a. 3D illustration object geometry is exaggerated in z direction for the illustration, b. 2D
+model
+
+Deflectometry method, unlike triangulation based techniques, can directly measure the surface’s slope, that is
+a derivate of the height in case of continuous surfaces. If positions of the screen, object and the camera are
+known, the 3D height map of the object can be reconstructed if required, by integration of the slope values.
+Rose et. al [3] describe the advantages of the slope measuring techniques, primarily the deflectometry
+method, over the height measuring ones, in field of surface characterization and defect detection: since the
+
+InfraMation 2010 Proceedings
+
+210-160-Sarosi
+
+height data are obtained through the integration of the slope data, this method acts as a low pass filter,
+reducing the measurement noise.
+Deflectometry is the appropriate method for the detection of geometry defects on highly specular, mirroring
+surfaces (see Figure 2a) like optical components: lenses, mirrors [6], reflectors [7], or automotive glass [8], or
+varnished car-body [9].
+The sensitivity of deflectometry system can be easily amplified by either increasing the number of the
+pattern’s stripes or moving the screen backwards, away from the object. The achievable depth resolution of
+the deflectometry method is in the sub-μm range, even nm range is reported to be reachable [3,10].
+PATTERN EVALUATION
+For the evaluation of the light-rays’ deflection, the end points of the rays on the screen have to be located by
+using a reference pattern. The most often used reference pattern is the fringe pattern: a pattern with many
+parallel stripes, whose intensity follows a periodic intensity cosine function that corresponds to the
+coordinates of the pattern (
+:
+(1)
+where
+is the intensity of the original pattern at
+screen position,
+is the amplitude, is the
+frequency and is the initial phase of the cosine function.
+In order to calculate the deflection of the light- rays, the pattern’s phase values for the camera pixels have to
+be evaluated. There are different methods for this task, the most wide spread are the phase-shift method
+(PSM), that is known from the interferometry, and the Fourier-transform method (FTM). PSM operates with a
+sequence of several instances of the same reference pattern, each shifted by a defined phase value, usually
+a fraction of a half period (π radians), and the camera captures an image of the object at each different
+phase. There are different versions of PSM based on the number (3-11) of patterns used for the evaluation.
+Since PSM needs a sequence of multiple images, care has to be taken, that the relative positions of the
+system’s components: screen, object, and camera, stay constant during the capture of the whole image
+sequence, which needs vibration free environmental conditions. By the PSM, the evaluation of the phase
+values is done independently for each camera pixel, no coherence between the neighboring points is
+analyzed, and thus this method is noise sensitive.
+The FTM was introduced by Takeda et al. [4], and Massig [5] used this method successfully for the evaluation
+of deflectometry data. FTM requires only a single camera image for the phase evaluation. All pixels of the
+camera image are analyzed together simultaneously as a whole, making this method robust against random
+noise or slight intensity changes in different spots of the image. Since the FTM can only obtain phase
+differences smaller than a period (-π…π), it has to be combined with a phase unwrapping method, in order to
+calculate larger phase shift values.
+The camera image with the distorted, eventually noisy pattern can be written in the following form:
+(2)
+(3)
+where
+is the intensity of the camera image at
+position,
+is the local background intensity
+eventually noise,
+is the amplitude and
+is the local, distorted phase of the cosine function, that
+contains the undistorted carrier signal, described by its frequency
+,
+in x and y direction, phase and
+the local phase shift
+due to the distortion of the pattern. The second part of equation 2 can be
+rewritten in complex form:
+=
+
+(4)
+(5)
+
+where
+is the complex conjugate of
+. The camera image of the distorted reference pattern is
+transformed into the frequency domain via 2D Fourier-transformation:
+
+InfraMation 2010 Proceedings
+
+210-160-Sarosi
+
+(6)
+where
+
+,
+and
+are the Fourier transformed of
+,
+and
+in the frequency domain. At this step the background
+, local variations
+, carrier wave
+and noise can be separated from the signal, based on their different frequencies by extracting the first order
+spectrum: selecting the spectrum around
+and translating it to the origin to get
+.
+
+a
+b
+c
+Figure 2: a: original reference pattern, b: camera image: noisy, distorted reference pattern, c: Fourier-spectrum of the
+camera image
+
+The extracted spectrum is then inverse Fourier transformed, in order to get
+deducting the known constant , the distortion due to the objects geometry
+separated in the imaginary part:
+
+, from which, after
+, can be obtained as it is
+
+(7)
+The value of
+is wrapped between (-π and π), thus an unwrapping operation can be necessary in case
+of larger distortions. In Figure 3 the original camera image with the noisy, distorted pattern and the evaluated
+phase difference can be observed.
+
+b
+a
+Figure 3: a: Noisy, distorted pattern and b: its phase difference
+
+SURFACE SCATTER
+The deflectometry method requires specular reflecting surfaces. Observing a stripe pattern’s reflection on a
+raw, aluminum, sheet metal surface, the camera image is blurred and noisy (see Figure 4b). With an
+increased display-object distance, which is necessary by larger object dimensions, the signal-to-noise ratio
+(SNR) of the pattern in the camera image worsens, till the signal is fully camouflaged by the noise, and thus
+even the noise tolerant FTM cannot be used anymore.
+InfraMation 2010 Proceedings
+
+210-160-Sarosi
+
+a
+
+b
+
+c
+
+Figure 4. Reflection of a stripe pattern, displayed on a TFT (Thin Film Transistor) monitor at a distance of 250mm, from:
+a. specular steel and b. raw aluminum sheet;
+c. evaluation of intensities in the camera picture along same camera lines
+(in case of raw aluminum the SNR is much lower than in case of specular steel)
+
+The blur in the camera image is due to the surface scatter of the test object, which depends on the
+microstructure of the specimen’s surface and the wavelength of the light. At microscopic levels, every surface,
+even the smoothest ones, consist of countless, tiny, randomly directed planar facets (see Figure 5a), that
+scatter incident light-rays in various directions. As the surface height’s irregularity and frequency of peaks and
+valleys increase, the slope of the facets gets steeper, thus the divergence of the reflected light-rays will be
+larger.
+Examining a single beam, a divergence of the parallel beam can be observed, after reflection from a surface
+(see Figure 5b), the reflected intensity is distributed under a solid angle, which is rendered as a blurry spot in
+the camera image (see Figure 5c). The camera image is an aggregate of lots of individual light-beams, which
+reach the elements of the camera’s sensors and induce electric signals, and thus creating the image. From
+the camera’s point of view, the scattering surface acts as a low pass filter on the image of the reference
+pattern, and the scattered image of the single beam is the kernel of the filter, termed as point spread function
+(PSF). Depending on the degree of scatter, rays from adjacent areas of the surface fall on the same sensor
+element, the sensor detects their summed intensity, which can be calculated by convolution (see equation 8).
+(8)
+where
+is the intensity detected by the camera at point
+,
+is the value of PSF at point
+and
+is the intensity of the sharp image at point
+. The PSF’s size and distribution
+defines the filtering effect: the larger the area the PSF spreads on, the fainter and blurrier the resulted
+reflected image is. Since the PSF depends on the divergence of the beams, it also influenced by the distance
+between the camera and the scattering surface: The larger the distance between the camera and the object
+is, for example in case of a large object, the larger the PSF is, resulting a blurrier camera image.
+
+a
+
+b
+
+c
+
+Figure 5. Scatter from rough surfaces: a. zoomed 2D scheme, b. 3D scatter of a light-beam (simulation), c. normalized
+distribution of intensity in a camera image reflected from a raw aluminum car-body
+
+InfraMation 2010 Proceedings
+
+210-160-Sarosi
+
+If the exact structure of the surface, i.e. each facet’s direction, is known, the course of every single reflected
+light-ray can be determined. This kind of evaluation is very laborious, requires very precise measurements,
+and the scatter varies slightly at different positions of the surface. The microstructure of the surface is usually
+described by statistical parameters, like the RMS- (or Rq)-roughness (root mean square roughness), RMSslope (m), correlation length (τ) and probability distribution of the height irregularities, just to mention some of
+the most relevant ones that influence the facets’ directions. The search for the correspondence between the
+statistical surface parameters and the scatter is the topic of many research studies. There are many different
+scatter models; some of them were made for rendering visually pleasing computer generated scenes, some
+for making physically correct calculations. We made beam scatter simulations using the He-Torrance-SillionGreenberg model [13] that is considered to be one of the most complex and physically correct one (see
+Figure 6). The scattered intensity of the reflected beam was simulated as it would be seen by a camera at a
+given distance, i.e. the PSF. It can be seen from the simulations that the scattering not only depends on the
+surface roughness parameters, but also on the wavelength of light, thus the increased degree of the scatter
+due to the roughness can be compensated by using longer wavelengths.
+Surface roughness class
+N1
+
+N2
+
+N3
+
+N4
+
+N5
+
+(Rq=0.02μm,
+τ=2.3μm)
+
+(Rq=0.07μm,
+τ=2.3μm)
+
+(Rq=0.15μm,
+τ=5.4μm)
+
+(Rq=0.27μm,
+τ=5.8μm)
+
+(Rq=0.55μm,
+
+650nm
+4000nm
+
+Wavelength
+
+405nm
+
+τ=15.1μm)
+
+Figure 6: Simulation of scatter from surfaces with different roughness and at different wavelengths (additional sub-figures
+by column N1 magnification factor: 11.6x)
+
+We also investigated the scatter of laser-beams via experiments with different wavelengths (red: 650nm and
+blue-violet: 405nm) from surfaces with different roughness. Among the tested specimens were different
+aluminum and steel parts. In Figure 7, a selection of 3 plain-ground steel roughness standards, so called
+Rugotests, can be seen with increasing roughness classes N1-N3. The parts were illuminated by a laser
+beam under a small 5° incident angle, the scattered beam fell on a white sheet of paper, which was captured
+by a digital camera. The exposure time and aperture of the camera was adjusted to the maximal intensity of
+the scattered beam, in order to avoid overexposed areas. The intensity of the captured images was
+normalized, in order to eliminate differences due to the intensity fluctuations of the beam. The results in
+Figure 7 are asymmetric due to the anisotropy of the ground surfaces; isotropic samples have central
+symmetric intensity distribution, like the ones in Figure 5c and Figure 6. From the results it can be seen as
+expected based on the simulations, that the degree of scatter increases with the height irregularity of the
+surface, and decreases with the wavelength of the beam.
+InfraMation 2010 Proceedings
+
+210-160-Sarosi
+
+Surface roughness class
+N2
+
+N3
+
+(Rq=0.02μm, τ=2.3μm)
+
+(Rq=0.07μm, τ=2.3μm)
+
+(Rq=0.15μm, τ=5.4μm)
+
+Violet laser (405nm)
+
+Red laser (650nm)
+
+N1
+
+Figure 7: Scatter of laser beam at two different wavelengths (405nm and 650nm) from surfaces with different roughness,
+(additional sub-figure by column N1 and N2 magnification factor: 5x)
+
+Measurements in the MWIR (Medium Wave Infrared) spectrum between 3.2 and 5μm wavelength were also
+made by using a thermo camera and a calibrated “Hohlraumstrahler” source. We measured the reflected
+radiation in a small solid angle, complying the specular reflection. The tests were made with the same parts
+that we used for the laser scatter tests. It was found, that in case of samples, where the RMS-roughness was
+smaller than 1/10th part of the light’s wavelength, the blur of the camera image was negligible. It agrees with
+the Rayleigh smoothness criterion: according to Rayleigh, the ratio between the wavelength of the light and
+the surface roughness for a smooth surface has to be larger than the following:
+(9)
+Where
+is RMS roughness of the surface, is the wavelength of light, and is the incident angle. If the
+wavelength of the light is much longer than the height irregularities of the surface, the scattering will be
+negligible and the surface can be considered smooth at that wavelength.
+For more details about the reflection tests in the MWIR spectrum, please read 210-243-Sarosi [11].
+DEFLECTOMETRY IN THE INFRARED SPECTRUM
+In order to reduce the filtering effect on the camera image, and to improve the SNR of the reference pattern’s
+image reflected from a large, rough surface, without using highlighting oil or other additional substances, the
+spectrum of the light used for the investigation has to be shifted from the visible to infrared spectrum. Both an
+imaging and a display device, capable of working at longer, infrared wavelengths, are needed for this kind of
+measurements. Nowadays, a wide range of infrared or thermo cameras are available, working at mainly in the
+MWIR (Medium Wave Infrared) and LWIR (Long Wave Infrared) atmospheric, infrared-windows between 35μm and 8-14μm. Beside the camera, a display device, capable of producing high-contrast images in the
+camera’s spectrum, is also needed.
+Horbach [12] first used the increased specular reflectance of raw car-body parts in the LWIR range to make
+deflectometry measurements with a mechanically moved, static reference pattern. Static patterns are not very
+complicated to make, either the temperature, emissivity or transmittance of the display has to be changed
+according to the pattern in order to have an observable pattern in the infrared image. The drawback of these
+
+InfraMation 2010 Proceedings
+
+210-160-Sarosi
+
+techniques is that they can only display a static pattern: neither the texture nor the wavelength of the pattern
+can be changed.
+In the visible range, there are many different, computer controlled display techniques: CRT (Cathode Ray
+Tube), TFT (Thin Film Transistor), plasma or projectors with screens, that can be used with deflectometry
+systems, though in the infrared range similar devices are not commercially available, since their only
+application field is in the military: testing the sensors and electronics of heat seeking missiles. We tested
+many different visible display techniques for infrared radiation (see Figure 8). A stripe pattern was displayed
+on each device. Unfortunately, no pattern was visible in case of CRT and TFT monitors, and in case of the
+plasma display the difference between the different lines was also negligible.
+
+a
+
+b
+
+c
+
+Figure 8: Commercial displays in infrared spectrum a: CRT b: TFT c: Plasma
+
+We also made experiments with small test arrays of different electronic components: white LED (Light
+Emitting Diodes), SMD (Surface Mount Device) resistors and micro incandescent light bulbs (see Figure 9).
+The advantage of such a custom made constructions is, that using an electronic controller the current on the
+individual components of the array can be adjusted, thus the texture and the wavelength of the pattern can be
+changed easily and promptly.
+
+a
+
+d
+
+b
+
+d
+
+c
+
+e
+
+f
+
+Figure 9: Different arrays of electronic components and their infrared image: a,d: white LED, b,d,e: SMD resistors, (d:
+without, e: with mask), c,f: mini light bulb
+
+InfraMation 2010 Proceedings
+
+210-160-Sarosi
+
+We found that in case of the LEDs the background produced more radiation than the LEDs itself due to the
+current (100mA) flowing through the wires on the backside of the panel. The SMD resistors can be heated
+slightly over 390K, but due to the current flow, and the heat convection of the copper wires on the panel, the
+background is also heated, spoiling the contrast of the pattern. Fortunately this can be easily solved by using
+a mask in front of the array. The highest temperature difference (>300K) was reached by using mini,
+incandescent light bulbs.
+EXPERIMENTS
+We made experiments with a prototype IR display, consisting of a small matrix of incandescent light bulbs.
+The display was first tested from a distance of 40cm with a smooth gold plate in the visible spectrum (Figure
+10a): the reflected image was clear and sharp, the first order spectra were clearly outstanding in the Fourierdomain. The same display was used from the same distance with a raw, aluminum, car-body part (Figure
+10b). Here the matrix structure is not visible anymore, neither in the image nor in the frequency domain. The
+same sample was tested with the same display using a thermo camera at the wavelength 3.4-5μm: the matrix
+structure of the display appears, though not as clear as in case of the smooth gold plate, but still recognizable
+(Figure 10c). Using a thermo camera working at longer wavelengths, for example in the LWIR spectrum, even
+better results: higher contrast and sharper reflection images are expected due to the reduced scatter.
+visible spectrum, rough aluminum
+
+visible spectrum, smooth gold
+
+increased
+surface
+roughness
+
+a
+
+MWIR spectrum, rough aluminum
+
+increased
+wavelength
+
+b
+
+c
+
+Figure 10. Reflection from a: smooth gold plate in visible spectrum, b: raw, aluminum car-body in visible spectrum, c:
+same as b. in MWIR spectrum
+
+SUMMARY AND OUTLOOK
+Deflectometry is the appropriate method for the quick detection of small surface defects on large, smooth,
+specular reflecting objects, i.e. varnished car-body parts. Raw, unfinished car-body parts have a rough
+surface that scatters visible light. We use a thermo camera and a display capable of working in the infrared
+spectrum in order to shift the working spectrum to longer wavelengths, where the scatter of the surface is
+reduced, thus enabling the work with the deflectometry method. This way, the surface defects can be
+detected in the early stages of the manufacturing process, hence saving considerably time and costs. By
+applying the Fourier transform method, the evaluation of the measurement data can be made using a single
+exposure, increasing the vibration and noise tolerance of the system, which is vital in industrial environments.
+We are currently working on a large sized, dynamic, computer controlled infrared display to be able to make
+tests with real car-body parts. Comparative tests between the PSM and FTM methods will also follow to
+evaluate the noise tolerance, speed, vibration sensitivity of the two different methods. Substituting the MWIR
+camera by an LWIR model, we expect even better results in case of rough surfaces due to the reduced
+scatter.
+REFERENCES
+[1] Kühn B, Hrabal V, Brückner S, Lang GK, Traue HC. Physiologie und Psychologie der Wahrnehmung von
+Geometriefehlern auf Karosserieoberflächen. Universität Ulm; 1994.
+[2] Ritter R, Hahn R. Contribution to analysis of the reflection grating method. Optics and Lasers in
+Engineering. 1983;4(1):13-24.
+
+InfraMation 2010 Proceedings
+
+210-160-Sarosi
+
+[3] Rose P, Surrel Y, Becker JM. Specific design requirements for a reliable slope and curvature
+measurement standard. Measurement Science and Technology. 2009;20(9):95110
+[4] Takeda M, Ina H, Kobayashi S. Fourier-transform method of fringe-pattern analysis for computer-based
+topography and interferometry. Journal of the Optical Society of America. 1982;72(1):156-160.
+[5] Massig JH. Deformation measurement on specular surfaces by simple means. Optical Engineering.
+2001;40(10):2315-2318.
+[6] Tang Y, SU X, Liu Y, Jing H. 3D shape measurement of the aspheric mirror by advanced phase measuring
+deflectometry. Opt. Express. 2008;16(19):15090-15096.
+[7] Bothe T, Li W. 3D-Formvermessung per Streifenreflexion an Reflektoren für Autolampen (FRT). 2004:2-7.
+[8] Skydan OA, Lalor MJ, Burton DR. 3D shape measurement of automotive glass by using a fringe reflection
+technique. Measurement Science and Technology. 2007;18(1):106-114.
+[9] Liu L, Sawada T, Sakamoto M. Evaluation of the surface deflections in pressed automobile panels by an
+optical reflection method. Journal of Materials Processing Technology. 2000;103(2):280-287.
+[10] Bothe T. High-resolution 3D shape measurement on specular surfaces by fringe reflection. Proceedings
+of SPIE. 2004:411-422.
+[11] Sarosi Z, Knapp W, Kunz A, Wegener K. Evaluation of reflectivity of metal parts by a thermocamera.
+Proceedings of InfraMation2010. 210-243-Sarosi
+[12] Horbach JW, Kammel S. Deflectometric inspection of diffuse surfaces in the far-infrared spectrum.
+Proceedings of SPIE. 2005;5679(0):108-117.
+[13] He XD, Torrance KE, Sillion FX, Greenberg DP. A comprehensive physical model for light reflection.
+ACM SIGGRAPH Computer Graphics. 1991;25(4):175-186.
+ABOUT THE AUTHOR
+The author received his MSc. degree in informatics in 2001 at the University of Miskolc, Hungary. He is
+currently working on his PhD. thesis in the field of optical metrology at the ETH Zurich in Switzerland while
+working for the inspire AG in Zurich. His main fields of interests are image processing, simulations and 3D
+optical measurement.
+
+InfraMation 2010 Proceedings
+
+210-160-Sarosi

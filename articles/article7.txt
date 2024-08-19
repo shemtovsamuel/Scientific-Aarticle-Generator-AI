@@ -1,0 +1,808 @@
+Research Article
+
+Vol. 30, No. 10 / 9 May 2022 / Optics Express 17554
+
+Near optical coaxial phase measuring
+deflectometry for measuring structured
+specular surfaces
+F ENG G AO,
+
+YONGJIA X U , * AND X IANGQIAN J IANG
+
+EPSRC Future Metrology Hub, University of Huddersfield, Huddersfield, HD1 3DH, UK
+* Y.Xu2@hud.ac.uk
+
+Abstract: Phase measuring deflectometry (PMD) is an important technique for the form
+measurement of specular surfaces. However, the existing stereo-PMD techniques have noticeable
+weaknesses for structured specular surfaces measurement due to the optical axis of the imaging
+system must have a notable intersection angle with the optical axis of the display system according
+to the law of reflection. This leads to the imaging sensor and the fringe display screen must
+be located on the opposite sides of the normal of the surface under test (SUT), which results
+in large system volume and measurement shadows when measuring discontinuous specular
+surfaces. In this paper, we propose a novel near optical coaxial PMD (NCPMD) by utilizing a
+plate beamsplitter. With the assistance of plate beamsplitter, the optical axis of display screen
+can be configured much closer to the optical axis of the imaging system which makes the system
+more compact and has significantly reduced volume compared with the conventional PMD
+configuration. Moreover, imaging sensors in the proposed configuration can perpendicularly
+capture the SUT, which can drastically decrease measurement shadows caused by discontinuous
+structures on the SUT and increases measurement efficiency. A comparison between the proposed
+NCPMD and the conventional PDM is studied by measuring a specular step to show the advantage
+of the proposed configuration in reducing measurement error caused by structure shadows. A
+portable NCPMD prototype with stereo imaging sensors is developed and verified through
+experiments. Experimental results show the portable prototype has comparable measurement
+accuracy with the existing PMD techniques while has obviously advanced performances for
+portable and embedded form measurement, such as small system volume, and light weight.
+Published by Optica Publishing Group under the terms of the Creative Commons Attribution 4.0 License.
+Further distribution of this work must maintain attribution to the author(s) and the published article’s title,
+journal citation, and DOI.
+
+1.
+
+Introduction
+
+Freeform specular surfaces designed to possess three-dimensional (3D) structured shapes
+(i.e., continuous non-differentiable specular surfaces and discontinuous specular surfaces) are
+extensively applied in various industrial arenas with the purposes of function integration, and
+performance enhancement [1,2]. Fast, accurate, and on-line metrology is an important element
+supporting next-generation manufacturing techniques, which requires that measurement systems
+must have small volume and light weight, so that it can be embedded into manufacturing
+systems to give timely feedback of measurement information [3,4]. However, portable, and
+embedded 3D form measurement of structured specular surfaces is still a challenge for current
+form measurement techniques, such as fringe projection profilometry, interferometry, stylus
+profilometer, and Coordinate Measuring Machine (CMM). Fringe projection profilometry [5,6]
+cannot be applied in specular surfaces measurement due to the inadequacy of measurement
+principle. Interferometry [7,8] is difficult and complicated to be applied in the in-site form
+measurement due to its sensitive to the environmental disturbance and the limited space of the
+station of work. Stylus profilometer [9,10] and CMM [11] are common tools for the measurement
+#457198
+Journal © 2022
+
+https://doi.org/10.1364/OE.457198
+Received 2 Mar 2022; revised 27 Apr 2022; accepted 28 Apr 2022; published 6 May 2022
+
+Research Article
+
+Vol. 30, No. 10 / 9 May 2022 / Optics Express 17555
+
+of surface form in industry. However, the stylus profilometer and CMM are heavy and large, and
+the stylus probe can damage the surface under test (SUT). Phase measuring deflectometry (PMD)
+is a well-known 3D form measurement technique for freeform specular surfaces [12–14]. A
+camera and an LCD (liquid crystal display) screen are basic elements of current PMD systems.
+3D data of a SUT can be obtained based on phase calculation and geometrical optical relationship
+of the camera, the SUT, and the screen [15,16]. PMD systems can be classified into three
+categories according to system configuration and the number of the applied cameras and screens:
+single screen and sensor based PMD [17,18], multi-screen based PMD [19,20], and multi-sensor
+based PMD [21,22]. Single screen and sensor based PMD only uses a camera and a screen.
+Generally, PMD techniques based on this configuration can only obtain gradient information
+of the SUT and cannot calculate absolute 3D form data. With the help of laser pointers, Burke
+et al. studied a PMD technique with this configuration which can obtain absolute shape of
+SUT [23]. However, it is difficult to measure discontinuous specular surfaces using PMDs
+with this configuration. Multi-screen based PMD measures freeform specular surfaces using
+multiple screens. Direct phase measuring deflectometry (DPMD) [24,25] is a PMD technique
+with two screens, which has the capability to measure structured specular surfaces. However, the
+applied two screens lead to larger system volume than PMD systems with single screen, which
+results in difficulty in embedded measurement. Several PMD techniques with coaxial optical
+configuration have been studied. Huang et al. proposed a co-axial software configurable optical
+test system (SCOTS) technique for measuring large aspherical mirror [26]. SCOTS is designed
+for large mirror measurement and has a long working distance, therefore this technique is not
+suitable for embedded measurement. Moreover, SCOTS cannot measure discontinuous/structured
+surfaces because it is a slope measurement technique. Tang et al. presented a co-axial PMD
+technique based on a beam splitter for measuring aspheric mirror [19]. This technique requires
+both the camera and the screen have a movement along the tested mirror optical axis in the
+measurement process, which costs much time and needs large measurement space. Therefore,
+this technique shows disadvantages in the application of online and embedded measurement.
+Guo et al. proposed an improved PMD technique for measuring aspheric surfaces [27]. This
+technique requires a camera aperture to be placed near the center of curvature of the test mirror
+and centers of all components must be coaxial. This technique will need a long working distance
+when measuring specular surfaces with large curvature radius, so it is not suitable for embedded
+measurement in these cases. In addition, this technique is also weak in the measurement of
+discontinuous/structured surfaces because it is a slope measurement technique. Häusler et al.
+presented a coaxial PMD with the name of Microdeflectometry [28]. Microdeflectometry is
+developed for the measurement in microscopic field and is difficult to be applied to measure
+large scale discontinuous specular surfaces. Stereo-PMD applies a screen and multiple cameras
+to measure freeform specular surfaces by using stereo vision algorithm, which has no strict
+requirements on the relative position of the optical elements (cameras and screen) because these
+parameters can be calculated through system calibration. Whether a co-axial optical path is used
+or not has little effect on the measurement accuracy of stereo-PMD when measuring continuous
+freeform specular surfaces. Therefore, stereo-PMD systems do not need to consider a co-axial
+configuration in traditional applications. Segmentation phase measuring deflectometry (SPMD)
+[29,30] is a stereo-PMD technique with two cameras, which shows great advantages in the
+measurement capability for structured specular surfaces and remarkable measurement accuracy.
+Current SPMD systems [29,30] have similar configuration with other existing stereo-PMD
+techniques. The cameras and the screen in the conventional configuration must locate on opposite
+sides of the normal of the SUT and the size of the display screen must be significantly larger
+than the SUT according to the law of reflection. This leads to a non-compact distribution of
+the cameras and the screen and large system volume. Although the cameras and the screen
+can be placed close together when a PMD system is far away from the SUT (like the case of
+
+Research Article
+
+Vol. 30, No. 10 / 9 May 2022 / Optics Express 17556
+
+measuring low-gradient mirror using SCOTS [31,32]), it cannot be realized in most of the in-situ
+measurement situations as size of SUT is small and the gradient of the SUT is large and the
+measurement space is limited compare with the application of SCOTS system. In addition, the
+optical axis of the imaging system must have a notable intersection angle with the optical axis of
+the display system in the conventional configuration, measurement shadows are inevitable when
+steps exist between the segmented structures on the SUT, which leads the data loss and erroneous
+of surface points.
+In this paper, we present a novel near optical coaxial PMD (NCPMD) by utilizing a plate
+beamsplitter. Imaging sensors and screen in the proposed configuration can have a compact
+distribution with the function of the beamsplitter, which significantly reduces the system volume
+compared with the conventional configuration. In addition, the imaging sensors in the proposed
+configuration can capture the SUT close to perpendicular to the SUT, which can significantly
+reduce shadows of the steps and erroneous measurement points. The paper is organized as
+following. The principle and methods of the proposed configuration is presented in Section
+2. Section 3 verifies the effectiveness of the proposed configuration through experiments. The
+conclusion is presented in Section 4.
+2.
+
+Principle and methods
+
+2.1. Comparison between conventional PMD configuration and the proposed NCPDM
+A fringe-displaying screen and a camera are essential optical elements of a PMD system. The
+camera is required to capture the fringe patterns displayed on the screen through the reflection of
+the SUT and then calculates phase data of the captured fringe patterns. Therefore, a common
+constraint of the configuration of a PMD system is that the screen must cover all reflected camera
+rays after the reflection of the SUT. In addition, another constraint of the configuration is that the
+angle between the camera ray and the normal of the SUT should be designed as small as possible
+to ensure that the camera can capture more surface points for better lateral resolution. Moreover,
+embedded measurement brings additional constraint to the configuration which requires the
+applied PMD should have a short working distance so that the measurement system could be as
+close to the SUT as possible in the narrow space of manufacturing systems. Figure 1(a) shows
+the configuration of conventional stereo-PMD systems considering the configuration constraints
+in the case of embedded measurement. In this configuration, the cameras and the screen have
+a dispersed distribution on opposite sides of the normal of the SUT to meet all configuration
+constraints. Obviously, this configuration is not compact and results in large system volume,
+which has significant drawbacks when performing embedded measurement. Figure 1(b) illustrates
+shadow problem of the conventional stereo-PMD configuration when measuring specular surfaces
+with discontinuous structures. Since both the light from the screen and the cameras have an
+obvious tilt to the surface normal of the SUT in the configuration, the depth difference between
+the structures on the SUT will cause obvious shadows. The range of the shadows increases with
+the raise of the depth difference between the structures and the angle between the cameras, the
+SUT, and the screen. The structure shadows result in massive data loss of surface points.
+In order to solve the problems of the conventional stereo-PMD configuration in embedded
+measurement of structured specular surfaces, we investigate a novel near optical coaxial PMD
+technique by utilizing a plate beamsplitter into PMD systems, as shown in Fig. 2(a). The
+plate beamsplitter is located at an angle of approximately 45 degrees in front of the SUT. The
+screen, the plate beamsplitter, and the SUT approximately form an equilateral triangle. The
+cameras in NCPMD can capture the SUT approximately perpendicularly through the beamsplitter.
+The image of the screen after the reflection of the plate beamsplitter forms an equivalent
+screen which is approximately parallel to the SUT, as the equivalent configuration shown in
+Fig. 2(b). It is the equivalent screen performing the role of displaying fringe patterns during the
+measurement process in NCPMD. Note that there is no strict requirement for the angle between
+
+Research Article
+
+Vol. 30, No. 10 / 9 May 2022 / Optics Express 17557
+
+Fig. 1. Illustration of the conventional stereo-PMD configuration and drawbacks of the
+configuration. (a) Configuration of the conventional stereo-PMD techniques; (b) illustration
+of the shadow problem of the conventional configuration when measuring specular surfaces
+with discontinuous structures.
+
+the beamsplitter and the screen, and the angle between the beamsplitter and the SUT, because
+the relative relationship between the cameras and the equivalent screen can be obtained through
+system calibration. NCPMD has two significant advantages compared with the conventional
+PMD configuration. One is the configuration of NCPMD is more compact. A qualitative
+comparison of hardware setups between the conventional stereo-PMD configuration and NCPMD
+is demonstrated in Fig. 3(a). It is obvious that system volume of the NCPMD setup is considerably
+reduced compared with conventional stereo-PMD setup. The size of the SUT has little effect on
+the reduction of the system because the proposed configuration reduces the volume of the system
+by increasing the compactness of the measurement system. Another advantage of NCPMD is
+that measurement shadows caused by surface structures can be decreased dramatically since the
+optical axis of display screen in NCPMD can be configured much close to the optical axis of
+the imaging system and the light from both the imaging system and the screen in NCPMD can
+be nearly perpendicular to the SUT, as the illustration of Fig. 2(c). Figure 3(b) is a picture of
+the captured fringe image of a discontinuous structured specular surface by the conventional
+configuration. Serious shadows can be observed in this picture because both screen light and
+camera ray illuminate obliquely on the SUT. By contrast, a captured picture of the same structured
+specular surface by NCPMD is shown in Fig. 3(c), where shadow area is greatly reduced.
+
+Fig. 2. Illustration of the proposed NCPMD configuration and the advantages. (a) Illustration
+of NCPMD configuration; (b) equivalent configuration of NCPMD; (c) illustration of the
+advantage of NCPMD in reducing shadow area.
+
+Research Article
+
+Vol. 30, No. 10 / 9 May 2022 / Optics Express 17558
+
+Fig. 3. Comparison between conventional stereo-PMD and NCPMD in hardware setup
+and captured fringe images. (a) Comparison of system volume between conventional
+stereo-PMD and NCPMD. Left is the setup of conventional stereo-PMD, and right is the
+setup of NCPMD; (b) a captured fringe image of a discontinuous structured surface by the
+conventional stereo-PMD; (c) a captured fringe image of a discontinuous structured surface
+by NCPMD.
+
+2.2.
+
+System calibration of NCPMD
+
+PMD is an optical measurement technique based on the principle of geometrical optics. The relationship between the screen and cameras in NCPMD must be calibrated before the measurement.
+The NCPMD system contains several optical components such as the cameras and the screen.
+Each optical display/imaging component has its own coordinate system which is related to the
+physical spatial position of the component, as shown in Fig. 4. We need to turn these independent coordinate systems into a common coordinate system through calibration for subsequent
+measurement and operation. In this paper, all coordinate systems are established relation with
+the imaging coordinate system of camera 1. Therefore, all data information in the measurement
+system can be converted to this common coordinate system for measurement calculation. Since
+the equivalent screen in NCPMD performs the function of displaying fringe patterns, we just
+need to calculate the position relationship between the cameras and the equivalent screen for the
+calibration of the NCPMD once the relative position of the true screen, the beamsplitter, and
+the cameras remains unchanged in the subsequent measurement process. The NCPMD system
+contains an LCD screen, a beamsplitter, and two cameras. Using {L ′ }, {C1 }, {C2 }, {P1 }, {P2 } to
+represent the coordinate system of the equivalent screen (LCD’ in Fig. 4), the camera coordinate
+system of Camera 1, the camera coordinate system of Camera 2, the pixel coordinate system
+of Camera 1, and the pixel coordinate system of Camera 2,
+The objective of the
+[︂ respectively.
+]︂
+system calibration is to calibrate the transformation matrix R1 T 1 between {L ′ } and {C1 },
+[︂
+]︂
+the transformation matrix R2 T 2 between {L ′ } and {C2 }, the imaging matrix A1 from
+{C1 } to {P1 }, and the imaging matrix A2 from {C2 } to {P2 }. Placing a flat mirror at an arbitrary
+
+Research Article
+
+Vol. 30, No. 10 / 9 May 2022 / Optics Express 17559
+
+position within the area for SUT, as shown in Fig. 4. {L ′′ } denotes the coordinate system of
+the mirrored equivalent screen (LCD’’ in Fig. 4) through the reflection of the flat mirror. The
+transformation matrix [︂between {L]︂′′ } and[︂ {C1 } and ]︂the transformation matrix between {L ′′ } and
+{C2 } are expressed as R1′ T 1′ and R2′ T 2′ , respectively. M1 and M2 represent physical
+′
+
+′
+
+points on LCD’. M1 and M2 are the image point of M1 and M2 on LCD’’. With known the
+corresponding
+m1 and m2 in Camera 1 and Camera 2, respectively, A1 , A2 ,
+[︂
+]︂ image
+[︂ pixel points
+]︂
+′
+′ , and
+′
+′
+R1 T 1
+R2 T 2 can be obtained according to Eq. (1) based on pinhole model.
+s·m=A·
+
+[︂
+
+R′
+
+T′
+
+]︂
+
+·M
+
+′
+
+(1)
+
+where s is scale factor. M ′ denotes target points on LCD’’. m represents camera pixel points
+of M ′. A is camera imaging matrix. R′ and T ′ are the rotation matrix and translation vector
+of
+system.
+[︂ the relationship
+]︂
+[︂ between ]︂the coordinate system of LCD’’ and camera coordinate
+[︂
+]︂
+′
+′
+R1 T 1 and R2 T 2 can be calculated based on Eq. (2) with known R1 T 1 , and
+[︂
+]︂
+R2′ T 2′ .
+
+Fig. 4. Illustration of the calibration of a NCPMD system.
+
+⎧
+⎪
+⎨
+⎪
+
+R = R′/(I − 2nnT )
+
+(2)
+⎪
+⎪ T = (T ′ − 2dn)/(I − 2nnT )
+⎩
+where R and T represent rotation matrix and translation vector from {L ′ } to camera coordinate
+system. I is a 3 × 3 identity matrix. n is the normal vector of the flat mirror, which can be
+
+Research Article
+
+Vol. 30, No. 10 / 9 May 2022 / Optics Express 17560
+
+calculated based on the following equation:
+⎧
+⎪
+⎪
+ni = (mik × mij )/∥mik × mij ∥
+⎪
+⎪
+⎨
+⎪
+nj = (mji × mjk )/∥mji × mjk ∥
+⎪
+⎪
+⎪
+⎪
+⎪ nk = (mik × mjk )/∥mik × mjk ∥
+⎩
+
+(3)
+
+Where i, j, and k represent three arbitrary positions of the flat mirror during the calibration
+process. m denotes a unit vector which is perpendicular to the mirror normal vectors of two of
+these positions and can be obtained according to Eq. (4).
+⎧
+⎪
+⎪
+(Ri′ − Rj′)T · mij = 0
+⎪
+⎪
+⎨
+⎪
+(Rj′ − Rk′ )T · mjk = 0
+⎪
+⎪
+⎪
+⎪ (R′ − R′ )T · m = 0
+⎪
+ik
+i
+k
+⎩
+
+(4)
+
+d in Eq. (2) is the distance from the flat mirror to the optical center of the camera, which can be
+calculated by Eq. (5).
+⎡
+⎢
+⎢
+⎢
+⎢
+⎢
+⎢
+⎢
+⎣
+
+(I − ni nTi )
+
+2ni
+
+0
+
+0
+
+(I − nj nTj )
+
+0
+
+2nj
+
+0
+
+0
+
+2nk
+
+(I − nk nTk ) 0
+
+⎡
+⎤ ⎢⎢ T
+⎥⎢
+⎥⎢ d
+i
+⎥⎢
+⎥⎢
+⎥⎢ d
+j
+⎥⎢
+⎥⎢
+⎦⎢ d
+⎣ k
+
+⎤
+⎥ ⎡
+⎥ ⎢ T ′ ⎤⎥
+⎥ ⎢ i ⎥
+⎥ ⎢
+⎥ = ⎢ T ′ ⎥⎥
+⎥ ⎢ j ⎥
+⎥ ⎢
+⎥ ⎢ T ′ ⎥⎥
+⎥ ⎣ k ⎦
+⎥
+⎦
+
+(5)
+
+Finally, all calibration parameters are iteratively optimized with Levenberg-Marquardt Algorithm by minimizing the following function:
+∑︂h ∑︂k
+∥mij − m̂(A, R, T, ni , di , Mij )∥
+(6)
+i=1
+
+j=i
+
+where h is the position number of the flat mirror and k is the number of target physical points
+on
+screen. m̂ represents the reprojected camera pixel that calculated based on A,
+[︂ the equivalent
+]︂
+,
+n,
+d,
+and
+Mij .
+R T
+In order to further improve the calibration accuracy, distortion compensation method must be
+applied to eliminate the error between the real imaging process and the applied ideal imaging
+model. In our paper, we used an iterative distortion elimination method [33] instead of the
+traditional polynomial-based method [34]. By using the calibration result of Eq. (6) as initial
+value, the deviation caused by distortion between real camera pixel and the reprojection camera
+pixel calculated based on the linear projection can be obtained. A corrected coordinate for the
+camera pixel can be obtained by compensating the deviation. By using the Levenberg–Marquardt
+algorithm, the calibration parameters can be iteratively optimized by minimizing the difference
+between the corrected coordinate and the reprojection pixel.
+3.
+
+Experiments and results
+
+3.1. Comparison of measurement results between conventional PMD configuration
+and NCPMD
+A comparison is conducted to show the measurement difference between the convention PMD
+configuration and NCPMD. Two setups are developed based on the convention configuration
+and NCPMD. Two cameras used in the experiments are Lw235M from Lumenera. The screen
+
+Research Article
+
+Vol. 30, No. 10 / 9 May 2022 / Optics Express 17561
+
+applied in the setups is iPad Mini from Apple. The beamsplitter used in the comparison is 1.1
+mm thick and has a size of 150 mm × 120 mm in length and width. Reflectivity and transmittance
+of the beamsplitter are 50% and 50%. There is little influence on the measurement accuracy if
+the beam splitter is misoriented, because the relative position relationship of optical elements in
+the system is calculated through calibration. A circular specular gauge with three circular step
+structures is measured by the two setups. We averaged every five obtained fringe images for
+reducing phase noise and using eight-step phase-shifting algorithm to calculate wrapped phase
+map. Absolute phase map is obtained by using optimized 3-frequency selection method [35].
+Figure 5 shows the difference of phase calculation results of the measured circular specular gauge
+between the two setups. Figure 5(a) and Fig. 5(b) shows the phase values of the circular specular
+gauge obtained by camera 1 and camera 2 in the setup developed based on the conventional
+configuration. The damage of a large amount of phase data caused by structure shadows can
+be observed in Fig. 5(a) and Fig. 5(b). By contrast, the phase values of the circular specular
+gauge obtained by camera 1 and camera 2 in the setup developed based on NCPMD are shown
+in Fig. 5(c) and Fig. 5(d). The amount of damaged phase data in Fig. 5(c) and Fig. 5(d) is
+significantly reduced compared with Fig. 5(a) and Fig. 5(b). Based on the measurement method
+of stereo-PMD, both 3D coordinates and gradient data of the SUT can be obtained [29,30].
+We separate a structured surface into continuous segments and reconstruct each segment with
+gradient data to achieve good form accuracy, and finally fuse all reconstructed segments into a
+wohle 3D strucutred form result based on their absolute 3D coordinate data. Figure 6 compares
+the measurement results between the conventional configuration and NCPMD. Figure 6(a) shows
+3D form of the circular specular mirror reconstructed by the setup developed based on the
+conventional configuration. Figure 6(b) shows the reconstruction result of the circular specular
+mirror obtained by the setup developed based on NCPMD. It is obvious that NCPMD has an
+advanced measurement efficiency by decreasing invalid data area caused by structure shadows
+compared with the conventional configuration. Table 1 compares the measurement accuracy of
+the structure heights on the measured circular specular gauge obtained by on the convention
+configuration and NCPMD. Measurement result of CMM is used as a benchmark to evaluate
+the measurement accuracy of the two configurations. The step heights of the first structure, the
+second structure, and the third structure obtained by CMM are 5617 µm, 3676 µm, and 4672 µm,
+respectively. The step heights of the first structure, the second structure, and the third structure
+measured by the setup developed based on the conventional configuration are 5626 µm, 3682 µm,
+and 4661 µm, respectively. The step heights of the first structure, the second structure, and the
+third structure measured by the setup developed based on NCPMD are 5580 µm, 3710 µm, and
+4610 µm, respectively. Both the measurement difference between CMM and stereo-PMD with
+the conventional configuration, and the measurement difference between CMM and NCPMD,
+are all around tens of microns. The standard deviation of the measurement result of NCPMD is
+15.4 µm. The comparison result shows that NCPMD has slightly lower measurement accuracy
+compared with the conventional stereo-PMD configuration [29,30] but has significant advantage
+in reducing measurement shadows for measuring structured specular surfaces.
+3.2.
+
+Experimental verification of a portable NCPMD prototype
+
+A portable NCPMD prototype is developed based on the proposed configuration for embedded 3D
+form measurement of structured specular surfaces, as shown in Fig. 7. The prototype contains a
+7-inch LCD screen (Feelworld FW279), two CMOS (complementary metal-oxide-semiconductor)
+cameras (XIMEA xiC), and a plate beamsplitter. The screen, the cameras, and the beamsplitter
+are fixed on an aluminum framework. The current volume of the prototype is 230 mm in length,
+200 mm in width, and 160 mm in height. Considering the profile of the aluminum framework is
+20 mm thick, the volume of the prototype can be further decreased to 190 mm in length, 160
+mm in width, and 120 mm in height. Total weight of the prototype including the aluminum
+
+Research Article
+
+Vol. 30, No. 10 / 9 May 2022 / Optics Express 17562
+
+Fig. 5. Comparison of phase calculation results between the conventional configuration
+and NCPMD. (a) Phase data obtained by camera 1 in the conventional configuration; (b)
+phase data obtained by camera 2 in the conventional configuration; (c) phase data obtained
+by camera 1 in NCPMD; (d) phase data obtained by camera 2 in NCPMD.
+
+Fig. 6. Comparison of reconstruction results between the conventional configuration and
+NCPMD. (a) 3D form of the circular specular gauge measured by conventional configuration;
+(a) 3D form of the circular specular gauge measured by NCPMD.
+Table 1. Evaluation of measurement accuracy of the circular specular structure gauge by
+comparing with CMM (unit: µm)
+Structure height 1
+
+Structure height 2
+
+Structure height 3
+
+CMM
+
+5617
+
+3676
+
+4672
+
+The conventional stereo-PDM
+
+5626
+
+3682
+
+4661
+
+NCPMD
+
+5580
+
+3710
+
+4610
+
+Absolute error of the conventional stereo-PMD
+
+9
+
+6
+
+11
+
+Percentage error of the conventional stereo-PMD
+
+0.1%
+
+0.2%
+
+0.2%
+
+Absolute error of NCPMD
+
+37
+
+34
+
+62
+
+Percentage error of NCPMD
+
+0.6%
+
+0.9%
+
+1.3%
+
+Research Article
+
+Vol. 30, No. 10 / 9 May 2022 / Optics Express 17563
+
+Fig. 7. The developed portable NCPMD prototype.
+
+Fig. 8. Experimental results of the portable prototype. (a) Calibration result of the prototype;
+(b) reconstruction result of the measured rectangular step mirror; (c) reconstruction result
+of the measured concave specular gauge; (d) measurement error of the prototype in the
+measurement of the concave specular gauge.
+
+Research Article
+
+Vol. 30, No. 10 / 9 May 2022 / Optics Express 17564
+
+framework is 2.6 kg. The volume and the weight of the prototype facilitate the prototype to be
+fixed on robotic arm for on-line measurement or to be embedded into manufacturing systems.
+The prototype is calibrated with the method described in Section 2.2. We use the reprojection
+error to represent the calibration result as shown in Fig. 8(a) where reprojection error is within
+1 pixel. The colors in Fig. 8(a) are used to distinguish the obtained reprojection error when
+the flat mirror is placed at different calibration positions during the calibration process. A
+rectangular step mirror is measured to verify the absolute measurement accuracy of the prototype.
+The reconstruction result of the measured rectangular step mirror is shown in Fig. 8(b). The
+reconstruction result is compared with the measurement result of CMM and the traditional
+stereo-PMD, as shown in Table 2. The distance from step 1 to step 2, the distance from step 1
+to step 3, and the distance from step 1 to step 4 are 4877 µm, 8854 µm, and 11951 µm in the
+measurement result of the prototype, respectively. By contrast, those values are 4942 µm, 8868
+µm, and 11863 µm in the measurement result of CMM, and are 4924 µm, 8841 µm, and 11853
+µm in the measurement result of the traditional stereo-PMD. The measurement difference of the
+rectangular step mirror between the prototype and CMM is around tens of microns, which shows
+the absolute measurement accuracy of the prototype is similar with the previous stereo-PMD
+system developed based on the conventional configuration [29,30]. The standard deviation of
+the measurement result of the prototype is 37.9 µm. We also measured a concave specular
+gauge to verify the measurement accuracy of the prototype for measuring continuous specular
+surfaces. Figure 8(c) shows reconstruction result of the concave specular gauge obtained by the
+prototype. As the measured concave specular gauge is a spherical concave, the measurement
+error is determined by comparing the difference between the measurement result of the prototype
+and the surface parameters of the concave specular gauge provided by the manufacturer, as shown
+in Fig. 8(d). Peak value and root mean square of measurement difference are 162 nm and 24 nm,
+which is at the same level as the measurement accuracy of the previous gradient-based PMD
+techniques with the conventional configuration [36,37]. Though comparison results show that
+NCPMD has slightly lower measurement accuracy compared with the conventional stereo-PMD
+configuration, measurement accuracy of NCPMD is still in the same order of magnitude with
+the conventional configuration (tens of microns in absolute measurement accuracy). On the
+other hand, NCPMD has significant advantage in reducing measurement shadows for measuring
+structured specular surfaces and decreasing system volume, which shows obvious benefits when
+doing embedded measurement of structured specular surfaces.
+Table 2. Comparison of measurement result of the rectangular step mirror between the prototype,
+the traditional stereo-PMD, and CMM (unit: µm)
+Step
+distance
+
+CMM
+
+Traditional
+stereo-PMD
+
+The
+prototype
+
+Difference between
+CMM and
+traditional
+stereo-PMD
+
+Difference between
+CMM and the
+prototype
+
+2−1
+
+4942
+
+4924
+
+4877
+
+18
+
+65
+
+3−1
+
+8868
+
+8841
+
+8854
+
+27
+
+14
+
+4−1
+
+11863
+
+11853
+
+11951
+
+10
+
+88
+
+4.
+
+Conclusion
+
+A novel near optical coaxial PMD by utilizing a plate beamsplitter is presented in this paper for
+portable and embedded measurement of structured specular surfaces. The presented NCPMD
+technique has considerable advantages of compact configuration, light weight, and insignificant
+measurement error caused by structure shadows, compared with the exciting PMD techniques
+based on the conventional configuration. There are several factors coming from the beamsplitter
+that should have influence on the measurement accuracy of the NCPMD system, such as flatness
+
+Research Article
+
+Vol. 30, No. 10 / 9 May 2022 / Optics Express 17565
+
+and the refraction influence of the applied plate beamsplitter. Methods will be investigated to
+compensate the negative impact of the beamsplitter in the next step. In addition, new calibration
+methods and reconstruction algorithms will be explored to increase the measurement accuracy of
+NCPMD. The developed portable prototype will be applied in manufacturing systems and/or
+manufacture line to further test the measurement performance of the prototype.
+Funding. University of Huddersfield; Engineering and Physical Sciences Research Council (EP/P006930/1, EP/T024844/1).
+Disclosures. The authors declare that there are no conflicts of interest related to this article.
+Data availability. Data underlying the results presented in this paper are not publicly available at this time but may
+be obtained from the authors upon reasonable request.
+
+References
+1. J. Reimers, A. Bauer, K. P. Thompson, and J. P. Rolland, “Freeform spectrometer enabling increased compactness,”
+Light.: Sci. Appl. 6(7), e17026 (2017).
+2. D. Li, C. F. Cheung, M. Ren, L. Zhou, and X. Zhao, “Autostereoscopy-based three-dimensional on-machine measuring
+system for micro-structured surfaces,” Opt. Express 22(21), 25635–25650 (2014).
+3. D. Li, B. Wang, Z. Tong, L. Blunt, and X. Jiang, “On-machine surface measurement and applications for ultra-precision
+machining: a state-of-the-art review,” Int. J. Adv. Manuf. Tech. 104(1-4), 831–847 (2019).
+4. X. Zhang, Z. Zeng, X. Liu, and F. Fang, “Compensation strategy for machining optical freeform surfaces by the
+combined on-and off-machine measurement,” Opt. Express 23(19), 24800–24810 (2015).
+5. S. Zhang, “Absolute phase retrieval methods for digital fringe projection profilometry: A review,” Opt. Lasers Eng.
+107, 28–37 (2018).
+6. Z. Zhang, “Review of single-shot 3D shape measurement by phase calculation-based fringe projection techniques,”
+Opt. Lasers Eng. 50(8), 1097–1106 (2012).
+7. S. Yang and G. Zhang, “A review of interferometry for geometric measurement,” Meas. Sci. Technol. 29(10), 102001
+(2018).
+8. F. Gao, H. Muhamedsalih, and X. Jiang, “Surface and thickness measurement of a transparent film using wavelength
+scanning interferometry,” Opt. Express 20(19), 21450–21456 (2012).
+9. Y. Wang, Z. Li, Z. Fu, F. Fang, and X. Zhang, “Radial scan form measurement for freeform surfaces with a large
+curvature using stylus profilometry,” Meas. Sci. Technol. 30(4), 045010 (2019).
+10. D. Lee and N. Cho, “Assessment of surface profile data acquired by a stylus profilometer,” Meas. Sci. Technol.
+23(10), 105601 (2012).
+11. G. Mansour, “A developed algorithm for simulation of blades to reduce the measurement points and time on
+coordinate measuring machine (CMM),” Measurement 54, 51–57 (2014).
+12. Y. Xu, F. Gao, and X. Jiang, “A brief review of the technological advancements of phase measuring deflectometry,”
+PhotoniX 1(1), 1–10 (2020).
+13. L. Huang, M. Idir, C. Zuo, and A. Asundi, “Review of phase measuring deflectometry,” Opt. Lasers Eng. 107,
+247–257 (2018).
+14. Z. Zhang, C. Chang, X. Liu, Z. Li, Y. Shi, N. Gao, and Z. Meng, “Phase measuring deflectometry for obtaining 3D
+shape of specular surface: a review of the state-of-the-art,” Opt. Eng. 60(02), 020903 (2021).
+15. H. Ren, F. Gao, and X. Jiang, “Least-squares method for data reconstruction from gradient data in deflectometry,”
+Appl. Opt. 55(22), 6052–6059 (2016).
+16. L. Huang and A. Asundi, “Improvement of least-squares integration method with iterative compensations in fringe
+reflectometry,” Appl. Opt. 51(31), 7459–7465 (2012).
+17. X. Xu, X. Zhang, Z. Niu, W. Wang, Y. Zhu, and M. Xu, “Self-calibration of in situ monoscopic deflectometric
+measurement in precision optical manufacturing,” Opt. Express 27(5), 7523–7536 (2019).
+18. L. Huang, C. Ng, and A. Asundi, “Dynamic three-dimensional sensing for specular surface with monoscopic fringe
+reflectometry,” Opt. Express 19(13), 12809–12814 (2011).
+19. Y. Tang, X. Su, Y. Liu, and H. Jing, “3D shape measurement of the aspheric mirror by advanced phase measuring
+deflectometry,” Opt. Express 16(19), 15090–15096 (2008).
+20. Y. Xiao, X. Su, W. Chen, and Y. Liu, “Three-dimensional shape measurement of aspheric mirrors with fringe
+reflection photogrammetry,” Appl. Opt. 51(4), 457–464 (2012).
+21. M. Knauer, J. Kaminski, and G. Hausler, “Phase measuring deflectometry: a new approach to measure specular
+free-form surfaces,” In Optical Metrology in Production Engineering 5457, 366–376 (2004).
+22. Y. Xu, F. Gao, and X. Jiang, “Performance Analysis and Evaluation of Geometric Parameters in Stereo Deflectometry,”
+Engineering 4(6), 806–815 (2018).
+23. J. Burke, W. Li, A. Heimsath, C. Von Kopylow, and R. B. Bergmann, “Qualifying parabolic mirrors with deflectometry,”
+JEOS:RP 8, 13014 (2013).
+24. Y. Liu, S. Huang, Z. Zhang, N. Gao, F. Gao, and X. Jiang, “Full-field 3D shape measurement of discontinuous
+specular objects by direct phase measuring deflectometry,” Sci. Rep. 7(1), 1–8 (2017).
+25. P. Zhao, N. Gao, Z. Zhang, F. Gao, and X. Jiang, “Performance analysis and evaluation of direct phase measuring
+deflectometry,” Opt. Lasers Eng. 103, 24–33 (2018).
+
+Research Article
+
+Vol. 30, No. 10 / 9 May 2022 / Optics Express 17566
+
+26. R. Huang, P. Su, T. Horne, G. Brusa, and J. H. Burge, “Optical metrology of a large deformable aspherical mirror
+using software configurable optical test system,” Opt. Eng. 53(8), 085106 (2014).
+27. C. Guo, X. Lin, A. Hu, and J. Zou, “Improved phase-measuring deflectometry for aspheric surfaces test,” Appl. Opt.
+55(8), 2059–2064 (2016).
+28. G. Häusler, C. Richter, K.-H. Leitz, and M. C. Knauer, “Microdeflectometry – a novel tool to acquire three-dimensional
+microtopography with nanometer height resolution,” Opt. Lett. 33(4), 396–398 (2008).
+29. Y. Xu, F. Gao, and X. Jiang, “Segmentation phase measuring deflectometry for measuring structured specular
+surfaces,” Int. J. Adv. Manuf. Tech. 119(3-4), 2271–2283 (2022).
+30. Z. Zhang, Y. Wang, F. Gao, Y. Xu, and X. Jiang, “Enhancement of measurement accuracy of discontinuous specular
+objects with stereo vision deflectometer,” Measurement 188, 110570 (2022).
+31. R. Huang, P. Su, J. Burge, L. Huang, and M. Idir, “High-accuracy aspheric x-ray mirror metrology using Software
+Configurable Optical Test System/deflectometry,” Opt. Eng. 54(8), 084103 (2015).
+32. P. Su, Y. Wang, J. Burge, K. Kaznatcheev, and M. Idir, “Non-null full field X-ray mirror metrology using SCOTS: a
+reflection deflectometry approach,” Opt. Express 20(11), 12393–12406 (2012).
+33. Y. Xu, F. Gao, Z. Zhang, and X. Jiang, “A holistic calibration method with iterative distortion compensation for
+stereo deflectometry,” Opt. Lasers Eng. 106, 111–118 (2018).
+34. Z. Zhang, “A flexible new technique for camera calibration,” IEEE Trans. Pattern Anal. Mach. Intell. 22(11),
+1330–1334 (2000).
+35. Z. Zhang, C. E. Towers, and D. P. Towers, “Time efficient color fringe projection system for 3D shape and color using
+optimum 3-frequency selection,” Opt. Express 14(14), 6444–6455 (2006).
+36. C. Li, Y. Li, Y. Xiao, X. Zhang, and D. Tu, “Phase measurement deflectometry with refraction model and its
+calibration,” Opt. Express 26(26), 33510–33522 (2018).
+37. Z. Niu, X. Xu, X. Zhang, W. Wang, Y. Zhu, J. Ye, M. Xu, and X. Jiang, “Efficient phase retrieval of two-directional
+phase-shifting fringe patterns using geometric constraints of deflectometry,” Opt. Express 27(6), 8195–8207 (2019).

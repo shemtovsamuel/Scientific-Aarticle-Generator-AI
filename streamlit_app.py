@@ -1,10 +1,11 @@
 import os
-import streamlit as st
-from langchain_anthropic import ChatAnthropic
-from langchain_core.prompts import ChatPromptTemplate
-from langchain_core.output_parsers import StrOutputParser
 
-ANTHROPIC_API_KEY = st.secrets["ANTHROPIC_API_KEY"]
+import streamlit as st
+from langchain_core.output_parsers import StrOutputParser
+from langchain_core.prompts import ChatPromptTemplate
+from langchain_openai import ChatOpenAI
+
+OPENAI_API_KEY = st.secrets["OPENAI_API_KEY"]
 PASSWORD = st.secrets["PASSWORD"]
 
 title_default = "Analyse technique de la déflectométrie en réflexion pour l'évaluation de la qualité des lentilles intraoculaires courbées"
@@ -23,11 +24,23 @@ L’élément à inspecter est fabriqué en acrylique hydrophile, acrylique hydr
 La difficulté émanant de cet objet, visible sur la figure 2, provient de sa géométrie complexe et est directement corrélée à sa non spécularité induisant des phénomènes potentiels de double réflexion qui devront être considérés du point de vue des chemins optiques lors des mesures.
 """
 
-def read_article(file_name):
+
+def getArticles():
     script_dir = os.path.dirname(os.path.abspath(__file__))
-    file_path = os.path.join(script_dir, file_name)
-    with open(file_path, 'r', encoding='utf-8') as file:
-        return file.read()
+    articles_dir = os.path.join(script_dir, "articles")
+
+    articles = ""
+
+    for i in range(1, 10):
+        file_name = f"article{i}.txt"
+        file_path = os.path.join(articles_dir, file_name)
+
+        with open(file_path, "r", encoding="utf-8") as file:
+            content = file.read()
+            articles += f"ARTICLE {i}:\n{content}\n\n\n"
+
+    return articles
+
 
 def check_password():
     def password_entered():
@@ -38,36 +51,47 @@ def check_password():
             st.session_state["password_correct"] = False
 
     if "password_correct" not in st.session_state:
-        st.text_input("Enter the password", type="password", on_change=password_entered, key="password")
+        st.text_input(
+            "Enter the password",
+            type="password",
+            on_change=password_entered,
+            key="password",
+        )
         return False
     elif not st.session_state["password_correct"]:
-        st.text_input("Enter the password", type="password", on_change=password_entered, key="password")
+        st.text_input(
+            "Enter the password",
+            type="password",
+            on_change=password_entered,
+            key="password",
+        )
         st.error("Incorrect password")
         return False
     else:
         return True
 
-if check_password():
-    bibliography = read_article("bibliography.txt")
 
-    model = ChatAnthropic(
+if check_password():
+    articles = getArticles()
+
+    model = ChatOpenAI(
         temperature=0,
-        api_key=ANTHROPIC_API_KEY,
-        model_name="claude-3-5-sonnet-20240620",
+        api_key=OPENAI_API_KEY,
+        model_name="gpt-4o",
         max_tokens=4096,
-        streaming=True
+        streaming=True,
     )
 
     prompt = ChatPromptTemplate.from_template("""
-Tu es un expert en rédaction d'articles techniques. Ta tâche est de générer un article scientifique sur le sujet donné, en utilisant les données fournies et en vous inspirant de la bibliographie fournie. Voici les directives à suivre :
+Tu es un expert en rédaction d'articles techniques. Ta tâche est de générer un article scientifique sur le sujet donné, en utilisant les données fournies et en vous inspirant des articles fournies. Voici les directives à suivre :
 
 1. Titre de l'article : {title}
 
 2. Données pertinentes à utiliser :
 {data}
 
-3. Bibliographie pour référence :
-{bibliography}
+3. Articles pour référence :
+{articles}
 
 Instructions spécifiques :
 - Rédige un article scientifique, structuré sur le sujet donné.
@@ -92,7 +116,9 @@ Génère maintenant l'article en respectant ces directives, en commencant direct
 
     if use_test_values:
         title = st.text_input("Entrez le titre de l'article:", value=title_default)
-        data = st.text_area("Entrez les données pertinentes:", value=data_default, height=200)
+        data = st.text_area(
+            "Entrez les données pertinentes:", value=data_default, height=200
+        )
     else:
         title = st.text_input("Entrez le titre de l'article:")
         data = st.text_area("Entrez les données pertinentes:", height=200)
@@ -104,7 +130,9 @@ Génère maintenant l'article en respectant ces directives, en commencant direct
             full_response = ""
 
             with st.spinner("Génération de l'article en cours..."):
-                for chunk in chain.stream({"title": title, "data": data, "bibliography": bibliography}):
+                for chunk in chain.stream(
+                    {"title": title, "data": data, "articles": articles}
+                ):
                     full_response += chunk
                     output_container.markdown(full_response)
 

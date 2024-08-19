@@ -1,0 +1,997 @@
+The International Journal of Advanced Manufacturing Technology (2022) 119:2271–2283
+https://doi.org/10.1007/s00170-021-08439-8
+
+ORIGINAL ARTICLE
+
+Segmentation phase measuring deflectometry for measuring
+structured specular surfaces
+Yongjia Xu1 · Yuemin Wang1,2 · Feng Gao1 · Xiangqian Jiang1
+Received: 19 September 2021 / Accepted: 24 November 2021 / Published online: 3 December 2021
+© The Author(s) 2021
+
+Abstract
+Accurate and fast three-dimensional (3D) measurement for industrial products/components designed to possess 3D structured
+shapes is a key driver for improved productivity. However, challenges for current techniques are considerable to measure
+structured specular surfaces. A technique named segmentation phase measuring deflectometry (SPMD) is proposed in this
+paper, which enables structured specular surfaces to be measured with high accuracy in one setup. Concept of segmentation in topology is introduced into phase measuring deflectometry, which separates a surface with complex structures into
+continuous segments. Each segment can be reconstructed based on gradient information to achieve good form accuracy, and
+all reconstructed segments can be fused into a whole 3D strucutred form result based on their absolute spatial positioning
+data. Here, we propose and discuss the principle of SPMD, a segmentation technique to separate a strucured surface into
+segments, a spatial positioning technique to obtain absolute position of the segments, and a data fusion strategy to fuse all
+reconstructed segments. Experimental results show SPMD can achieve nanometer level accuracy for form measurement of
+continuous segments by comparing with stylus profilometer, which is significantly higher than the accuracy of direct phase
+measuring deflectometry. Meanwhile, SPMD has micron level spatial positioning accuracy for structures by measuring two
+specular steps and comparing with coordinate measuring machine, which differentiates this technique from gradient-based
+phase measuring deflectometry that extends measurement capability from continuous specular surfaces to complex structured specular surfaces. Compared with the existing measurement techniques, SPMD significantly improved the convenience
+and ability to measure freeform and structured specular surfaces with the advantages of high measurement accuracy, fast
+measurement, and potential application for embedded measurement.
+Keywords Deflectometry · Optical metrology · Phase measurement · Structured specular surface · 3D measurement
+
+1 Introduction
+Driven by the ever-increasing demand for function integration, performance enhancement, and light weight, more
+and more next-generation industrial products/components
+are designed to possess three-dimensional (3D) structured
+shapes (i.e., non-rotational symmetric and discontinuous),
+to be made of multi-materials (e.g., materials with different
+reflective characteristics) and/or to integrate different shapes/
+structures [1, 2]. Accurate, fast, and in-line metrology is a
+* Yongjia Xu
+Y.Xu2@hud.ac.uk
+1
+
+EPSRC Future Metrology Hub, University of Huddersfield,
+Huddersfield HD1 3DH, UK
+
+2
+
+School of Mechanical Engineering, Hebei University
+of Technology, Tianjin 300130, China
+
+key element underpinning future autonomous manufacturing systems. However, it is still a challenging assignment
+for current metrologies to measure structured specular surface. An example is seen in a monolithic multi-mirror arrays
+(shown in Fig. 1) on the Mid-Infrared instrument (MIRI)
+Spectrometer Optics for the James Webb Space Telescope
+[3]. It comprises 21 individual spherical mirrors of 11-mm
+length and 1-mm width. The relative 3D spatial position
+error of all the individual mirrors requires < 20 µm. Meanwhile, form accuracy of individual mirror must be better
+than 50 nm root mean square (RMS) [4]. The positions of
+the centers of each mirror are varied in a space coordinate
+system, and the big steps between each of the mirrors make
+it difficult for any of the exit measurement instrument to
+perform a measurement of the whole part in one setup. Coordinate measuring machine (CMM) [5] and stylus profilometer [6] are measurement techniques that are well accepted
+
+13
+
+Vol.:(0123456789)
+
+2272
+
+The International Journal of Advanced Manufacturing Technology (2022) 119:2271–2283
+
+Fig. 1  Picture of monolithic multi-mirror arrays
+
+in industry. CMM records detailed dimensional figures by
+using a probe moving along workpiece surface; therefore,
+it can be used to accurately measure a surface with complex geometric shape. Stylus profilometer uses a stylus tip to
+physically touch the measured surface and evaluates the surface error by fitting the collected data and comparing with
+ideal surface model. Measurement accuracy of stylus profilometer can be achieved to a few tens of nanometers. However, because both stylus profilometer and CMM are based
+on point scanning, these techniques are time-consuming and
+have a potential damage for the test surface by the stylus tip.
+Moreover, some disadvantages in stylus profilometer and
+CMM, such as high cost and large volume, are difficult to be
+solved due to requirements of their measurement principles.
+Interferometry is a well-known non-contact optical measurement method based on interference principle [7]. Shore
+et al. tried to test the multi-mirror arrays by using a Twyman
+Green phase shifting interferometer [4]. The interferometer
+can successfully obtain the form data of individual mirrors.
+However, it has to be mounted on a three-axis machine in
+order to measure the spatial positioning of the individual
+mirrors, which results in that the measurement procedures
+were very complex and the measurement accuracy requirements for the whole part were difficult to achieve.
+Phase measuring deflectometry (PMD) is an optical technique developed for 3D measurement of freeform specular
+surface with advantages of good accuracy, low cost, and
+full-field and non-contact measurement [8–10]. According to approaches of obtaining form information, PMD
+can be divided into two categories: gradient-based phase
+measuring deflectometry (GPMD) [11–14], and direct
+phase measuring deflectometry (DPMD) [15, 16]. GPMD
+obtains gradients of the measured surface using phase data
+and then reconstructs form data based on gradient integration. In contrast, DPMD directly calculates form information from phase data instead of gradients by establishing the
+relationship between phase value and depth change based
+
+13
+
+on mathematical model. GPMD can generally achieve submicron measurement accuracy or even tens of nanometers
+accuracy in the case of measuring low curvature surfaces
+[17], because of high sensitivity of gradient variation. Zhang
+et al. proposed a deflectometry method based on 3D digital
+image correlation for measuring the form of specular surface [18]. A liquid crystal display (LCD) screen is required
+to be moved during a measurement process; therefore, this
+system is not suitable for embedded measurement since
+the movement of screen needs large space. GPMD can
+only measure continuous surface due to the limitation of
+the principle of integral method. By contrast, DPMD can
+measure discontinuous specular surface because form data
+are extracted from phase value directly. Shi et al. developed
+an infrared PMD which combines a binary fringe defocusing technique and DPMD [19]. However, significant phase
+noise is introduced to the calculation process of this technique, which results in measurement accuracy of DPMD to
+only reach tens of microns [15, 16]. A measurement of the
+multi-mirror arrays mentioned above has been studied by
+using DPMD [15]. Though rough form data of the whole
+part can be obtained successfully, measurement accuracy
+of DPMD is far from meeting the requirement of individual
+mirror. Wang et al. studied a method to improve measurement accuracy of DPMD by introducing stereo algorithm
+[20]; however, DPMD is difficult to be applied in embedded
+measurements since two screens used in the system result in
+large system volume. We classify stereo deflectometry [21,
+22] as a kind of GPMD technique. Note that stereo deflectometry can obtain absolute depth data in the process of
+solving gradient information, while other GPMD techniques
+can only obtain gradient data. Therefore, in theory, stereo
+deflectometry has a capacity of reconstructing a structured
+specular surface based on the obtained absolute depth data.
+However, because the absolute depth accuracy is not good
+(almost in the same order of magnitude as DPMD) compared with the accuracy of the depth reconstructed with
+gradients, scholars generally ignore the directly obtained
+absolute depth information and focus on using its ability of
+gradient measurement to detect continuous specular surfaces
+[17, 21, 22]. Overall, challenges for current techniques are
+considerable when measuring structured specular surfaces
+represented by the multi-mirror arrays, requiring important
+innovations in measurement techniques to achieve the ambitious target of accurate, embedded, and in-line measurement.
+Here, we propose and demonstrate a method to enhance the
+measurement capability of PMD, which we call segmentation phase measuring deflectometry (SPMD). Three novel
+techniques are presented in this paper: segmentation technique, spatial positioning technique, and data fusion strategy.
+Segmentation, the concept that we first applied in terms of
+PMD, working together with our developed spatial positioning technique and data fusion strategy, enables SPMD
+
+The International Journal of Advanced Manufacturing Technology (2022) 119:2271–2283
+
+to perform a measurement of structured specular surfaces
+with high accuracy in one setup. The concept of segmentation in SPMD means separating a surface with complex
+structures into several continuous segments. The developed
+spatial positioning technique can establish the relative locations of the segments with micron level accuracy. Individual
+segment is reconstructed and smoothed based on gradient
+data, which enables form accuracy of individual segment
+to approach nanometer level accuracy. Data fusion strategy
+is studied to connect individual segment with the spatial
+location. The concept of this technique promises remarkable advancement of 3D measurement of structured specular
+surfaces with its advantages of high accuracy, fast speed, and
+full-field measurement.
+
+2 Principle and methods
+2.1 Introduction of SPMD
+A SPMD system consists of a fringe displaying screen and
+two imaging sensors, whose working principle is illustrated
+in Fig. 2. The screen, the structured specular surface under
+test, and individual imaging sensor form a spatial triangle,
+so that imaging sensors can detect the fringes on the screen
+through the reflection of the specular surface. Compared
+with the fringe displayed on the screen, the fringe captured
+by imaging sensors is deformed due to the shape of the
+measured surface. Processing the deformed fringes on the
+imaging sensors with our developed spatial positioning
+method, spatial location and gradients of the surface can be
+obtained simultaneously. During a measurement process,
+the screen is required to display multiple phase-shifting
+sinusoidal fringe patterns in vertical and horizontal
+
+2273
+
+directions. A two-dimensional (2D) phase coordinate system can be created by extracting mutually perpendicular
+absolute phase values from the displayed fringe patterns.
+Since a well-manufactured LCD screen is generally
+accepted as the fringe displaying screen in current PMD
+system, it is quite simple to establish the relationship
+between the phase coordinate system and a 2D physical
+coordinate system on the screen based on the screen pixel
+size, so that the physical location on the screen corresponding to a phase coordinate can be calculated accurately.
+When the fringe patterns are displayed on the screen, the
+imaging sensors synchronously capture each reflected fringe
+pattern. Two mutually perpendicular absolute phase maps
+carrying the form information of the measured specular
+surface can be extracted from the captured fringe patterns
+by applying phase shifting and phase unwrapping algorithms. Individual phase map is a 3D matrix, which consists
+of pixel coordinates of the imaging sensor as horizontal and
+vertical coordinates and phase values as depth coordinate.
+Therefore, if knowing a pixel coordinate, the corresponding
+coordinate in terms of the phase coordinate system can be
+obtained by applying 2D interpolating to horizontal absolute phase map and vertical absolute phase map, using S to
+represent an arbitrary space point near the measured surface. Its image point, denoted with P1, in terms of the pixel
+coordinate system of an imaging sensor can be easily
+obtained after calibrating of the imaging parameters of the
+sensor. Phase coordinate of P1 in terms of the phase coordinate system can be obtained by applying the interpolation
+method based on the pixel coordinate of P1. Then, the corresponding physical location on the screen, denoted with
+Q1, can be calculated based on the relationship between the
+phase coordinate system and the physical coordinate system. Assuming S is a point on the measured surface,
+
+Fig. 2  Illustration of the
+principle of SPMD. Green ball
+stands for a space point. Yellow
+arrow and purple arrow show
+equivalent normal vector calculated based on two imaging
+sensors, respectively. Red arrow
+represents normal vector of the
+measured surface
+
+13
+
+2274
+
+The International Journal of Advanced Manufacturing Technology (2022) 119:2271–2283
+
+incident light Q1 S and outgoing light SP1 should obey the
+law of reflection. Consequently, an equivalent normal vector
+of S can be calculated
+based on Q1, S , and P1, which is
+⇀
+expressed by n1. Similarly, a new equivalent normal vector
+of S can be obtained based on its image point
+P2 on another
+⇀
+n
+imaging sensor, which is denoted with
+.
+in
+2 As shown
+⇀
+⇀
+Fig. 2, only when S in on the surface, n1 is equal to n2 , and
+both are equal to the real normal vector of the measured
+specular surface. Therefore, we can change the spatial coordinate of S , e.g. by changing the coordinate of S along a
+camera ray, to obtain⇀ a position
+(denoted as S1) where the
+⇀
+difference between n1 and n(2 reaches minimum.
+Here, we
+)
+(
+)
+use x(1,1) y(1,1) z(1,1) and nx(1,1) ny(1,1) 1 to express the
+
+spatial coordinate and the calculated normal vector of S1,
+respectively. Note that though this process is similar to the
+gradient obtain process of stereo deflectometry, the difference is that the calculated absolute depth data is commonly
+disregarded in stereo deflectometry, while in SPMD, both
+spatial positioning data and gradient data are fully utilized
+based on the concept of segmentation to participate in the
+later data fusion process.
+Phase error is inevitably involved in the process of
+extracting absolute phase values from the captured fringe
+patterns, which is resulted by complex factors such as electronic noise of the screen and imaging sensors, nonlinear
+error in fringe display and capture, fringe blur caused by
+lens defocus, and calibration error etc., using 𝛿Q to represent
+physical location error on the screen caused by the phase
+error. With the benefit of our previous study [23], the influence of 𝛿Q on spatial positioning accuracy can be expressed
+with Eq. (1), regardless of calibration error in terms of the
+relative position between the screen and the imaging sensors:
+
+tan𝛾
+𝛿Q
+𝛿z =
+1 + Ls ∕Ld
+
+(1)
+
+where 𝛿z represents spatial positioning error in depth direction.Ls and Ld represent the length from the measured surface to the screen and to the imaging sensor, respectively. 𝛾
+denotes the angle between surface normal and camera ray. In
+a SPMD system, 𝛾 is around 45°. Assuming Ld is k times of
+Ls ( k is generally changing from 1 to 4 in a SPMD system),
+Eq. (1) can be simplified as Eq. (2).
+
+𝛿z =
+
+k
+𝛿Q
+1+k
+
+(2)
+
+According to Eq. (2), 𝛿z and 𝛿Q are in the same order
+of magnitude (which is tens of micrometers in our experiments). Though the result of spatial positioning can present
+3D information of the measured surface in terms of micrometer scale, the accuracy requires further improvement for
+measuring a surface with nanometer level accuracy requirement. To realize this purpose, gradient data are studied to
+
+13
+
+optimize and smooth the measurement data. Our previous
+work [23] shows that the relationship between 𝛿Q and gradient error can be described as Eq. (3).
+
+𝛿𝛼 =
+
+1
+𝛿Q
+2Ls
+
+(3)
+
+where 𝛿𝛼 is the gradient error caused by 𝛿Q . According to
+Eqs. (2) and (3), gradient data is ~ 2Ls k∕(k + 1) times better than spatial positioning data in terms of restraining the
+influence of phase error. Ls is typically larger than 100 mm
+in a PMD system, which leads to reconstructed surface based
+on gradient integration to achieve submicron or even tens of
+nanometers form accuracy. However, an obvious defect of
+gradient integration technique is that it can only be applied
+to a continuous surface. Serious measurement error will be
+introduced when reconstructing a structured surface with
+gradient data. Here, we use a concept of segmentation to
+solve this problem as shown in Fig. 2. The measured structured specular surface is partitioned into multiple continuous
+segments with gradient information. Individual continuous
+segment can be reconstructed with their gradient data to
+achieve nanometer level form accuracy. However, the reconstruction process results in a missing of the absolute depth
+information of the reconstructed segment. A data fusion
+technique must be conducted to recover the absolute position in space of the reconstructed segment to reconstruct the
+3D form of the whole structured specular surface.
+
+2.2 Spatial positioning and segmentation process
+in SPMD
+Figure 3 demonstrates the process of obtaining absolute 3D
+coordinates and gradients information of a structured specular surface in SPMD. Calibration is an important and first
+step of the process, which is to obtain the transformation
+matrix HL between screen coordinate system {L} and phase
+coordinate system, the relationship between {L} and camera
+coordinate systems ({C1 } and {C2 }), transformation{matrix
+}
+Hc between {C1 } and {C2 }, imaging matrix A1 from C1 to
+image coordinate system
+{ }{P1 } of imaging sensor 1, and imaging matrix A2 from C2 to image coordinate system {P2 } of
+imaging sensor 2. For an image point m1(i,j) ( i and j represent
+coordinate in u and v direction of pixel map) in imaging sen1
+sor 1, a unique physical point in screen point M(i,j)
+can be
+obtained based on HL and phase values corresponding to
+1
+m1(i,j). An equivalent normal n�⃗(i,j) can be calculated based on
+k
+1
+1
+m1(i,j) , M(i,j)
+and a point S(i,j)
+( k denotes index number) on
+k
+extended line of m1(i,j) O (O1 is the optical center of imaging
+1
+2
+2
+1
+sensor 1), using S(i,j)
+and n�⃗(i,j) to represent the values of S(i,j)
+k
+k
+k
+1
+and n�⃗(i,j) expressed in terms of {C2 }, which can be obtained
+k
+2
+can be calbased on Hc. Imaging point m2(i,j) in {C2 } of S(i,j)
+k
+
+The International Journal of Advanced Manufacturing Technology (2022) 119:2271–2283
+
+2275
+
+Fig. 3  Illustration of the spatial positioning of SPMD
+
+2
+culated with imaging matrix A2. Assuming S(i,j)
+is a refleck
+2
+tion point with normal n�⃗(i,j) , luminous point of m2(i,j) can be
+k
+obtained according to the law of reflection, which is denoted
+̂ 2 . Using d(i,j) to express the difference between M
+̂2
+with M
+(i,j)
+(i,j)
+2
+on the screen of m2(i,j), a true
+and the corresponding point M(i,j)
+reflection point can be obtained by searching points along
+extended line of m1(i,j) O by minimizing d(i,j). Repeating the
+1
+search process along imaging ray of every camera pixels, we
+can
+coordinates
+matr ix
+� obtain a m�× n spatial
+�
+�
+⎡ x(1,1) y(1,1) z(1,1) ⋯ x(1,n) y(1,n) z(1,n) ⎤
+⎢
+⎥
+⋮
+⋮
+�⋱�
+� ⎥ where m and
+⎢�
+⎣ x(m,1) y(m,1) z(m,1) ⋯ x(m,n) y(m,n) z(m,n) ⎦
+n represent the number of imaging pixels in horizontal and
+vertical directions, respectively. The coordinates matrix
+records the spatial positioning of the measured structured
+specular
+surface.
+a normal
+vector matrix
+�
+� Meanwhile,
+�
+�
+⎡ nx(1,1) ny(1,1) 1 ⋯ nx(1,n) ny(1,n) 1 ⎤
+⎥
+⎢
+⋮
+⋮
+⎢�
+�⋱�
+� ⎥ can be obtained,
+⎥
+⎢ n
+⎣ x(m,1) ny(m,1) 1 ⋯ nx(m,n) ny(m,n) 1 ⎦
+
+which records the gradient information of the measured surface. Note that even for a true reflection point, d(i,j) cannot
+equal zero due to calibration and phase noise error. However,
+
+d(i,j) of a true reflection point (point on the surface of the
+measured structured specular mirror) is still much small compared with those obtained by points beyond the sample under
+test (SUT) and points on the edge of segments. Therefore, a
+threshold can be used to remove non-surface points and edge
+points in spatial coordinates matrix and normal vector matrix
+by evaluating the size of d(i,j). In our experiments, the threshold is commonly at micron level for a well-calibrated system.
+The monolithic multi-mirror arrays on the MIRI Spectrometer Optics shown in Fig. 1 are used as measurement sample
+to demonstrate the segmentation process. Figure 4a and b
+show the obtained matrixes of normal vector along x and y
+direction, where non-surface points and edge points have
+been removed based on the threshold method. Figure 4c
+shows a two direction (2D) projection in z direction of a normal vector matrix expressed in terms of pixel coordinate
+system. Each continuous segment of the normal vector matrix
+can be clearly distinguished after the removement with the
+threshold method, as shown in Fig. 4c. In order to achieve the
+segmentation, a region of interest (ROI) covering a whole
+target segment is selected, as shown in Fig. 4c. The data outside the target segment may be covered by the ROI especially
+when a target segment has complex shape. In order to eliminate the data outside target segment (DOTS) in ROI, a region
+
+13
+
+2276
+
+The International Journal of Advanced Manufacturing Technology (2022) 119:2271–2283
+
+Fig. 4  Illustration of the segmentation process of SPMD. a Matrix of
+normal vector along x direction. b Matrix of normal vector along y
+direction. c Z-direction value of normal vector matrix expressed in
+
+pixel coordinate system. d Region mask of ROI. e Region mask after
+removing ROS
+
+mask can be obtained by binarizing the selected ROI, as
+shown in Fig. 4d. Then, a threshold can be set up according
+to the pixel number of the target segment to eliminate the
+region of DOTS which has less pixel number than the threshold. Figure 4e is the result after the elimination of the region
+of DOTS, which is used as a region mask to accurately
+extract the target segment. All continuous segments of the
+measured sample can be extracted by repeating segmentation
+process. A flowchart is used to summarize the segmentation
+process of SPMD, as shown in Fig. 5.
+
+form accuracy of the target segment compared with the
+rough 3D position data, as shown in Fig. 6. On the other
+hand, the reconstructed depth data is a relative value; therefore, a method is required to be studied to recapture the absolute spatial position of the reconstructed target segment to
+obtain the spatial location relationship between segments,
+̂ to represent spatial coordinates of
+using matrices M and M
+a point on target segment and the corresponding point on the
+reconstructed segment with the same horizontal
+( and )vertical
+̂
+x y z and M
+M
+coordinates, respectively.
+is
+denoted
+with
+(
+)
+̂
+is expressed by x y ̂z . The relationship between M and M
+can be expressed with Eq. (4).
+
+2.3 Data fusion
+Figure 6 is used to illustrate the data fusion strategy of
+SPMD by measuring the monolithic multi-mirror arrays.
+Two imaging sensors capture the deformed fringe patterns
+along x and y directions through the reflection of the measured mirror. By processing the captured patterns with the
+developed spatial positioning technique, rough space point
+cloud with spatial positioning information and gradient data
+along x, y direction of the mirror can be obtained. Then, a
+target continuous segment is separated from the structured
+mirror by extracting the corresponding region mask in terms
+of pixel coordinates based on the proposed segmentation
+method. Data in depth direction of the target segment can
+be reconstructed based on the gradient data and x, y coordinates. On one hand, the reconstructed depth data improves
+
+13
+
+̂ +T+e
+M = RM
+
+(4)
+
+where R is a 3 × 3 identity matrix since there is no rotation
+transformation
+[
+]of data in the process of reconstruction. T
+̂ have the same coordiequals 0 0 dz , because M and M
+nates in x and y direction. e represents measurement noise
+in spatial positioning data of rough space point cloud. dz can
+be calculated by minimizing the following functional with
+least square method:
+
+∑m |
+2
+̂ i + T)||
+|M − (RM
+i=1 | i
+|
+
+(5)
+
+where i is the index of sampling point. m is the number of
+sampling points on the reconstructed segment. Similarly,
+
+The International Journal of Advanced Manufacturing Technology (2022) 119:2271–2283
+
+2277
+
+Fig. 5  Summary of segmentation process of SPMD
+
+all continuous segments can be reconstructed with gradient
+data, and recaptured absolute depth data based on the fusion
+technique. So far, improvement of measurement accuracy of
+the structured mirrors has completed. Final step is to establish the relationship between the 21 reconstructed structured
+mirrors and the base of the mirror to complete the reconstruction of the whole structured surface. This step can be
+achieved through a fusion process by using the reconstructed
+mirrors to replace the corresponding rough 3D position data.
+A comparison between final fusion result and rough position
+data shown in Fig. 6 can reflect the improvement of surface
+accuracy after the fusion process.
+
+3 Experiments and results
+We measured three structured specular mirrors to evaluate the measurement accuracy of SPMD in terms of spatial
+positioning accuracy and form measurement accuracy to an
+individual continuous segment, respectively. The SPMD system and the sample under test (SUT) are shown in Fig. 7a.
+A tablet (iPad Pro 12.9-inch, Apple) is used as the fringedisplaying screen of the SPMD system in experiments. Two
+CCD (Charge-coupled Device) cameras (Lw235M, Lumenera)
+are used as the imaging sensors in the system. Resolution of
+
+the cameras is 1616 × 1216 pixels. 35 mm fixed focal length
+lens (MVL35M23, Navitar) is mounted on the cameras. The
+cameras focus on the SUT during the measurement process.
+Fringe patterns are generated by programming with Matlab. Two groups of perpendicular sinusoidal fringe patterns
+with fringe numbers of 225, 224, and 210 are generated in
+our experiments according to requirements of phase calculation algorithms. Duet Display is used to turn the tablet into a
+second monitor to sequentially display the generated fringe
+patterns with high performance. A sinusoidal fringe period
+of the fringe pattern with fringe number of 225 takes up 10
+screen pixels. The displayed fringe patterns are captured by the
+cameras through the reflection of the SUT. In order to reduce
+phase noise, we averaged of every 5 obtained fringe images.
+Then, eight-step phase-shifting algorithm is used to calculate
+wrapped phase map with the averaged fringe images. Absolute
+phase map can be obtained by unwrapping the wrapped phase
+map with optimized 3-frequency selection method [24, 25].
+The SPMD system in experiments is calibrated based on holistic calibration method [22]. During the calibration process,
+a high-precision plane mirror moves arbitrarily several times
+around the position of the object to be measured. The screen
+in SPMD is reflected by the plane mirror and captured by the
+imaging sensors. Therefore, the imaged screen can be used as a
+phase target to calibrate the imaging parameter of the imaging
+sensors [26, 27]. Then, the transformation relationship between
+
+13
+
+2278
+
+The International Journal of Advanced Manufacturing Technology (2022) 119:2271–2283
+
+Fig. 6  Diagram of data fusion strategy
+
+each imaged screen and an imaging sensor can be used to calculate the spatial relationship between the real screen and an
+imaging sensor in SPMD. Finally, an iterative optimization is
+applied to optimize the calibration parameters in SPMD. Leastsquares method [28] is applied to reconstruct form data of a
+continuous segment with gradient data. The principle of the
+
+reconstruction method is based on an approximation that the
+normal vector of a point is perpendicular to the vectors connecting points at either side. Radial basis function integration
+(RBFI) method [29] is used as a supplementary constraint of
+the reconstruction method to integrate a small measurement
+data set during the reconstruction process.
+
+Fig. 7  SPMD system and samples. a Pictures of SPMD system and three samples under test in our experiments. b A picture of the captured rectangular step gauge. c A picture of the captured circular step gauge. d A picture of the captured concave mirror with four small concave features
+
+13
+
+The International Journal of Advanced Manufacturing Technology (2022) 119:2271–2283
+
+2279
+
+Fig. 8  Experimental evaluation
+of spatial positioning accuracy
+of SPMD. a Spatial positioning data of the rectangular step
+gauge measured by SPMD. b
+Difference between SPMD and
+CMM in the measurement of
+the rectangular step gauge. c
+Spatial positioning data of the
+specular mirror with three circular steps measured by SPMD.
+d Difference between SPMD
+and CMM in the measurement
+of the circular step gauge
+
+Sample M1 shown in Fig. 7a is a rectangular step gauge.
+A picture of fringe pattern through the reflection of M1 is
+shown in Fig. 7b. The form data of the step gauge measured
+by SPMD is shown in Fig. 8a. Meanwhile, we used a CMM
+(ZEISS PRISMO) to measure the step gauge to compare
+with the results of SPMD. Figure 8b shows the measurement difference between the two techniques, using h21, h31,
+and h41 to represent the distance between the second step
+and the first step, the distance between the third step and the
+first step, and the distance between the fourth step and the
+first step respectively, as shown in Fig. 7a. Table 1 shows a
+comparison between SPMD and CMM by measuring sample M1. Step distances h21, h31, and h41 measured by CMM
+are 2994.6 µm, 6921.0 µm, and 11863.0 µm, respectively.
+The step distances measured by SPMD are 3011.7 µm,
+6928.9 µm, and 11852.8 µm, respectively. The differences
+between the two techniques in the measurement of h21, h31,
+
+and h41 are 17.1 µm, 7.9 µm, and −10.2 µm, respectively.
+Sample M2 shown in Fig. 7a is a specular mirror with three
+circular steps. Figure 7c is a picture of the sample with
+deformed fringe information. Figure 8c shows measurement
+result of the sample by SPMD. Measurement difference of
+the circular step gauge by SPMD and CMM is shown in
+Fig. 8d. The distances from three circular steps to the circular base of the mirror are denoted as h1, h2 , and h3 respectively, as shown in Fig. 7a. Table 2 shows a comparison
+between SPMD and CMM by measuring sample M2. Step
+distances h1, h2 , and h3 measured by CMM are 5617.0 µm,
+4671.8 µm, and 3675.6 µm, respectively. Results obtained
+by SPMD are 5626.5 µm, 4660.7 µm, and 3682.1 µm, which
+indicates that the differences between SPMD and CMM in
+measuring the step distances are 9.5 µm, −11.1 µm, and
+6.5 µm, respectively. Measurement results in Tables 1 and 2
+show that the spatial positioning accuracy of SPMD is below
+20 µm, which reflects the measurement accuracy of specular
+structure positions.
+
+Table 1  Comparison between SPMD and CMM by measuring sample M1 (unit: µm)
+
+Table 2  Comparison between SPMD and CMM by measuring sample M2 (unit: µm)
+
+Steps
+
+CMM
+
+SPMD
+
+Difference
+
+Steps
+
+CMM
+
+SPMD
+
+Difference
+
+h21
+h31
+h41
+
+2994.6
+6921.0
+11863.0
+
+3011.7
+6928.9
+11852.8
+
+17.1
+7.9
+−10.2
+
+h1
+h2
+h3
+
+5617.0
+4671.8
+3675.6
+
+5626.5
+4660.7
+3682.1
+
+9.5
+−11.1
+6.5
+
+3.1 Evaluation of spatial positioning accuracy
+
+13
+
+2280
+
+The International Journal of Advanced Manufacturing Technology (2022) 119:2271–2283
+
+3.2 Evaluation of form measurement accuracy
+to an individual continuous segment
+Sample M3 shown in Fig. 7a is a concave specular mirror
+with four small concave features. Figure 7d shows a captured picture of the sample with fringe information. Figure 9a shows the spatial positioning data of a concave feature (enlarged in Fig. 7d) obtained by SPMD. Significant
+measurement noises can be seen clearly in Fig. 9a. Form
+information of the concave feature is hidden by these noises.
+Then, the concave feature is separated from the whole part as
+a continuous segment and reconstructed with gradient data.
+The reconstructed result is shown in Fig. 9d, which clearly
+displays the form of the concave feature. Figure 9b shows
+the spatial positioning data of the mirror part within region
+of interest (ROI) obtained by SPMD, where it is difficult to
+distinguish the small concave features due to measurement
+noise in the spatial positioning data. By contrast, the final
+measurement result of the mirror part within ROI after data
+fusion is shown in Fig. 9e, which can clearly display the
+form of the whole mirror. A stylus profilometer (Formtracer
+CS-5000CNC, Mitutoyo) with 70 nm measurement accuracy
+is used to evaluate the form measurement accuracy of SPMD
+to an individual continuous segment. An ideal concave is fitted based on measurement result of the stylus profilometer.
+
+Fig. 9  Experimental evaluation of form measurement accuracy of
+SPMD to an individual continuous segment. a Spatial positioning
+data of the concave feature obtained by SPMD. b Spatial positioning
+data of the mirror part within ROI obtained by SPMD. c Difference
+between spatial positioning data of SPMD and fitted results of sty-
+
+13
+
+Root mean square (RMS) of the difference between the
+spatial positioning data of SPMD and the fitted concave is
+34.7 µm, as shown in Fig. 9c. In contract, Fig. 9f shows that
+RMS of the difference between the reconstructed data of
+SPMD and the fitted concave is 39.1 nm.
+
+4 Discussion
+The conceptual essence of SPMD is not only the concept
+of segmentation but also the implementation of the “spatial
+positioning” and “fusion strategy,” which enables SPMD
+to collect both absolute spatial positioning data and gradient data, and integrate these two kinds of data into a whole
+3D data. This solves the measurement limitation of current
+PMD techniques while maintaining their advantages. Compared with GPMD, SPMD extends the measurement capability from continuous specular surfaces only to complex
+structured specular surfaces. Meanwhile SPMD provides
+much higher measurement accuracy compared with DPMD.
+In the experiment of measuring a concave specular mirror
+with four small concave features, we compared the spatial
+positioning data obtained by SPMD and the reconstruction
+data based on gradient data. Since the spatial positioning
+accuracy of SPMD is in the same order of magnitude as the
+
+lus profilometer in the measurement of the concave feature. d Reconstruction data of the concave feature obtained by SPMD. e Final
+measurement result of the mirror part within ROI obtained by SPMD.
+f Difference between reconstruction data of SPMD and fitted results
+of stylus profilometer in the measurement of the concave feature
+
+The International Journal of Advanced Manufacturing Technology (2022) 119:2271–2283
+
+measurement accuracy of DPMD, the comparison can reflect
+the difference between SPMD and DPMD. The experimental results show that SPMD’s spatial positioning accuracy
+and form measurement accuracy to an individual continuous
+segment are tens of micrometers and tens of nanometers
+respectively, which indicates the accuracy of SPMD is nearly
+1000 times higher than that of DPMD in a measurement of
+continuous specular segments. This shows that SPMD has
+obvious advantages over DPMD in the detection ability of
+a specular surface with small curvature change. Like traditional PMD system, it is important to consider two main
+factors that affect the measurement accuracy of SPMD.
+One is calibration accuracy, which includes the calculation accuracy of imaging model parameters, the relationship between screen pixel coordinates and physical position
+coordinates, and the spatial position relationship between
+cameras and screen. Although scholars have developed several approaches to enhance the calibration accuracy of PMD
+[17, 22, 30], further studies are still required to improve
+measurement accuracy of SPMD. Besides calibration accuracy, phase error is another factor. This relates to a problem that we must consider in the process of measurement
+— phase error caused by curvature of measured surface.
+Because the curvature of a measured surface will blur the
+collected fringe pattern to a certain extent, which results in
+the increase of phase error, the accuracy of SPMD could be
+relatively reduced when measuring a specular surface with
+large curvature change. One way to solve this problem is to
+increase the depth of field (DOF) of the imaging sensors. In
+short, we believe that with the improvement of calibration
+accuracy and phase accuracy of SPMD in the future, its spatial positioning accuracy and form measurement accuracy to
+an individual continuous segment will be further improved.
+The measurement speed of SPMD depends on the number of fringe images needed for a complete measurement
+and the interval time between adjacent image captures.
+The applied phase calculation methods determine how
+many fringe images are needed. The interval time between
+adjacent pattern captures is affected by the display speed
+of the screen and the capture speed of the imaging sensor.
+In our measurement, an imaging sensor takes 240 images
+(including 120 horizontal fringe patterns and 120 vertical
+fringe patterns) for a complete measurement. In fact, the
+image number can be reduced according to measurement
+requirements (e.g., single-shot PMD has been studied in
+literature [11, 31]). The imaging sensor used in the experiment has a speed of 12 frames per second. Theoretically
+our system needs 20 s to complete the acquisition of 240
+fringe images according to the imaging sensor speed.
+However, because the screen has a relative low display
+speed, the imaging sensors have to spend plenty of time
+waiting for the screen to display a fringe pattern. The
+resulting acquisition time for one measurement is around
+
+2281
+
+1 min. However, we believe that it is not a tough challenge
+to improve the measurement speed of SPMD. Acquisition
+time for one measurement could achieve around 1 s or possibly even faster in the future if high-speed imaging sensor
+and screen are applied, and synchronization between them
+is realized. Since measurement speed of SPMD can be
+fast, there is no need to cooperate with heavy experimental
+platform that required by traditional measurement system
+(e.g., CMM and stylus profilometer) to reduce the impact
+of vibration. This increases systematic flexibility so that
+SPMD can be designed to a portable measurement system.
+Compared with the existing measurement methods in
+industry (e.g., CMM, stylus profilometer, and interferometry), our developed techniques differentiate SPMD from
+these methods that enable structured specular surfaces to
+be measured successfully with high accuracy and speed
+in one setup. After a completed calibration, if the relative
+position of components (i.e., imaging sensors and screen)
+in the system remains unchanged, the subsequent measurement does not need to repeat the calibration process.
+These significantly improve the convenience and ability of
+measuring structured specular surfaces. In a SPMD configuration, only a fringe-displaying screen and two imaging sensors are required during a measurement process,
+which allows the configuration to be designed to be very
+compact. Note that this can reduce volume and weight
+of the measurement system. Therefore, significant advantages can be shown in application scenarios where embedded measurements are required (e.g., a diamond turning
+machine). Next step, the size of screen and imaging sensors will be further decreased and the configuration of
+SPMD will be optimized to achieve a more compact system for embedded measurement.
+In addition to accuracy and speed, some improvements
+are required in SPMD. For example, currently the continuous segments are separated manually based on curvature
+difference, which leads to a low accuracy of segment edge
+selection and a difficulty to select segments with complex
+shapes. Moreover, manual segmentation severely limits
+the speed of measurement and calculation. However, we
+believe that as more algorithms (e.g., image recognition
+and matching algorithm, and artificial intelligence algorithm) are applied to assist the segmentation process in the
+future, SPMD will be more automated, and finally achieve
+the ambitious target of real-time measurement and display.
+
+5 Conclusion
+In this paper, we present a technique named segmentation
+phase measuring deflectometry which shows significant
+advantages in measurement of structured specular surfaces
+compared with traditional PMD techniques. We describe
+
+13
+
+2282
+
+The International Journal of Advanced Manufacturing Technology (2022) 119:2271–2283
+
+concept “segmentation,” spatial positioning technique and
+data fusion strategy in SPMD. By applying the developed
+techniques, the proposed technique can successfully measure
+3D form of structured specular surface. At the same time,
+continuous form measurement accuracy of SPMD can keep
+as good as traditional GPMD. Experiments verified measurement ability of this technique to measure structured
+specular surfaces. Measurement accuracy, speed, and future
+development of SPMD, and its advantages compared with
+the existing measurement techniques in industry are discussed. Segmentation accuracy and speed are main factors
+affecting the SPMD performance. An automatic, fast, and
+accurate segmentation method will be explored in next step.
+Funding The authors gratefully acknowledge the UK’s Engineering
+and Physical Sciences Research Council (EPSRC) funding of “The
+EPSRC Future Advanced Metrology Hub” (EP/P006930/1) and the
+funding of “A Multiscale Digital Twin-Driven Smart Manufacturing
+System for High Value-Added Products” (EP/T024844/1). The authors
+are also grateful for the University of Huddersfield Research Fund.
+Availability of data and material Not applicable.
+Code availability Not applicable.
+
+Declarations
+Ethics approval Not applicable.
+Consent to participate Not applicable.
+Consent for publication Not applicable.
+Conflict of interest The authors declare no competing interests.
+Open Access This article is licensed under a Creative Commons Attribution 4.0 International License, which permits use, sharing, adaptation, distribution and reproduction in any medium or format, as long
+as you give appropriate credit to the original author(s) and the source,
+provide a link to the Creative Commons licence, and indicate if changes
+were made. The images or other third party material in this article are
+included in the article's Creative Commons licence, unless indicated
+otherwise in a credit line to the material. If material is not included in
+the article's Creative Commons licence and your intended use is not
+permitted by statutory regulation or exceeds the permitted use, you will
+need to obtain permission directly from the copyright holder. To view a
+copy of this licence, visit http://​creat​iveco​mmons.​org/​licen​ses/​by/4.​0/.
+
+References
+1. Zhu L, Li Z, Fang F, Huang S, Zhang X (2018) Review on fast tool
+servo machining of optical freeform surfaces. Int J Adv Manuf
+Tech 95(5):2071–2092
+2. Li D, Wang B, Tong Z, Blunt L, Jiang X (2019) On-machine surface measurement and applications for ultra-precision machining:
+a state-of-the-art review. Int J Adv Manuf Tech 104(1):831–847
+
+13
+
+3. NASA (2021) James Webb Space Telescope. http://​www.​jwst.​
+nasa.​gov. Accessed 09 Sep 2021
+4. Shore P, Morantz P, Lee D, McKeown PA (2006) Manufacturing
+and measurement of the MIRI spectrometer optics for the James
+Webb space telescope. CIRP Ann 55(1):543–546
+5. Mansour G (2014) A developed algorithm for simulation of blades
+to reduce the measurement points and time on coordinate measuring machine (CMM). Measurement 54:51–57
+6. Lee DH, Cho NG (2012) Assessment of surface profile
+data acquired by a stylus profilometer. Meas Sci Technol
+23(10):105601
+7. Xue S, Chen S, Tie G (2018) Near-null interferometry using an
+aspheric null lens generating a broad range of variable spherical aberration for flexible test of aspheres. Opt Express 26(24):31172–31189
+8. Xu Y, Gao F, Jiang X (2020) A brief review of the technological
+advancements of phase measuring deflectometry. PhotoniX 1:1–10
+9. Huang L, Idir M, Zuo C, Asundi A (2018) Review of phase measuring deflectometry. Opt Lasers Eng 107:247–257
+10. Zhang Z, Chang C, Liu X, Li Z, Shi Y, Gao N, Meng Z (2021)
+Phase measuring deflectometry for obtaining 3D shape of specular
+surface: a review of the state-of-the-art. Opt Eng 60(2):020903
+11. Nguyen MT, Ghim YS, Rhee HG (2019) Single-shot deflectometry
+for dynamic 3D surface profile measurement by modified spatialcarrier frequency phase-shifting method. Sci Rep 9(1):1–15
+12. Li C, Li Y, Xiao Y, Zhang X, Tu D (2018) Phase measurement
+deflectometry with refraction model and its calibration. Opt
+Express 26(26):33510–33522
+13. Huang L, Ng CS, Asundi AK (2011) Dynamic three-dimensional
+sensing for specular surface with monoscopic fringe reflectometry.
+Opt Express 19(13):12809–12814
+14. Niu Z, Xu X, Zhang X, Wang W, Zhu Y, Ye J, Xu M, Jiang X
+(2019) Efficient phase retrieval of two-directional phase-shifting
+fringe patterns using geometric constraints of deflectometry. Opt
+Express 27(6):8195–8207
+15. Liu Y, Huang S, Zhang Z, Gao N, Gao F, Jiang X (2017) Full-field
+3D shape measurement of discontinuous specular objects by direct
+phase measuring deflectometry. Sci Rep 7(1):1–8
+16. Zhao P, Gao N, Zhang Z, Gao F, Jiang X (2018) Performance
+analysis and evaluation of direct phase measuring deflectometry.
+Opt Lasers Eng 103:24–33
+17. Xu Y, Gao F, Zhang Z, Jiang X (2018) A holistic calibration
+method with iterative distortion compensation for stereo deflectometry. Opt Lasers Eng 106:111–118
+18. Zhang X, Li D, Wang R (2021) Active speckle deflectometry based on 3D digital image correlation. Opt Express
+29(18):28427–28440
+19. Shi Y, Chang C, Liu X, Gao N, Meng Z, Zhang Z (2021) Infrared
+phase measuring deflectometry by using defocused binary fringe.
+Opt Lett 46(13):3091–3094
+20. Wang Y, Xu Y, Zhang Z, Gao F, Jiang X (2021) 3D measurement
+of structured specular surfaces using stereo direct phase measurement deflectometry. Machines 9(8):170
+21. Knauer M, Kaminski J, Hausler G (2004) Phase measuring deflectometry: a new approach to measure specular free-form surfaces.
+Opt Metrol Prod Eng 5457:366–376
+22. Ren H, Gao F, Jiang X (2015) Iterative optimization calibration
+method for stereo deflectometry. Opt Express 23(17):22060–22068
+23. Xu Y, Gao F, Jiang X (2018) Performance analysis and evaluation of geometric parameters in stereo deflectometry. Engineering
+4(6):806–815
+24. Towers CE, Towers DP, Jones JDC (2005) Absolute fringe order
+calculation using optimised multi-frequency selection in full-field
+profilometry. Opt Lasers Eng 43(7):788–800
+25. Zhang Z, Towers CE, Towers DP (2006) Time efficient color
+fringe projection system for 3D shape and color using optimum
+3-frequency selection. Opt Express 14(14):6444–6455
+
+The International Journal of Advanced Manufacturing Technology (2022) 119:2271–2283
+26. Huang L, Zhang Q, Asundi A (2013) Camera calibration with
+active phase target: improvement on feature detection and optimization. Opt Lett 38(9):1446–1448
+27. Xu Y, Gao F, Zhang Z, Jiang X (2019) A calibration method for
+non-overlapping cameras based on mirrored absolute phase target.
+Int J Adv Manuf Tech 104(1):9–15
+28. Ren H, Gao F, Jiang X (2016) Least-squares method for data
+reconstruction from gradient data in deflectometry. Appl Opt
+55(22):6052–6059
+29. Ettl S, Kaminski J, Knauer MC, Häusler G (2008) Shape reconstruction from gradient data. Appl Opt 47(12):2091–2097
+
+2283
+
+30. Xu X, Zhang X, Niu Z, Wang W, Zhu Y, Xu M (2019) Selfcalibration of in situ monoscopic deflectometric measurement in
+precision optical manufacturing. Opt Express 27(5):7523–7536
+31. Liang H, Olesch E, Yang Z, Häusler G (2016) Single-shot phasemeasuring deflectometry for cornea measurement. Adv Opt Technol 5(5–6):433–438
+Publisher's Note Springer Nature remains neutral with regard to
+jurisdictional claims in published maps and institutional affiliations.
+
+13
+
+
